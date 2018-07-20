@@ -6,21 +6,26 @@
     
 
     
-    <title>Archive: 2016/11 | 有幸的个人小站</title>
+    <title>Redis基础及高级特性与性能调优 | 有幸的个人小站</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="这是作者为五十年后的自己留下的，感恩生活。">
+        <meta name="keywords" content="" />
+    
+    <meta name="description" content="本文将从 Redis 的基本特性入手，通过讲述 Redis 的数据结构和主要命令对 Redis 的基本性能进行直观的介绍。之后概览 Redis 提供的高级能力，并在部署、维护、性能调优等多个方面进行更深入的介绍和指导。 本文适合使用 Redis 的普通开发人员，以及对 Redis 进行选型、架构设计和性能调优的架构设计人员。 目录 概述 Redis 的数据结构和相关常用命令 数据持久化 内存管理和">
 <meta name="keywords" content="java,chengdu,Java,web">
-<meta property="og:type" content="website">
-<meta property="og:title" content="有幸的个人小站">
-<meta property="og:url" content="http://xiaoqinghua.site/archives/2016/11/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis基础及高级特性与性能调优">
+<meta property="og:url" content="http://xiaoqinghua.site/Redis基础及高级特性与性能调优.html">
 <meta property="og:site_name" content="有幸的个人小站">
-<meta property="og:description" content="这是作者为五十年后的自己留下的，感恩生活。">
+<meta property="og:description" content="本文将从 Redis 的基本特性入手，通过讲述 Redis 的数据结构和主要命令对 Redis 的基本性能进行直观的介绍。之后概览 Redis 提供的高级能力，并在部署、维护、性能调优等多个方面进行更深入的介绍和指导。 本文适合使用 Redis 的普通开发人员，以及对 Redis 进行选型、架构设计和性能调优的架构设计人员。 目录 概述 Redis 的数据结构和相关常用命令 数据持久化 内存管理和">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://pic.sc.chinaz.com/files/pic/pic9/201509/apic15123.jpg">
+<meta property="og:updated_time" content="2018-07-20T15:35:27.289Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="有幸的个人小站">
-<meta name="twitter:description" content="这是作者为五十年后的自己留下的，感恩生活。">
+<meta name="twitter:title" content="Redis基础及高级特性与性能调优">
+<meta name="twitter:description" content="本文将从 Redis 的基本特性入手，通过讲述 Redis 的数据结构和主要命令对 Redis 的基本性能进行直观的介绍。之后概览 Redis 提供的高级能力，并在部署、维护、性能调优等多个方面进行更深入的介绍和指导。 本文适合使用 Redis 的普通开发人员，以及对 Redis 进行选型、架构设计和性能调优的架构设计人员。 目录 概述 Redis 的数据结构和相关常用命令 数据持久化 内存管理和">
+<meta name="twitter:image" content="http://pic.sc.chinaz.com/files/pic/pic9/201509/apic15123.jpg">
     
 
     
@@ -151,76 +156,159 @@ var _hmt = _hmt || [];
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-archive"></i>Archive: 2016/11
+    uncategorized
     </h1>
 </div>
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-Redis基础及高级特性与性能调优" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2016" class="archive-year"><i class="icon fa fa-calendar-o"></i>2016</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/白夜行.html" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://img3.doubanio.com/view/subject/l/public/s26824652.jpg)" alt="白夜行" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://xiaoqinghua.site/白夜行.html">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            
-            </div>
-            <div class="date"><time datetime="2016-11-14T12:06:59.000Z" itemprop="datePublished">2016-11-14</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/白夜行.html">白夜行</a>
+        Redis基础及高级特性与性能调优
         </h1>
     
 
-        <p class="article-excerpt">
-            白夜行世界上有两样东西不能直视，一是太阳，二是人心。
-我的天空里没有太阳，总是黑夜，但并不暗，因为有东西代替了太阳。虽然没有太阳那么明亮，但对我来说已经足够。凭借这份光，我便能把黑夜当成白天。我从来就没有太阳，所以不怕失去。
-曾经拥有的东西被夺走，并不代表就会回到原来没有那种东西的时候。
-一天中，太阳会升起，同时还会落下。人生也一样，有白天和黑夜，只是不会像太阳那样，有定时的日出和日落。有些人一辈
-        </p>
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/Redis基础及高级特性与性能调优.html" class="article-date">
+            <time datetime="2017-07-20T14:35:52.000Z" itemprop="datePublished">2017-07-20</time>
+        </a>
+    </div>
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>本文将从 Redis 的基本特性入手，通过讲述 Redis 的数据结构和主要命令对 Redis 的基本性能进行直观的介绍。之后概览 Redis 提供的高级能力，并在部署、维护、性能调优等多个方面进行更深入的介绍和指导。</p>
+<p>本文适合使用 Redis 的普通开发人员，以及对 Redis 进行选型、架构设计和性能调优的架构设计人员。</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li>概述</li>
+<li>Redis 的数据结构和相关常用命令</li>
+<li>数据持久化</li>
+<li>内存管理和数据淘汰机制</li>
+<li>Pipelining</li>
+<li>事务与 Scripting</li>
+<li>Redis 性能调优</li>
+<li>主从复制与集群分片</li>
+<li>Redis Java 客户端的选择</li>
+</ul>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Redis 是一个开源的，基于内存的结构化数据存储媒介，可以作为数据库、缓存服务或消息服务使用。<br>Redis 支持多种数据结构，包括字符串、哈希表、链表、集合、有序集合、位图(Bitmap)、HyperLogLogs等。<br>Redis 具备 <code>LRU(Least Recently Use)</code>淘汰、事务实现、以及不同级别的硬盘持久化等能力，并且支持副本集和通过 Redis Sentinel 实现的高可用方案，同时还支持通过 Redis Cluster 实现的数据自动分片能力。</p>
+<p>Redis 的主要功能都是基于<code>单线程模型</code>实现，也就是说 Redis 使用一个线程来服务所有的客户端请求，同时 Redis 采用了<code>非阻塞式IO</code>，并精细地优化各种命令的算法时间复杂度，这些信息意味着：</p>
+<ul>
+<li><p>Redis 是线程安全的 (因为只有一个线程)，其所有的操作都是原子的，不会因为并发产生数据异常</p>
+</li>
+<li><p>Redis 的速度非常快（因为使用的是<code>非阻塞式IO</code>，且大部分命令的算法时间复杂度都是<code>O(1)</code>）</p>
+</li>
+<li><p>使用高耗时的 Redis 命令是很危险的，会占用唯一的线程的大量处理时间，导致所有请求都被拖慢。（例如时间复杂度为<code>O(N)</code>的<code>KEYS</code>命令，严格禁止在生产环境中使用）</p>
+</li>
+</ul>
+<h2 id="Redis-的数据结构和相关常用命令"><a href="#Redis-的数据结构和相关常用命令" class="headerlink" title="Redis 的数据结构和相关常用命令"></a>Redis 的数据结构和相关常用命令</h2><h3 id="Key"><a href="#Key" class="headerlink" title="Key"></a>Key</h3><p>Redis 采用<code>Key-Value</code>型的基本数据结构，任何二进制序列都可以作为 Redis 的 Key 使用（例如普通的字符串或一张 JPEG 图片）<br>关于 Key 的一些注意事项:</p>
+<ul>
+<li><p>不要使用过长的 Key。例如使用一个<code>1024</code>字节的 key 就不是一个好主意，不仅会消耗更多的内存，还会导致查询的效率降低</p>
+</li>
+<li><p>Key 短到缺失了可读性也是不好的，例如<code>&quot;u1000flw&quot;</code>比起<code>&quot;user:1000:followers&quot;</code>来说，节省了寥寥的存储空间，却引发了可读性和可维护性上的麻烦</p>
+</li>
+<li><p>最好使用统一规范来设计 Key ，比如<code>&quot;object-type:id:attr&quot;</code>，以这一规范设计出的 Key 可能是<code>&quot;user:1000&quot;</code>或者<code>&quot;comment:1234:reply-to&quot;</code></p>
+</li>
+<li><p>Redis 允许的最大 Key 长度是 <code>512MB</code> (对 Value 的长度限制也是 <code>512MB</code>)</p>
+</li>
+</ul>
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>String 是 Redis 的基础数据类型，Redis 没有 Int、Float、Boolean等数据类型的概念，所有的基本类型在 Redis 中都以 String 体现</p>
+<p>与 String 相关的常用命令：</p>
+<ul>
+<li><p>SET： 为一个 key 设置 value，可以配合<code>EX/PX</code>参数指定 key 的有效期，通过<code>NX/XX</code>参数针对 key 是否存在的情况进行分区操作，时间复杂度<code>O(1)</code></p>
+</li>
+<li><p>GET： 获取某个 key 对用的 value，时间复杂度为<code>O(1)</code></p>
+</li>
+<li><p>GETSET： 为一个 key 设置 value，并返回该 key 的原 value，时间复杂度<code>O(1)</code></p>
+</li>
+<li><p>MSET： 为多个 key 设置 value，时间复杂度为<code>O(N)</code></p>
+</li>
+<li><p>MSETNX： 同 MSET，如果指定的 key 中有任意一个已存在，则不进行任何操作，时间复杂度<code>O(N)</code></p>
+</li>
+<li><p>MGET： 获取多个 key 对应的 value ，时间复杂度<code>O(N)</code></p>
+</li>
+</ul>
+<p>上文提到过，Redis 的基本数据类型只有 String，但 Redis可以把 String 作为整形或者浮点型数字来使用，主要体现在<code>INCR</code>、<code>DECR</code>类的命令上：</p>
+<ul>
+<li><p>INCR：将 key 对应的 value 值自增1，并返回自增后的值。只对可以转换为整形的 String 数据起作用。时间复杂度<code>O(1)</code></p>
+</li>
+<li><p>INCRBY： 将 key 对应的 value 值自增指定的整形数值，并返回自增之后的值。只对可以转换为整形的 String 数据起作用。时间复杂度为<code>O(1)</code></p>
+</li>
+<li><p>DECR/DECRBY：同<code>INCR&#39;/INCRBY</code>，自增改为自减</p>
+</li>
+</ul>
+<p><code>INCR/DECR</code>系列命令要求操作的 value 类型为 String，并可以转换为64位带符号的整形数字，否则会返回错误。<br>也就是说，进行<code>INCR/DECR</code>系列命令的 value，必须在<code>[-2^63~2^63-1]范围内</code></p>
+<p>前文提到过，Redis 采用单线程模型，天然是线程安全的，这使得<code>INCR/DECR</code>命令可以非常便利的实现高并发场景下的精确控制。</p>
+<h3 id="例1：库存控制"><a href="#例1：库存控制" class="headerlink" title="例1：库存控制"></a>例1：库存控制</h3><p>在高并发场景下实现库存余量的精准校验，确保不出现<code>超卖</code>的情况<br><br>设置库存总量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET inv:remain &quot;100&quot;</span><br></pre></td></tr></table></figure>
+<p>库存扣减 + 余量校验</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DECR inv:remain</span><br></pre></td></tr></table></figure>
+<p>当<code>DECR</code>命令返回值大于等于0时，说明库存余量通过校验，如果返回小于0的值，则说明库存已经耗尽。</p>
+<p>假设同时有300个并发请求进行库存扣减，Redis 能够确保这300个请求分别得到<code>99 ~ -200</code>的返回值，每个请求得到的返回值都是唯一的，绝对不会出现两个请求得到一样的返回的情况。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+
+        </footer>
     </div>
 </article>
+
+    <section id="comments">
     
-        </div>
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
     
-
-
-    </div></section>
-
+    </section>
 
 
                         </div>
@@ -265,6 +353,29 @@ var _hmt = _hmt || [];
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/hackpad技术分析.html" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            hackpad技术分析
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/Redis笔记.html" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Redis笔记</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
@@ -477,11 +588,13 @@ var _hmt = _hmt || [];
     var disqus_shortname = 'hexo-theme-hueman';
     
     
+    var disqus_url = 'http://xiaoqinghua.site/Redis基础及高级特性与性能调优.html';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>VIM练习手册 | 有幸的个人小站</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Vim" />
+    
+    <meta name="description" content="==VIM命令==1.一般模式可用的光标移动、复制粘贴、搜索替换等 移动光标的方法 1234567Ctrl+f 向下移动一页Ctrl+b 向上移动一页0 移动到这一行的最前面的字符处$ 移动到这一行的最后面的字符处G 移动到文本的最后一行gg 移动到文本的第一行，相当于1Gn&amp;lt;Enter&amp;gt; n为数字。光标向下移动n行  搜索替换 12345/word 向光标之下查询“word”的字符串">
+<meta name="keywords" content="Vim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VIM练习手册">
+<meta property="og:url" content="http://xiaoqinghua.site/VIM练习手册.html">
+<meta property="og:site_name" content="有幸的个人小站">
+<meta property="og:description" content="==VIM命令==1.一般模式可用的光标移动、复制粘贴、搜索替换等 移动光标的方法 1234567Ctrl+f 向下移动一页Ctrl+b 向上移动一页0 移动到这一行的最前面的字符处$ 移动到这一行的最后面的字符处G 移动到文本的最后一行gg 移动到文本的第一行，相当于1Gn&amp;lt;Enter&amp;gt; n为数字。光标向下移动n行  搜索替换 12345/word 向光标之下查询“word”的字符串">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/2000/1*lRiFQXsrauey4Lt9IHJIQg.jpeg">
+<meta property="og:updated_time" content="2018-08-05T07:44:01.239Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VIM练习手册">
+<meta name="twitter:description" content="==VIM命令==1.一般模式可用的光标移动、复制粘贴、搜索替换等 移动光标的方法 1234567Ctrl+f 向下移动一页Ctrl+b 向上移动一页0 移动到这一行的最前面的字符处$ 移动到这一行的最后面的字符处G 移动到文本的最后一行gg 移动到文本的第一行，相当于1Gn&amp;lt;Enter&amp;gt; n为数字。光标向下移动n行  搜索替换 12345/word 向光标之下查询“word”的字符串">
+<meta name="twitter:image" content="https://cdn-images-1.medium.com/max/2000/1*lRiFQXsrauey4Lt9IHJIQg.jpeg">
+    
+
+    
+        <link rel="alternate" href="/" title="有幸的个人小站" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.2.4/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?406f7b4a3caadab9aabc8241063812a6";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">code is poetry</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/tags/Life">Life</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/tags/City">City</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/">Code</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Cloud-Office/">Cloud-Office</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/EtherPad/">EtherPad</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Iterm2/">Iterm2</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/OT/">OT</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Redis/">Redis</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Vim/">Vim</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Code/Vim/">Vim</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-VIM练习手册" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        VIM练习手册
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/VIM练习手册.html" class="article-date">
+            <time datetime="2018-01-25T06:42:48.000Z" itemprop="datePublished">2018-01-25</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Vim/">Vim</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="VIM命令"><a href="#VIM命令" class="headerlink" title="==VIM命令=="></a>==VIM命令==</h1><h2 id="1-一般模式可用的光标移动、复制粘贴、搜索替换等"><a href="#1-一般模式可用的光标移动、复制粘贴、搜索替换等" class="headerlink" title="1.一般模式可用的光标移动、复制粘贴、搜索替换等"></a>1.一般模式可用的光标移动、复制粘贴、搜索替换等</h2><ul>
+<li><p>移动光标的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+f 向下移动一页</span><br><span class="line">Ctrl+b 向上移动一页</span><br><span class="line">0 移动到这一行的最前面的字符处</span><br><span class="line">$ 移动到这一行的最后面的字符处</span><br><span class="line">G 移动到文本的最后一行</span><br><span class="line">gg 移动到文本的第一行，相当于1G</span><br><span class="line">n&lt;Enter&gt; n为数字。光标向下移动n行</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>搜索替换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/word 向光标之下查询“word”的字符串</span><br><span class="line">n 查找到“word”之后,光标定位到下一个“word”</span><br><span class="line">N 与n相反,定位到上一个</span><br><span class="line">:n1,n2s/word1/word2/g 在n1行与n2行之间查询“word1”,并替换成“word2”</span><br><span class="line">:n1,$s/word1/word2/gc 在n1行与文本最后一行之间查询“word1”,并替换成“word2”,并提示用户</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除、复制、粘贴</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">x(小写) 相当于[del]键</span><br><span class="line">X(大写) 相当于[backspace]键</span><br><span class="line">dd 删除光标所在的那一行</span><br><span class="line">ndd 删除光标所在的行下n行</span><br><span class="line">yy 复制光标所在的那一行</span><br><span class="line">nyy 复制光标所在的行下n行</span><br><span class="line">p(小写) 将复制的内容粘贴在光标下一行</span><br><span class="line">P(大写) 将复制的内容粘贴在光标上一行</span><br><span class="line">J(大写) 将当前光标行与下一行，拼成一行</span><br><span class="line">u 恢复</span><br><span class="line">Crtl+r 重做</span><br><span class="line">. 重复上一个命令</span><br><span class="line"></span><br><span class="line">注意: dd,yy 都可以与“0”,“$”,“G”配合使用</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="一般模式切换到编辑模式的可用的按钮说明"><a href="#一般模式切换到编辑模式的可用的按钮说明" class="headerlink" title="一般模式切换到编辑模式的可用的按钮说明"></a>一般模式切换到编辑模式的可用的按钮说明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">i 在当前光标处开始输入</span><br><span class="line">I 在当前行的第一个非空格处开始输入</span><br><span class="line">a 在当前光标的下一个字符处开始输入</span><br><span class="line">A 在当前行的最后一个字符处开始输入</span><br><span class="line">o 在当前行的下一行处输入新的一行</span><br><span class="line">O 在当前行的上一行处输入新的一行</span><br><span class="line">r 取代模式，只会取代光标所在字符一次</span><br><span class="line">R 取代模式，会一直取代光标所在的文字，直到按下ESC键</span><br></pre></td></tr></table></figure>
+<h2 id="一般模式切换到命令行模式的可用的按钮说明"><a href="#一般模式切换到命令行模式的可用的按钮说明" class="headerlink" title="一般模式切换到命令行模式的可用的按钮说明"></a>一般模式切换到命令行模式的可用的按钮说明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:w 保存，退出</span><br><span class="line">:q 仅仅是退出vi编辑器，如果没有修改直接退出，如果有修改会提示，可以使用:q!不存储修改部分，强制退出</span><br><span class="line">:wq 存储后退出</span><br></pre></td></tr></table></figure>
+<h2 id="牛逼的技巧"><a href="#牛逼的技巧" class="headerlink" title="牛逼的技巧"></a>牛逼的技巧</h2><ul>
+<li>单词移动</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">W w            移动到下一个单词开头</span><br><span class="line">E e            移动到下一个单词结尾</span><br><span class="line">B b            倒退到上一个单词开头</span><br><span class="line"></span><br><span class="line">- E会忽略标点符号，如：I‘m，e会当成两个单词，E则不会</span><br><span class="line">- 2w，表示往下移动2个单词</span><br><span class="line">- 一般用小写的就可以了</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>整行移动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0            移动到行首</span><br><span class="line">$            移动到行末</span><br><span class="line">+            移动到下一行开头</span><br><span class="line">-            移动到上一行开头</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>滚屏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+f            往前滚动一整屏</span><br><span class="line">Ctrl+b            往后滚动一整屏</span><br><span class="line">Ctrl+d            往前滚动半屏</span><br><span class="line">Ctrl+u            往后滚动半屏</span><br><span class="line"></span><br><span class="line">Ctrl+e            往后滚动一行        </span><br><span class="line">Ctrl+y            往前滚动一行</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用z调整光标</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">z&lt;Enter&gt;        将光标所在行移动到屏幕顶端</span><br><span class="line">z.              将光标所在行移动到屏幕中间</span><br><span class="line">z-              将光标所在行移动到屏幕低端</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在屏幕中移动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">H            移动到屏幕顶端的行</span><br><span class="line">M            移动到屏幕中央的行</span><br><span class="line">L            移动到屏幕底端的行</span><br><span class="line"></span><br><span class="line">nH           移动到屏幕顶端往下的第n行</span><br><span class="line">nL           移动到屏幕顶端往上的第n行</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>单词删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dw            删除到下一个单词开头</span><br><span class="line">de            删除到本单词末尾</span><br><span class="line">dE            删除到本单词末尾包括标点在内</span><br><span class="line">db            删除到前一个单词</span><br><span class="line">dB            删除到前一个单词包括标点在内</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>单词修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cw            从光标处修改到单词结尾</span><br><span class="line">cb            从光标处修改到单词开头</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>行修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">c$            从光标修改到本行末尾</span><br><span class="line">C             功能同上</span><br><span class="line">c0            从光标修改到本行开头</span><br><span class="line">cc            删除整行从头修改</span><br><span class="line">S             功能同上</span><br><span class="line">s             删除光标所在位置的字符，然后插入</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>单词和字符复制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ynl            向右复制n个字符</span><br><span class="line">ynh            向左复制n个字符</span><br><span class="line">ynw            向前复制n个单词</span><br><span class="line">ynb            向后复制n个单词</span><br><span class="line">e！            全文恢复</span><br><span class="line">dt&quot;            删除所有的内容，直到遇到双引号—— &quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最强光标移动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% : 匹配括号移动，包括 (, &#123;, [. （陈皓注：你需要把光标先移到括号上）;</span><br><span class="line">* 和 #:  匹配光标当前所在的单词，移动光标到下一个（或上一个）匹配单词（*是下一个，#是上一个）;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">作者：xiaoqinghua 有幸</span><br><span class="line">联系：https://github.com/smartzer</span><br><span class="line">來源：有幸</span><br><span class="line">本文著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</span><br></pre></td></tr></table></figure>
+        </div>
+        <footer class="article-footer">
+            
+
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weixin" href="/../css/images/zz_qrcode.jpeg" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weixin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/smartzer" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="https://weibo.com/2476387642/profile?topnav=1&wvr=6" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/云文档的难点.html" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            云文档的难点
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/Redis基础及高级特性与性能调优.html" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Redis基础及高级特性与性能调优</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/follow算法图解.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://blogchegadebagunca.com.br/wp-content/uploads/2017/08/10-dicas-de-produtividade-para-ganhar-mais-tempo-no-seu-dia.jpg)" alt="follow算法图解" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
+                            <p class="item-title"><a href="/follow算法图解.html" class="title">follow算法图解</a></p>
+                            <p class="item-date"><time datetime="2018-08-05T07:09:28.000Z" itemprop="datePublished">2018-08-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/成都.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.upchengdu.com/data/attachment/forum/201604/21/163843ldwql2fm4wwzhvqq.jpeg)" alt="成都" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/成都.html" class="title">成都</a></p>
+                            <p class="item-date"><time datetime="2018-07-21T08:38:55.000Z" itemprop="datePublished">2018-07-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/composeAttributes算法解析.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://design-milk.com/images/2014/12/BASE-Object-Desk-Accessories-7.jpg)" alt="composeAttributes算法解析" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
+                            <p class="item-title"><a href="/composeAttributes算法解析.html" class="title">composeAttributes算法解析</a></p>
+                            <p class="item-date"><time datetime="2018-06-16T07:10:02.000Z" itemprop="datePublished">2018-06-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/compose算法过程验算.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.chinesenzherald.co.nz/assets/Uploads/News/blog-0/apple-1846277-960-720.jpg)" alt="compose算法过程验算" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
+                            <p class="item-title"><a href="/compose算法过程验算.html" class="title">compose算法过程验算</a></p>
+                            <p class="item-date"><time datetime="2018-06-15T07:09:51.000Z" itemprop="datePublished">2018-06-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/followAttributes算法解析.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.gaoimg.com/uploads/allimg/170206/1-1F2061U22RA.jpg)" alt="followAttributes算法解析" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
+                            <p class="item-title"><a href="/followAttributes算法解析.html" class="title">followAttributes算法解析</a></p>
+                            <p class="item-date"><time datetime="2018-06-14T07:09:01.000Z" itemprop="datePublished">2018-06-14</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Code/">Code</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Cloud-Office/">Cloud-Office</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/EtherPad/">EtherPad</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Iterm2/">Iterm2</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/OT/">OT</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Redis/">Redis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Vim/">Vim</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/City/">City</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Office/">Cloud-Office</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EtherPad/">EtherPad</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Iterm2/">Iterm2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Life/">Life</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OT/">OT</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/City/" style="font-size: 10px;">City</a> <a href="/tags/Cloud-Office/" style="font-size: 10px;">Cloud-Office</a> <a href="/tags/EtherPad/" style="font-size: 10px;">EtherPad</a> <a href="/tags/Iterm2/" style="font-size: 10px;">Iterm2</a> <a href="/tags/Life/" style="font-size: 20px;">Life</a> <a href="/tags/OT/" style="font-size: 20px;">OT</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://github.com/">Github</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 xiaoqinghua 有幸</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://xiaoqinghua.site/VIM练习手册.html';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

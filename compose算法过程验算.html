@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>compose算法过程验算 | 有幸的个人小站</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="OT" />
+    
+    <meta name="description" content="举个栗子🌰  1compose(cs1,cs2) --&amp;gt; compose(&quot;Z:z&amp;gt;4|2=m=b-1+2+3$abcde&quot;, &quot;Z:13&amp;gt;1|2=m=g-1+2$fg&quot;) 123456789101112131415把cs1,cs2展开cs1:op1.1:&amp;#123; opcode: &amp;apos;=&amp;apos;, chars: 22, lines: 2, attribs: &amp;">
+<meta name="keywords" content="OT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="compose算法过程验算">
+<meta property="og:url" content="http://xiaoqinghua.site/compose算法过程验算.html">
+<meta property="og:site_name" content="有幸的个人小站">
+<meta property="og:description" content="举个栗子🌰  1compose(cs1,cs2) --&amp;gt; compose(&quot;Z:z&amp;gt;4|2=m=b-1+2+3$abcde&quot;, &quot;Z:13&amp;gt;1|2=m=g-1+2$fg&quot;) 123456789101112131415把cs1,cs2展开cs1:op1.1:&amp;#123; opcode: &amp;apos;=&amp;apos;, chars: 22, lines: 2, attribs: &amp;">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://www.chinesenzherald.co.nz/assets/Uploads/News/blog-0/apple-1846277-960-720.jpg">
+<meta property="og:updated_time" content="2018-08-05T07:44:33.326Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="compose算法过程验算">
+<meta name="twitter:description" content="举个栗子🌰  1compose(cs1,cs2) --&amp;gt; compose(&quot;Z:z&amp;gt;4|2=m=b-1+2+3$abcde&quot;, &quot;Z:13&amp;gt;1|2=m=g-1+2$fg&quot;) 123456789101112131415把cs1,cs2展开cs1:op1.1:&amp;#123; opcode: &amp;apos;=&amp;apos;, chars: 22, lines: 2, attribs: &amp;">
+<meta name="twitter:image" content="http://www.chinesenzherald.co.nz/assets/Uploads/News/blog-0/apple-1846277-960-720.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="有幸的个人小站" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.2.4/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?406f7b4a3caadab9aabc8241063812a6";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">code is poetry</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/tags/Life">Life</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/tags/City">City</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/">Code</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Cloud-Office/">Cloud-Office</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/EtherPad/">EtherPad</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Iterm2/">Iterm2</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/OT/">OT</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Redis/">Redis</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Vim/">Vim</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Code/OT/">OT</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-compose算法过程验算" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        compose算法过程验算
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/compose算法过程验算.html" class="article-date">
+            <time datetime="2018-06-15T07:09:51.000Z" itemprop="datePublished">2018-06-15</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/OT/">OT</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <blockquote>
+<p>举个栗子🌰</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compose(cs1,cs2) --&gt; compose(<span class="string">"Z:z&gt;4|2=m=b-1+2+3$abcde"</span>, <span class="string">"Z:13&gt;1|2=m=g-1+2$fg"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">把cs1,cs2展开</span><br><span class="line">cs1:</span><br><span class="line">op1.1:&#123; opcode: &apos;=&apos;, chars: 22, lines: 2, attribs: &apos;&apos; &#125;</span><br><span class="line">op1.2:&#123; opcode: &apos;=&apos;, chars: 11, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">op1.3:&#123; opcode: &apos;-&apos;, chars: 1, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">op1.4:&#123; opcode: &apos;+&apos;, chars: 2, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">op1.5:&#123; opcode: &apos;+&apos;, chars: 3, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">charBank=&apos;abcde&apos;</span><br><span class="line"></span><br><span class="line">cs2:</span><br><span class="line">op2.1:&#123; opcode: &apos;=&apos;, chars: 22, lines: 2, attribs: &apos;&apos; &#125;</span><br><span class="line">op2.2:&#123; opcode: &apos;=&apos;, chars: 16, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">op2.3:&#123; opcode: &apos;-&apos;, chars: 1, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">op2.4:&#123; opcode: &apos;+&apos;, chars: 2, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">charBank=&apos;fg&apos;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>同<code>follow</code>函数一样，在<code>compose</code>函数中也有一个<code>applyZip</code>的函数,其实这是一个迭代器,同时还有一个<code>_slicerZipperFunc</code>的分片迭代器，是专门为<code>compose</code>准备的函数。<br>zip有拉链的意思,在迭代的过程中不断的两两运算,就像拉链一样一颗颗缝合起来:</p>
+</blockquote>
+<ul>
+<li><p>applyZip函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">exports.applyZip = <span class="function"><span class="keyword">function</span> (<span class="params">in1, idx1, in2, idx2, func</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> iter1 = exports.opIterator(in1, idx1);</span><br><span class="line">  <span class="keyword">var</span> iter2 = exports.opIterator(in2, idx2);</span><br><span class="line">  <span class="keyword">var</span> assem = exports.smartOpAssembler();</span><br><span class="line">  <span class="keyword">var</span> op1 = exports.newOp();</span><br><span class="line">  <span class="keyword">var</span> op2 = exports.newOp();</span><br><span class="line">  <span class="keyword">var</span> opOut = exports.newOp();</span><br><span class="line">  <span class="keyword">while</span> (op1.opcode || iter1.hasNext() || op2.opcode || iter2.hasNext()) &#123;</span><br><span class="line">    <span class="keyword">if</span> ((!op1.opcode) &amp;&amp; iter1.hasNext()) iter1.next(op1);</span><br><span class="line">    <span class="keyword">if</span> ((!op2.opcode) &amp;&amp; iter2.hasNext()) iter2.next(op2);</span><br><span class="line">    func(op1, op2, opOut);</span><br><span class="line">    <span class="keyword">if</span> (opOut.opcode) &#123;</span><br><span class="line">      <span class="comment">//print(opOut.toSource());</span></span><br><span class="line">      assem.append(opOut);</span><br><span class="line">      opOut.opcode = <span class="string">''</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  assem.endDocument();</span><br><span class="line">  <span class="keyword">return</span> assem.toString();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>_slicerZipperFunc函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Function used as parameter for applyZip to apply a Changeset to an attribute</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Op <span class="title">_slicerZipperFunc</span><span class="params">(Op attOp, Op csOp, AttributePool pool)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// attOp is the op from the sequence that is being operated on, either an</span></span><br><span class="line">        <span class="comment">// attribution string or the earlier of two exportss being composed.</span></span><br><span class="line">        <span class="comment">// pool can be null if definitely not needed.</span></span><br><span class="line">        <span class="comment">//print(csOp.toSource()+" "+attOp.toSource()+" "+opOut.toSource());</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 在 compose 中 ，attOp 是正在被操作的即 op1</span></span><br><span class="line">        Op opOut = <span class="keyword">new</span> Op();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (attOp.isMinus()) &#123;</span><br><span class="line">            <span class="comment">// 如果 op1 是 - ，则我们需要的 opOut 使用 op1</span></span><br><span class="line">            Op.copyOp(attOp, opOut);</span><br><span class="line">            <span class="comment">// 清空 op1 操作</span></span><br><span class="line">            attOp.clearOpcode();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!attOp.hasOpcode()) &#123;</span><br><span class="line">            <span class="comment">// 如果 op1 没有操作，则使用 op2</span></span><br><span class="line">            Op.copyOp(csOp, opOut);</span><br><span class="line">            <span class="comment">// 清空 op2 操作</span></span><br><span class="line">            csOp.clearOpcode();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">switch</span> (csOp.opcode) &#123;</span><br><span class="line">                <span class="keyword">case</span> Op.OPCODE_MINUS:</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="comment">// 如果 op2 操作的字符小于等于 op1 操作的字符</span></span><br><span class="line">                        <span class="keyword">if</span> (csOp.chars &lt;= attOp.chars) &#123;</span><br><span class="line">                            <span class="comment">// delete or delete part</span></span><br><span class="line">                            <span class="keyword">if</span> (attOp.isKeep()) &#123;</span><br><span class="line">                                <span class="comment">// 如果 op2 是 -,op1 是 =</span></span><br><span class="line">                                <span class="comment">// 合并后的是-，可以理解为，先=后-</span></span><br><span class="line">                                opOut.opcode = Op.OPCODE_MINUS;</span><br><span class="line">                                <span class="comment">// 取小的部分</span></span><br><span class="line">                                opOut.chars = csOp.chars;</span><br><span class="line">                                opOut.lines = csOp.lines;</span><br><span class="line">                                opOut.attribs = EMPTY_STRING;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="comment">// 如果 op2 是 -,op1 是 +</span></span><br><span class="line">                            <span class="comment">// 得到是空的 opOut ，相当于不做任何操作，直至没有下一次运算</span></span><br><span class="line">                            attOp.chars -= csOp.chars;</span><br><span class="line">                            attOp.lines -= csOp.lines;</span><br><span class="line">                            csOp.clearOpcode();</span><br><span class="line">                            <span class="keyword">if</span> (attOp.chars == <span class="number">0</span>) &#123;</span><br><span class="line">                                attOp.clearOpcode();</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            <span class="comment">// 如果 op2 操作的字符大于 op1 操作的字符</span></span><br><span class="line">                            <span class="comment">// delete and keep going</span></span><br><span class="line">                            <span class="keyword">if</span> (attOp.isKeep()) &#123;</span><br><span class="line">                                <span class="comment">// 如果 op2 是 -,op1 是 =</span></span><br><span class="line">                                <span class="comment">// 合并后的是-，可以理解为，先=后-</span></span><br><span class="line">                                opOut.opcode = Op.OPCODE_MINUS;</span><br><span class="line">                                <span class="comment">// 取小的部分</span></span><br><span class="line">                                opOut.chars = attOp.chars;</span><br><span class="line">                                opOut.lines = attOp.lines;</span><br><span class="line">                                opOut.attribs = EMPTY_STRING;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="comment">// 取相减的部分</span></span><br><span class="line">                            csOp.chars -= attOp.chars;</span><br><span class="line">                            csOp.lines -= attOp.lines;</span><br><span class="line">                            attOp.clearOpcode();</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                <span class="keyword">case</span> Op.OPCODE_PLUS:</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="comment">// insert</span></span><br><span class="line">                        <span class="comment">// 如果 op2 是 +，则合并后还是 +</span></span><br><span class="line">                        Op.copyOp(csOp, opOut);</span><br><span class="line">                        csOp.clearOpcode();</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                <span class="keyword">case</span> Op.OPCODE_KEEP:</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="comment">// 如果 op2 是 =</span></span><br><span class="line">                        <span class="comment">// 如果 op2 操作的字符小于等于 op1 操作的字符</span></span><br><span class="line">                        <span class="keyword">if</span> (csOp.chars &lt;= attOp.chars) &#123;</span><br><span class="line">                            <span class="comment">// keep or keep part 保持或者保持一部分(保持 op1 的操作和全部的操作字符串和换行 或者 保持 op1 的操作和一部分的操作字符串和换行)</span></span><br><span class="line">                            <span class="comment">// 可以理解为：op1增加或者保持了n个字符，op2保持了m个字符(m&lt;=n)</span></span><br><span class="line">                            opOut.opcode = attOp.opcode;</span><br><span class="line">                            opOut.chars = csOp.chars;</span><br><span class="line">                            opOut.lines = csOp.lines;</span><br><span class="line">                            <span class="comment">// 合并属性</span></span><br><span class="line">                            opOut.attribs = composeAttributes(attOp.attribs, csOp.attribs, attOp.isKeep(), pool);</span><br><span class="line">                            csOp.clearOpcode();</span><br><span class="line">                            <span class="comment">// 剩余部分</span></span><br><span class="line">                            attOp.chars -= csOp.chars;</span><br><span class="line">                            attOp.lines -= csOp.lines;</span><br><span class="line">                            <span class="keyword">if</span> (attOp.chars == <span class="number">0</span>) &#123;</span><br><span class="line">                                attOp.clearOpcode();</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            <span class="comment">// 如果 op2 操作的字符大于 op1 操作的字符</span></span><br><span class="line">                            <span class="comment">// keep and keep going 保持并且继续</span></span><br><span class="line">                            opOut.opcode = attOp.opcode;</span><br><span class="line">                            opOut.chars = attOp.chars;</span><br><span class="line">                            opOut.lines = attOp.lines;</span><br><span class="line">                            <span class="comment">// 合并属性</span></span><br><span class="line">                            opOut.attribs = composeAttributes(attOp.attribs, csOp.attribs, attOp.isKeep(), pool);</span><br><span class="line">                            attOp.clearOpcode();</span><br><span class="line">                            <span class="comment">// 剩余部分</span></span><br><span class="line">                            csOp.chars -= attOp.chars;</span><br><span class="line">                            csOp.lines -= attOp.lines;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                <span class="keyword">case</span> EMPTY_STRING:</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="comment">// 如果 op2 是 空操作，则合并后还是 op1 的操作</span></span><br><span class="line">                        Op.copyOp(attOp, opOut);</span><br><span class="line">                        attOp.clearOpcode();</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> opOut;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">开始迭代(循环)前,需要做一些准备工作:</span><br><span class="line"></span><br><span class="line">1、新建两个空的op1,op2对象，用于接收展开的cs1,cs2中所有的op对象的值</span><br><span class="line">Op op1 = new Op();</span><br><span class="line">op1:&#123; opcode: &apos;&apos;, chars: 0, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">Op op2 = new Op();</span><br><span class="line">op2:&#123; opcode: &apos;&apos;, chars: 0, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line"></span><br><span class="line">2、新建一个opOut对象,用于接收每一次迭代完后我们得到的运算结果op</span><br><span class="line">Op opOut = new Op();</span><br><span class="line">opOut:&#123; opcode: &apos;&apos;, chars: 0, lines: 0, attribs: &apos;&apos; &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">第1次迭代:</span><br><span class="line"></span><br><span class="line">1、初始:</span><br><span class="line">按照顺序会使用cs1中的op1.1和cs2中的op2.1和一个刚刚new出来的新的op对象</span><br><span class="line">op1.1:&#123; opcode: &apos;=&apos;, chars: 22, lines: 2, attribs: &apos;&apos; &#125;</span><br><span class="line">op2.1:&#123; opcode: &apos;=&apos;, chars: 22, lines: 2, attribs: &apos;&apos; &#125;</span><br><span class="line">opOut:&#123; opcode: &apos;&apos;, chars: 0, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line"></span><br><span class="line">2、compose算法后:</span><br><span class="line">op1:&#123; opcode: &apos;&apos;, chars: 0, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">op2:&#123; opcode: &apos;&apos;, chars: 22, lines: 2, attribs: &apos;&apos; &#125;</span><br><span class="line">opOut:&#123; opcode: &apos;=&apos;, chars: 22, lines: 2, attribs: &apos;&apos; &#125;</span><br><span class="line">assem : &quot;|2=m&quot;</span><br><span class="line">说明:both keep,compose之后op1,op2都没opcode,所以重新赋值next()</span><br></pre></td></tr></table></figure>
+<p>对应<code>第1次迭代</code>的具体代码:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> Op.OPCODE_KEEP:</span><br><span class="line">  &#123;</span><br><span class="line">      <span class="comment">// 如果 op2 是 =</span></span><br><span class="line">      <span class="comment">// 如果 op2 操作的字符小于等于 op1 操作的字符</span></span><br><span class="line">      <span class="keyword">if</span> (csOp.chars &lt;= attOp.chars) &#123;</span><br><span class="line">          <span class="comment">// keep or keep part 保持或者保持一部分(保持 op1 的操作和全部的操作字符串和换行 或者 保持 op1 的操作和一部分的操作字符串和换行)</span></span><br><span class="line">          <span class="comment">// 可以理解为：op1增加或者保持了n个字符，op2保持了m个字符(m&lt;=n)</span></span><br><span class="line">          opOut.opcode = attOp.opcode;</span><br><span class="line">          opOut.chars = csOp.chars;</span><br><span class="line">          opOut.lines = csOp.lines;</span><br><span class="line">          <span class="comment">// 合并属性</span></span><br><span class="line">          opOut.attribs = composeAttributes(attOp.attribs, csOp.attribs, attOp.isKeep(), pool);</span><br><span class="line">          csOp.clearOpcode();</span><br><span class="line">          <span class="comment">// 剩余部分</span></span><br><span class="line">          attOp.chars -= csOp.chars;</span><br><span class="line">          attOp.lines -= csOp.lines;</span><br><span class="line">          <span class="keyword">if</span> (attOp.chars == <span class="number">0</span>) &#123;</span><br><span class="line">              attOp.clearOpcode();</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">第2次迭代:</span><br><span class="line">1、初始:</span><br><span class="line">op1.2:&#123; opcode: &apos;=&apos;, chars: 11, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">op2.2:&#123; opcode: &apos;=&apos;, chars: 16, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">opOut:&#123; opcode: &apos;&apos;, chars: 0, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line"></span><br><span class="line">2、compose算法后:</span><br><span class="line">op1:&#123; opcode: &apos;&apos;, chars: 11, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">op2:&#123; opcode: &apos;=&apos;, chars: 5, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">opOut:&#123; opcode: &apos;=&apos;, chars: 11, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">assem : &quot;|2=m=b&quot;</span><br><span class="line">说明:both keep,compose之后op2还有opcode,所以重新赋值next()</span><br></pre></td></tr></table></figure>
+<p>对应<code>第2次迭代</code>的具体代码:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="comment">// 如果 op2 操作的字符大于 op1 操作的字符</span></span><br><span class="line">   <span class="comment">// keep and keep going 保持并且继续</span></span><br><span class="line">   opOut.opcode = attOp.opcode;</span><br><span class="line">   opOut.chars = attOp.chars;</span><br><span class="line">   opOut.lines = attOp.lines;</span><br><span class="line">   <span class="comment">// 合并属性</span></span><br><span class="line">   opOut.attribs = composeAttributes(attOp.attribs, csOp.attribs, attOp.isKeep(), pool);</span><br><span class="line">   attOp.clearOpcode();</span><br><span class="line">   <span class="comment">// 剩余部分</span></span><br><span class="line">   csOp.chars -= attOp.chars;</span><br><span class="line">   csOp.lines -= attOp.lines;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">第3次迭代:</span><br><span class="line">1、初始:</span><br><span class="line">op1.3:&#123; opcode: &apos;-&apos;, chars: 1, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">op2:&#123; opcode: &apos;=&apos;, chars: 5, lines: 0, attribs: &apos;&apos; &#125;(第2次循环compose算法后的op2)</span><br><span class="line">opOut:&#123; opcode: &apos;&apos;, chars: 0, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line"></span><br><span class="line">2、compose算法后:</span><br><span class="line">op1:&#123; opcode: &apos;&apos;, chars: 1, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">op2:&#123; opcode: &apos;=&apos;, chars: 5, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">opOut:&#123; opcode: &apos;-&apos;, chars: 1, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">assem : &quot;|2=m=b&quot;，minusAssem : &quot;-1&quot;</span><br><span class="line">说明:op1-,op2=,compose之后op2还有opcode,所以重新赋值next()</span><br></pre></td></tr></table></figure>
+<p>对应<code>第3次迭代</code>的具体代码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果 op1 是 - ，则我们需要的 opOut 使用 op1</span></span><br><span class="line">Op.copyOp(attOp, opOut);</span><br><span class="line"><span class="comment">// 清空 op1 操作</span></span><br><span class="line">attOp.clearOpcode();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">第4次迭代:</span><br><span class="line">1、初始:</span><br><span class="line">op1.4:&#123; opcode: &apos;+&apos;, chars: 2, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">op2:&#123; opcode: &apos;=&apos;, chars: 5, lines: 0, attribs: &apos;&apos; &#125;(第3次循环compose算法后的op2)</span><br><span class="line">opOut:&#123; opcode: &apos;&apos;, chars: 0, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line"></span><br><span class="line">2、compose算法后:</span><br><span class="line">op1:&#123; opcode: &apos;&apos;, chars: 2, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">op2:&#123; opcode: &apos;=&apos;, chars: 3, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">opOut:&#123; opcode: &apos;+&apos;, chars: 2, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">assem : &quot;|2=m=b&quot;, minusAssem : &quot;-1&quot;, plusAssem : &quot;+2&quot;</span><br><span class="line">说明:op1+,op2=,compose之后op1没opcode,所以重新赋值next()</span><br></pre></td></tr></table></figure>
+<p>对应<code>第4次迭代</code>的具体代码:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 如果 op2 操作的字符大于 op1 操作的字符</span></span><br><span class="line">    <span class="comment">// keep and keep going 保持并且继续</span></span><br><span class="line">    opOut.opcode = attOp.opcode;</span><br><span class="line">    opOut.chars = attOp.chars;</span><br><span class="line">    opOut.lines = attOp.lines;</span><br><span class="line">    <span class="comment">// 合并属性</span></span><br><span class="line">    opOut.attribs = composeAttributes(attOp.attribs, csOp.attribs, attOp.isKeep(), pool);</span><br><span class="line">    attOp.clearOpcode();</span><br><span class="line">    <span class="comment">// 剩余部分</span></span><br><span class="line">    csOp.chars -= attOp.chars;</span><br><span class="line">    csOp.lines -= attOp.lines;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">第5次迭代:</span><br><span class="line">1、初始:</span><br><span class="line">op1.5:&#123; opcode: &apos;+&apos;, chars: 3, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">op2:&#123; opcode: &apos;=&apos;, chars: 3, lines: 0, attribs: &apos;&apos; &#125;(第4次循环compose算法后的op2)</span><br><span class="line">opOut:&#123; opcode: &apos;&apos;, chars: 0, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line"></span><br><span class="line">2、compose算法后:</span><br><span class="line">op1:&#123; opcode: &apos;&apos;, chars: 0, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">op2:&#123; opcode: &apos;&apos;, chars: 3, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">opOut:&#123; opcode: &apos;+&apos;, chars: 3, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">assem : &quot;|2=m=b&quot;, minusAssem : &quot;-1&quot;, plusAssem : &quot;+2+3&quot;</span><br><span class="line">说明:op1+,op2=,compose之后op1,op2都没opcode,所以重新赋值next(),但此时op1已没有next(),故op1:&#123; opcode: &apos;&apos;, chars: 0, lines: 0, attribs: &apos;&apos; &#125;</span><br></pre></td></tr></table></figure>
+<p>对应<code>第5次迭代</code>的具体代码:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (csOp.chars &lt;= attOp.chars) &#123;</span><br><span class="line">    <span class="comment">// keep or keep part 保持或者保持一部分(保持 op1 的操作和全部的操作字符串和换行 或者 保持 op1 的操作和一部分的操作字符串和换行)</span></span><br><span class="line">    <span class="comment">// 可以理解为：op1增加或者保持了n个字符，op2保持了m个字符(m&lt;=n)</span></span><br><span class="line">    opOut.opcode = attOp.opcode;</span><br><span class="line">    opOut.chars = csOp.chars;</span><br><span class="line">    opOut.lines = csOp.lines;</span><br><span class="line">    <span class="comment">// 合并属性</span></span><br><span class="line">    opOut.attribs = composeAttributes(attOp.attribs, csOp.attribs, attOp.isKeep(), pool);</span><br><span class="line">    csOp.clearOpcode();</span><br><span class="line">    <span class="comment">// 剩余部分</span></span><br><span class="line">    attOp.chars -= csOp.chars;</span><br><span class="line">    attOp.lines -= csOp.lines;</span><br><span class="line">    <span class="keyword">if</span> (attOp.chars == <span class="number">0</span>) &#123;</span><br><span class="line">        attOp.clearOpcode();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">第6次迭代:</span><br><span class="line">1、初始:</span><br><span class="line">op1:&#123; opcode: &apos;&apos;, chars: 0, lines: 0, attribs: &apos;&apos; &#125;(next()没有下一个时，是返回一个新的op)</span><br><span class="line">op2.3:&#123; opcode: &apos;-&apos;, chars: 1, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">opOut:&#123; opcode: &apos;&apos;, chars: 0, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line"></span><br><span class="line">2、compose算法后:</span><br><span class="line">op1:&#123; opcode: &apos;&apos;, chars: 0, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">op2:&#123; opcode: &apos;&apos;, chars: 1, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">opOut:&#123; opcode: &apos;-&apos;, chars: 1, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">assem : &quot;|2=m=b&quot;, minusAssem : &quot;-1-1&quot;, plusAssem : &quot;+2+3&quot;</span><br><span class="line">说明:op2-,compose之后op1，op2没opcode,所以重新赋值next()</span><br></pre></td></tr></table></figure>
+<p>对应<code>第6次迭代</code>的具体代码:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果 op1 没有操作，则使用 op2</span></span><br><span class="line">Op.copyOp(csOp, opOut);</span><br><span class="line"><span class="comment">// 清空 op2 操作</span></span><br><span class="line">csOp.clearOpcode();</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">第7次迭代:</span><br><span class="line">1、初始:</span><br><span class="line">op1:&#123; opcode: &apos;&apos;, chars: 0, lines: 0, attribs: &apos;&apos; &#125;(next()没有下一个时，是返回一个新的op)</span><br><span class="line">op2.4:&#123; opcode: &apos;+&apos;, chars: 2, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">opOut:&#123; opcode: &apos;&apos;, chars: 0, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line"></span><br><span class="line">2、compose算法后:</span><br><span class="line">op1:&#123; opcode: &apos;&apos;, chars: 0, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">op2:&#123; opcode: &apos;&apos;, chars: 2, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">opOut:&#123; opcode: &apos;+&apos;, chars: 2, lines: 0, attribs: &apos;&apos; &#125;</span><br><span class="line">assem : &quot;|2=m=b&quot;, minusAssem : &quot;-1-1&quot;, plusAssem : &quot;+2+3+2&quot;</span><br><span class="line">说明:op2+，compose之后op1,op1,op2都没有opcode,也没有next()了,停止</span><br></pre></td></tr></table></figure>
+<p>对应<code>第7次迭代</code>的具体代码:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果 op1 没有操作，则使用 op2</span></span><br><span class="line">Op.copyOp(csOp, opOut);</span><br><span class="line"><span class="comment">// 清空 op2 操作</span></span><br><span class="line">csOp.clearOpcode();</span><br></pre></td></tr></table></figure></p>
+<h2 id="算法结果"><a href="#算法结果" class="headerlink" title="算法结果"></a>算法结果</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> Changeset = <span class="built_in">require</span>(<span class="string">"./src/static/js/Changeset"</span>);</span><br><span class="line"><span class="number">2</span> <span class="keyword">var</span> csA = <span class="string">"Z:z&gt;4|2=m=b-1+2+3$abcde"</span>;</span><br><span class="line"><span class="number">3</span> <span class="keyword">var</span> csB = <span class="string">"Z:13&gt;1|2=m=g-1+2$fg"</span>;</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span> <span class="keyword">var</span> doc1 = <span class="string">"Hello World\n\n Hello World Hello Wor"</span>;</span><br><span class="line"><span class="number">6</span> <span class="keyword">var</span> doc2 = <span class="string">"Hello World\n\n Hello World Hello Wabcder"</span>;</span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">8</span> <span class="keyword">var</span> appliedA = Changeset.applyToText(csA,doc1);</span><br><span class="line"><span class="number">9</span> <span class="built_in">console</span>.log(<span class="string">'apply csA:'</span>, appliedA);</span><br><span class="line"><span class="number">10</span> <span class="built_in">console</span>.log(<span class="string">''</span>);</span><br><span class="line"><span class="number">11</span> <span class="built_in">console</span>.log(<span class="string">'appliedA==doc2:'</span>, appliedA==doc2);</span><br><span class="line"><span class="number">12</span></span><br><span class="line"><span class="number">13</span> <span class="built_in">console</span>.log(<span class="string">''</span>);</span><br><span class="line"><span class="number">14</span> <span class="keyword">var</span> appliedB = Changeset.applyToText(csB,doc2);</span><br><span class="line"><span class="number">15</span></span><br><span class="line"><span class="number">16</span> <span class="built_in">console</span>.log(<span class="string">'apply csB:'</span>, appliedB);</span><br><span class="line"><span class="number">17</span> <span class="built_in">console</span>.log(<span class="string">''</span>);</span><br><span class="line"><span class="number">18</span></span><br><span class="line"><span class="number">19</span> <span class="keyword">var</span> cs = Changeset.compose(csA,csB,<span class="literal">false</span>,<span class="literal">null</span>);</span><br><span class="line"><span class="number">20</span> <span class="keyword">var</span> applied = Changeset.applyToText(cs,doc1);</span><br><span class="line"><span class="number">21</span></span><br><span class="line"><span class="number">22</span> <span class="built_in">console</span>.log(<span class="string">'final doc:'</span>, applied);</span><br><span class="line"><span class="number">23</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">apply csA: Hello World</span><br><span class="line"></span><br><span class="line"> Hello World Hello Wabcder</span><br><span class="line"></span><br><span class="line">appliedA==doc2: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">apply csB: Hello World</span><br><span class="line"></span><br><span class="line"> Hello World Hello Wabcdefg</span><br><span class="line"></span><br><span class="line">final doc: Hello World</span><br><span class="line"></span><br><span class="line"> Hello World Hello Wabcdefg</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> cs1 = <span class="string">"Z:z&gt;4|2=m=b-1+2+3$abcde"</span>;</span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">var</span> cs2 = <span class="string">"Z:13&gt;1|2=m=g-1+2$fg"</span>;</span><br><span class="line"></span><br><span class="line">&gt; Changeset.compose(cs1,cs2,<span class="literal">false</span>,<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line"><span class="string">'Z:z&gt;5|2=m=b-2+7$abcdefg'</span></span><br><span class="line"></span><br><span class="line">最终的CS:<span class="string">'Z:z&gt;5|2=m=b-2+7$abcdefg'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">作者：xiaoqinghua 有幸</span><br><span class="line">联系：https://github.com/smartzer</span><br><span class="line">來源：有幸</span><br><span class="line">本文著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</span><br></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer">
+            
+
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weixin" href="/../css/images/zz_qrcode.jpeg" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weixin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/smartzer" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="https://weibo.com/2476387642/profile?topnav=1&wvr=6" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/composeAttributes算法解析.html" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            composeAttributes算法解析
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/followAttributes算法解析.html" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">followAttributes算法解析</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/follow算法图解.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://blogchegadebagunca.com.br/wp-content/uploads/2017/08/10-dicas-de-produtividade-para-ganhar-mais-tempo-no-seu-dia.jpg)" alt="follow算法图解" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
+                            <p class="item-title"><a href="/follow算法图解.html" class="title">follow算法图解</a></p>
+                            <p class="item-date"><time datetime="2018-08-05T07:09:28.000Z" itemprop="datePublished">2018-08-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/成都.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.upchengdu.com/data/attachment/forum/201604/21/163843ldwql2fm4wwzhvqq.jpeg)" alt="成都" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/成都.html" class="title">成都</a></p>
+                            <p class="item-date"><time datetime="2018-07-21T08:38:55.000Z" itemprop="datePublished">2018-07-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/composeAttributes算法解析.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://design-milk.com/images/2014/12/BASE-Object-Desk-Accessories-7.jpg)" alt="composeAttributes算法解析" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
+                            <p class="item-title"><a href="/composeAttributes算法解析.html" class="title">composeAttributes算法解析</a></p>
+                            <p class="item-date"><time datetime="2018-06-16T07:10:02.000Z" itemprop="datePublished">2018-06-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/compose算法过程验算.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.chinesenzherald.co.nz/assets/Uploads/News/blog-0/apple-1846277-960-720.jpg)" alt="compose算法过程验算" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
+                            <p class="item-title"><a href="/compose算法过程验算.html" class="title">compose算法过程验算</a></p>
+                            <p class="item-date"><time datetime="2018-06-15T07:09:51.000Z" itemprop="datePublished">2018-06-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/followAttributes算法解析.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.gaoimg.com/uploads/allimg/170206/1-1F2061U22RA.jpg)" alt="followAttributes算法解析" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
+                            <p class="item-title"><a href="/followAttributes算法解析.html" class="title">followAttributes算法解析</a></p>
+                            <p class="item-date"><time datetime="2018-06-14T07:09:01.000Z" itemprop="datePublished">2018-06-14</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Code/">Code</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Cloud-Office/">Cloud-Office</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/EtherPad/">EtherPad</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Iterm2/">Iterm2</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/OT/">OT</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Redis/">Redis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Vim/">Vim</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/City/">City</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Office/">Cloud-Office</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EtherPad/">EtherPad</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Iterm2/">Iterm2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Life/">Life</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OT/">OT</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/City/" style="font-size: 10px;">City</a> <a href="/tags/Cloud-Office/" style="font-size: 10px;">Cloud-Office</a> <a href="/tags/EtherPad/" style="font-size: 10px;">EtherPad</a> <a href="/tags/Iterm2/" style="font-size: 10px;">Iterm2</a> <a href="/tags/Life/" style="font-size: 20px;">Life</a> <a href="/tags/OT/" style="font-size: 20px;">OT</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://github.com/">Github</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 xiaoqinghua 有幸</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://xiaoqinghua.site/compose算法过程验算.html';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

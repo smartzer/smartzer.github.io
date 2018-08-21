@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Java数据类型 | 有幸的个人小站</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Java数据类型" />
+    
+    <meta name="description" content="基本类型，或者叫做内置类型，是JAVA中不同于类的特殊类型。它们是我们编程中使用最频繁的类型。java是一种强类型语言，第一次申明变量必须说明数据类型（Java 9 之后的 var类型推断，了解一下），第一次变量赋值称为变量的初始化。 1. Java的简单类型及其封装器类Java基本类型共有八种，基本类型可以分为三类，字符类型char，布尔类型boolean以及数值类型byte、short、int">
+<meta name="keywords" content="Java数据类型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java数据类型">
+<meta property="og:url" content="http://xiaoqinghua.site/Java基本数据类型.html">
+<meta property="og:site_name" content="有幸的个人小站">
+<meta property="og:description" content="基本类型，或者叫做内置类型，是JAVA中不同于类的特殊类型。它们是我们编程中使用最频繁的类型。java是一种强类型语言，第一次申明变量必须说明数据类型（Java 9 之后的 var类型推断，了解一下），第一次变量赋值称为变量的初始化。 1. Java的简单类型及其封装器类Java基本类型共有八种，基本类型可以分为三类，字符类型char，布尔类型boolean以及数值类型byte、short、int">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://zeekmagazine.com/wp-content/uploads/2017/01/1483804743-99dca2e2ddbdad773cada2d93a888f15-640x480.jpg">
+<meta property="og:updated_time" content="2018-08-21T12:44:12.690Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java数据类型">
+<meta name="twitter:description" content="基本类型，或者叫做内置类型，是JAVA中不同于类的特殊类型。它们是我们编程中使用最频繁的类型。java是一种强类型语言，第一次申明变量必须说明数据类型（Java 9 之后的 var类型推断，了解一下），第一次变量赋值称为变量的初始化。 1. Java的简单类型及其封装器类Java基本类型共有八种，基本类型可以分为三类，字符类型char，布尔类型boolean以及数值类型byte、short、int">
+<meta name="twitter:image" content="https://zeekmagazine.com/wp-content/uploads/2017/01/1483804743-99dca2e2ddbdad773cada2d93a888f15-640x480.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="有幸的个人小站" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?406f7b4a3caadab9aabc8241063812a6";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">code is poetry</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/tags/Life">Life</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/tags/City">City</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/">Code</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Cloud-Office/">Cloud-Office</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/EtherPad/">EtherPad</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Iterm2/">Iterm2</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/MySql/">MySql</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/OT/">OT</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Redis/">Redis</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Vim/">Vim</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Summarize/">Summarize</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Summarize/Java数据类型/">Java数据类型</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Summarize/">Summarize</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Summarize/Java数据类型/">Java数据类型</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-Java基本数据类型" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Java数据类型
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/Java基本数据类型.html" class="article-date">
+            <time datetime="2017-08-21T03:58:52.000Z" itemprop="datePublished">2017-08-21</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java数据类型/">Java数据类型</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>基本类型，或者叫做内置类型，是JAVA中不同于类的特殊类型。它们是我们编程中使用最频繁的类型。java是一种强类型语言，第一次申明变量必须说明数据类型（Java 9 之后的 <code>var</code>类型推断，了解一下），第一次变量赋值称为变量的初始化。</p>
+<h2 id="1-Java的简单类型及其封装器类"><a href="#1-Java的简单类型及其封装器类" class="headerlink" title="1. Java的简单类型及其封装器类"></a>1. Java的简单类型及其封装器类</h2><p>Java基本类型共有八种，基本类型可以分为三类，<code>字符类型char</code>，<code>布尔类型boolean</code>以及<code>数值类型</code>byte、short、int、long、float、double。数值类型又可以分为<code>整数类型</code>byte、short、int、long和<code>浮点数类型</code>float、double。JAVA中的数值类型不存在无符号的，它们的取值范围是固定的，不会随着机器硬件环境或者操作系统的改变而改变。实际上，JAVA中还存在另外一种基本类型<code>void</code>，它也有对应的包装类 java.lang.Void，不过我们无法直接对它们进行操作。8 中类型表示范围如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">byte：8位，最大存储数据量是255，存放的数据范围是-128~127之间。</span><br><span class="line"></span><br><span class="line">char：16位，存储Unicode码，用单引号赋值。</span><br><span class="line"></span><br><span class="line">short：16位，最大数据存储量是65536，数据范围是-32768~32767之间。</span><br><span class="line"></span><br><span class="line">int：32位，最大数据存储容量是2的32次方减1，数据范围是负的2的31次方到正的2的31次方减1。</span><br><span class="line"></span><br><span class="line">long：64位，最大数据存储容量是2的64次方减1，数据范围为负的2的63次方到正的2的63次方减1。</span><br><span class="line"></span><br><span class="line">float：32位，数据范围在3.4e-45~1.4e38，直接赋值时必须在数字后加上f或F。</span><br><span class="line"></span><br><span class="line">double：64位，数据范围在4.9e-324~1.8e308，赋值时可以加d或D也可以不加。</span><br><span class="line"></span><br><span class="line">boolean：只有true和false两个取值。</span><br></pre></td></tr></table></figure>
+<p>对于数值类型的基本类型的取值范围，我们无需强制去记忆，因为它们的值都已经以常量的形式定义在对应的包装类中了。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">基本类型byte </span><br><span class="line">二进制位数：Byte.SIZE</span><br><span class="line">最小值：Byte.MIN_VALUE</span><br><span class="line">最大值：Byte.MAX_VALUE</span><br><span class="line"></span><br><span class="line">基本类型short</span><br><span class="line">二进制位数：Short.SIZE</span><br><span class="line">最小值：Short.MIN_VALUE</span><br><span class="line">最大值：Short.MAX_VALUE</span><br><span class="line"></span><br><span class="line">基本类型char</span><br><span class="line">二进制位数：Character.SIZE</span><br><span class="line">最小值：Character.MIN_VALUE</span><br><span class="line">最大值：Character.MAX_VALUE</span><br><span class="line"></span><br><span class="line">基本类型double </span><br><span class="line">二进制位数：Double.SIZE</span><br><span class="line">最小值：Double.MIN_VALUE</span><br><span class="line">最大值：Double.MAX_VALUE</span><br></pre></td></tr></table></figure>
+<p>注意：float、double 两种类型的最小值与 Float.MIN_VALUE、 Double.MIN_VALUE 的值并不相同，实际上 Float.MIN_VALUE 和 Double.MIN_VALUE 分别指的是 float 和 double 类型所能表示的最小正数。也就是说存在这样一种情况，0 到 ±Float.MIN_VALUE 之间的值 float 类型无法表示，0 到 ±Double.MIN_VALUE 之间的值 double 类型无法表示。这并没有什么好奇怪的，因为这些范围内的数值超出了它们的精度范围。</p>
+<p><code>Float</code>和<code>Double</code>的最小值和最大值都是以科学记数法的形式输出的，结尾的”E+数字”表示E之前的数字要乘以10的多少倍。比如3.14E3就是3.14×1000=3140，3.14E-3就是3.14/1000=0.00314。</p>
+<p>Java基本类型存储在<code>栈</code>中，因此它们的存取速度要快于存储在<code>堆</code>中的对应包装类的实例对象。从Java5.0（1.5）开始，JAVA虚拟机（Java Virtual Machine）可以完成基本类型和它们对应包装类之间的自动转换。因此我们在赋值、参数传递以及数学运算的时候像使用基本类型一样使用它们的包装类，但这并不意味着你可以通过基本类型调用它们的包装类才具有的方法。另外，所有基本类型（包括void）的包装类都使用了<code>final</code>修饰，因此我们无法继承它们扩展新的类，也无法重写它们的任何方法。</p>
+<p>基本类型的优势：数据存储相对简单，运算效率比较高<br>包装类的优势：有的容易，比如集合的元素必须是对象类型，满足了java一切皆是对象的思想</p>
+<h2 id="2-Java中的常量"><a href="#2-Java中的常量" class="headerlink" title="2.Java中的常量"></a>2.Java中的常量</h2><p>十六进制整型常量：以十六进制表示时，需以<code>0x</code>或<code>0X</code>开头，如<code>0xff</code>,<code>0X9A</code>。</p>
+<p>八进制整型常量：八进制必须以<code>0</code>开头，如<code>0123</code>，<code>034</code>。</p>
+<p>长整型：长整型必须以<code>L</code>作结尾，如<code>9L</code>,<code>342L</code>。</p>
+<p>浮点数常量：由于小数常量的默认类型是<code>double</code>型，所以<code>float</code>类型的后面一定要加<code>f(F)</code>。同样带小数的变量默认为<code>double</code>类型。</p>
+<p>如：float f;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//必须声明f</span><br><span class="line">f = 1.3f;</span><br></pre></td></tr></table></figure>
+<p>字符常量：字符型常量需用两个<code>单引号</code>括起来（注意字符串常量是用两个<code>双引号</code>括起来）。Java中的字符占<code>两个字节</code>(因为字符是<code>char</code>，一个 <code>char</code> 占两个字节，16位)。一些常用的转义字符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">\r表示接受键盘输入，相当于按下了回车键；</span><br><span class="line"></span><br><span class="line">\n表示换行；</span><br><span class="line"></span><br><span class="line">\t表示制表符，相当于Table键；</span><br><span class="line"></span><br><span class="line">\b表示退格键，相当于Back Space键；</span><br><span class="line"></span><br><span class="line">\&apos;表示单引号；</span><br><span class="line"></span><br><span class="line">\&apos;&apos;表示双引号；</span><br><span class="line"></span><br><span class="line">\\表示一个斜杠\。</span><br></pre></td></tr></table></figure>
+<h2 id="3-数据类型之间的转换"><a href="#3-数据类型之间的转换" class="headerlink" title="3. 数据类型之间的转换"></a>3. 数据类型之间的转换</h2><p>1、简单类型数据间的转换,有两种方式:<code>自动转换</code>和<code>强制转换</code>,通常发生在<code>表达式中</code>或<code>方法的参数传递时</code>。</p>
+<p>自动转换:</p>
+<p>具体地讲,当一个较”小”数据与一个较”大”的数据一起运算时,系统将自动将”小”数据转换成”大”数据,再进行运算。而在方法调用时,实际参数较”小”,而被调用的方法的形式参数数据又较”大”时(若有匹配的,当然会直接调用匹配的方法),系统也将自动将”小”数据转换成”大”数据,再进行方法的调用,自然,对于多个同名的重载方法,会转换成最”接近”的”大”数据并进行调用。这些类型由”小”到”大”分别为 <code>(byte，short，char)--int--long--float—double</code>。这里我们所说的”大”与”小”,并不是指占用字节的多少,而是指表示值的范围的大小。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">①下面的语句可以在Java中直接通过：</span><br><span class="line"></span><br><span class="line">byte b;int i=b; long l=b; float f=b; double d=b;</span><br><span class="line"></span><br><span class="line">②如果低级类型为char型，向高级类型（整型）转换时，会转换为对应ASCII码值，例如</span><br><span class="line"></span><br><span class="line">char c=&apos;c&apos;; int i=c;</span><br><span class="line"></span><br><span class="line">System.out.println(&quot;output:&quot;+i);输出：output:99;</span><br><span class="line"></span><br><span class="line">③对于byte,short,char三种类型而言，他们是平级的，因此不能相互自动转换，可以使用下述的强制类型转换。</span><br><span class="line"></span><br><span class="line">short i=99 ; char c=(char)i; System.out.println(&quot;output:&quot;+c);输出：output:c;</span><br></pre></td></tr></table></figure>
+<p>强制转换:</p>
+<p>将”大”数据转换为”小”数据时，你可以使用<code>强制类型转换</code>。即你必须采用下面这种语句格式： <code>int n=(int)3.14159/2</code>;可以想象，这种转换肯定可能会导致溢出或精度的下降。</p>
+<p>2、表达式的数据类型自动提升, 关于类型的自动提升，注意下面的规则。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">①所有的byte,short,char型的值将被提升为int型；</span><br><span class="line"></span><br><span class="line">②如果有一个操作数是long型，计算结果是long型；</span><br><span class="line"></span><br><span class="line">③如果有一个操作数是float型，计算结果是float型；</span><br><span class="line"></span><br><span class="line">④如果有一个操作数是double型，计算结果是double型；</span><br></pre></td></tr></table></figure>
+<p>例， <code>byte b; b=3; b=(byte)(b*3);</code>//必须声明byte。ps: 运算才会提升类型，b=3不会把 byte b 变成 int b,而b=b*3会提升；</p>
+<p>3、包装类过渡类型转换</p>
+<p>一般情况下，我们首先声明一个变量，然后生成一个对应的包装类，就可以利用包装类的各种方法进行类型转换了。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">①当希望把float型转换为double型时：</span><br><span class="line"></span><br><span class="line">float f1 = 100.00f;</span><br><span class="line"></span><br><span class="line">Float F1 = new Float(f1);</span><br><span class="line"></span><br><span class="line">double d1 = F1.doubleValue(); //F1.doubleValue()为Float类的返回double值型的方法</span><br><span class="line"></span><br><span class="line">②当希望把double型转换为int型时：</span><br><span class="line"></span><br><span class="line">double d1 = 100.00;</span><br><span class="line"></span><br><span class="line">Double D1 = new Double(d1);</span><br><span class="line"></span><br><span class="line">int i1 = D1.intValue();</span><br></pre></td></tr></table></figure>
+<p>简单类型的变量转换为相应的包装类，可以利用包装类的构造函数。即：Boolean(boolean value)、Character(char value)、Integer(int value)、Long(long value)、Float(float value)、Double(double value)</p>
+<p>而在各个包装类中，总有形为<code>××Value()</code>的方法，来得到其对应的简单类型数据。利用这种方法，也可以实现不同数值型变量间的转换，例如，对于一个双精度实型类，<code>intValue()</code>可以得到其对应的整型变量，而<code>doubleValue()</code>可以得到其对应的双精度实型变量。</p>
+<p>4、字符串与其它类型间的转换</p>
+<p><code>其它类型</code>向<code>字符串</code>的转换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">①调用类的串转换方法: X.toString();</span><br><span class="line"></span><br><span class="line">②自动转换: X + &quot;&quot;;</span><br><span class="line"></span><br><span class="line">③使用 String 的方法: String.volueOf(X);</span><br></pre></td></tr></table></figure>
+<p><code>字符串</code>作为值,向<code>其它类型</code>的转换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">①先转换成相应的封装器实例,再调用对应的方法转换成其它类型</span><br><span class="line"></span><br><span class="line">例如，字符中&quot;32.1&quot;转换`double`型的值的格式为:`new Float(&quot;32.1&quot;).doubleValue()`。也可以用:`Double.valueOf(&quot;32.1&quot;).doubleValue()`</span><br><span class="line"></span><br><span class="line">②静态 parseXXX 方法</span><br><span class="line"></span><br><span class="line">String s = &quot;1&quot;;</span><br><span class="line"></span><br><span class="line">byte b = Byte.parseByte( s );</span><br><span class="line"></span><br><span class="line">short t = Short.parseShort( s );</span><br><span class="line"></span><br><span class="line">int i = Integer.parseInt( s );</span><br><span class="line"></span><br><span class="line">long l = Long.parseLong( s );</span><br><span class="line"></span><br><span class="line">Float f = Float.parseFloat( s );</span><br><span class="line"></span><br><span class="line">Double d = Double.parseDouble( s );</span><br><span class="line"></span><br><span class="line">③Character 的 getNumericValue(char ch)方法</span><br></pre></td></tr></table></figure>
+<p>5、Date类与其它数据类型的相互转换</p>
+<p>整型和<code>Date</code>类之间并不存在直接的对应关系，只是你可以使用<code>int</code>型为分别表示年、月、日、时、分、秒，这样就在两者之间建立了一个对应关系，在作这种转换时，你可以使用<code>Date</code>类构造函数的三种形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">①Date(int year, int month, int date)：以int型表示年、月、日</span><br><span class="line"></span><br><span class="line">②Date(int year, int month, int date, int hrs, int min)：以int型表示年、月、日、时、分</span><br><span class="line"></span><br><span class="line">③Date(int year, int month, int date, int hrs, int min, int sec)：以int型表示年、月、日、时、分、秒</span><br></pre></td></tr></table></figure>
+<p>在长整型和Date类之间有一个很有趣的对应关系，就是将一个时间表示为距离格林尼治标准时间1970年1月1日0时0分0秒的毫秒数。对于这种对应关系，Date类也有其相应的构造函数：<code>Date(long date)</code>。</p>
+<p>获取Date类中的年、月、日、时、分、秒以及星期你可以使用Date类的getYear()、getMonth()、getDate()、getHours()、getMinutes()、getSeconds()、getDay()方法，你也可以将其理解为将Date类转换成int。</p>
+<p>而Date类的<code>getTime()</code>方法可以得到我们前面所说的一个时间对应的<code>长整型数</code>，与包装类一样，Date类也有一个<code>toString()</code>方法可以将其转换为String类。</p>
+<p>有时我们希望得到Date的特定格式，例如20020324，我们可以使用以下方法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import java.text.SimpleDateFormat;</span><br><span class="line"></span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">java.util.Date date = new java.util.Date();</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">//如果希望得到YYYYMMDD的格式</span><br><span class="line"></span><br><span class="line">SimpleDateFormat sy1 = new SimpleDateFormat(&quot;yyyyMMDD&quot;);</span><br><span class="line"></span><br><span class="line">String dateFormat = sy1.format(date);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//如果希望分开得到年，月，日</span><br><span class="line"></span><br><span class="line">SimpleDateFormat sy = new SimpleDateFormat(&quot;yyyy&quot;);</span><br><span class="line"></span><br><span class="line">SimpleDateFormat sm = new SimpleDateFormat(&quot;MM&quot;);</span><br><span class="line"></span><br><span class="line">SimpleDateFormat sd = new SimpleDateFormat(&quot;dd&quot;);</span><br><span class="line"></span><br><span class="line">String syear = sy.format(date);</span><br><span class="line"></span><br><span class="line">String smon = sm.format(date);</span><br><span class="line"></span><br><span class="line">String sday = sd.format(date);</span><br></pre></td></tr></table></figure>
+<p>总结：只有boolean不参与数据类型的转换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1.自动类型的转换：</span><br><span class="line"></span><br><span class="line">a.常数在表数范围内是能够自动类型转换的</span><br><span class="line"></span><br><span class="line">b.数据范围小的能够自动向数据类型大的转换（注意特例）</span><br><span class="line"></span><br><span class="line">int 到 float，long 到 float，long 到 double 同样可以自动转换的，只不过会丢失精度，因为存储结构不同</span><br><span class="line"></span><br><span class="line">c.引用类型能够自动转换为父类</span><br><span class="line"></span><br><span class="line">d.基本类型和它们包装类型是能够互相转换的</span><br><span class="line"></span><br><span class="line">2.强制类型转换：用圆括号括起来目标类型，置于变量前</span><br></pre></td></tr></table></figure>
+<h2 id="4-Java引用类型"><a href="#4-Java引用类型" class="headerlink" title="4.Java引用类型"></a>4.Java引用类型</h2><p>Java有 5 种引用类型（对象类型）：<code>类 接口 数组 枚举 标注</code></p>
+<p>引用类型：底层结构和基本类型差别较大</p>
+<p>JVM的内存空间：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">（1）Heap 堆空间：分配对象 `new Student（）`</span><br><span class="line"></span><br><span class="line">（2）Stack 栈空间：临时变量 `Student stu`</span><br><span class="line"></span><br><span class="line">（3）Code 代码区 ：类的定义，静态资源 `Student.class`</span><br><span class="line"></span><br><span class="line">eg：Student stu = new Student（）； //new 在内存的堆空间创建对象</span><br><span class="line"></span><br><span class="line">stu.study(); //把对象的地址赋给stu引用变量</span><br><span class="line"></span><br><span class="line">上例实现步骤：</span><br><span class="line"></span><br><span class="line">a.JVM 加载 `Student.class` 到Code区</span><br><span class="line"></span><br><span class="line">b.`new Student()`在堆空间分配空间并创建一个Student实例</span><br><span class="line"></span><br><span class="line">c.将此实例的地址赋值给引用`stu`栈空间</span><br></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer">
+            
+
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weixin" href="/../css/images/zz_qrcode.jpeg" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weixin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/smartzer" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="https://weibo.com/2476387642/profile?topnav=1&wvr=6" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/VIM练习手册.html" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            VIM练习手册
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/Redis基础及高级特性与性能调优.html" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Redis基础及高级特性与性能调优</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/follow算法图解.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://blogchegadebagunca.com.br/wp-content/uploads/2017/08/10-dicas-de-produtividade-para-ganhar-mais-tempo-no-seu-dia.jpg)" alt="follow算法图解" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
+                            <p class="item-title"><a href="/follow算法图解.html" class="title">follow算法图解</a></p>
+                            <p class="item-date"><time datetime="2018-08-05T07:09:28.000Z" itemprop="datePublished">2018-08-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/成都.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.upchengdu.com/data/attachment/forum/201604/21/163843ldwql2fm4wwzhvqq.jpeg)" alt="成都" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/成都.html" class="title">成都</a></p>
+                            <p class="item-date"><time datetime="2018-07-21T08:38:55.000Z" itemprop="datePublished">2018-07-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/composeAttributes算法解析.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://design-milk.com/images/2014/12/BASE-Object-Desk-Accessories-7.jpg)" alt="composeAttributes算法解析" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
+                            <p class="item-title"><a href="/composeAttributes算法解析.html" class="title">composeAttributes算法解析</a></p>
+                            <p class="item-date"><time datetime="2018-06-16T07:10:02.000Z" itemprop="datePublished">2018-06-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/compose算法过程验算.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.chinesenzherald.co.nz/assets/Uploads/News/blog-0/apple-1846277-960-720.jpg)" alt="compose算法过程验算" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
+                            <p class="item-title"><a href="/compose算法过程验算.html" class="title">compose算法过程验算</a></p>
+                            <p class="item-date"><time datetime="2018-06-15T07:09:51.000Z" itemprop="datePublished">2018-06-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/followAttributes算法解析.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.gaoimg.com/uploads/allimg/170206/1-1F2061U22RA.jpg)" alt="followAttributes算法解析" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
+                            <p class="item-title"><a href="/followAttributes算法解析.html" class="title">followAttributes算法解析</a></p>
+                            <p class="item-date"><time datetime="2018-06-14T07:09:01.000Z" itemprop="datePublished">2018-06-14</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Code/">Code</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Cloud-Office/">Cloud-Office</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/EtherPad/">EtherPad</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Iterm2/">Iterm2</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/MySql/">MySql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/OT/">OT</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Redis/">Redis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Vim/">Vim</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Summarize/">Summarize</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Summarize/Java数据类型/">Java数据类型</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/City/">City</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Office/">Cloud-Office</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EtherPad/">EtherPad</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Iterm2/">Iterm2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java数据类型/">Java数据类型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Life/">Life</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OT/">OT</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/City/" style="font-size: 10px;">City</a> <a href="/tags/Cloud-Office/" style="font-size: 10px;">Cloud-Office</a> <a href="/tags/EtherPad/" style="font-size: 10px;">EtherPad</a> <a href="/tags/Iterm2/" style="font-size: 10px;">Iterm2</a> <a href="/tags/Java数据类型/" style="font-size: 10px;">Java数据类型</a> <a href="/tags/Life/" style="font-size: 20px;">Life</a> <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/OT/" style="font-size: 20px;">OT</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://github.com/">Github</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 xiaoqinghua 有幸</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://xiaoqinghua.site/Java基本数据类型.html';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

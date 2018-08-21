@@ -6,26 +6,21 @@
     
 
     
-    <title>Redis笔记 | 有幸的个人小站</title>
+    <title>Category: Java类型转换 | 有幸的个人小站</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="Redis" />
-    
-    <meta name="description" content="Redis 重点笔记1、为什么使用 redis2、使用 redis 容易造成什么问题3、单线程的 redis 为什么这么快4、redis 的数据类型，以及每种数据类型的使用场景5、redis 的过期策略以及内存淘汰机制6、redis 和数据库双写一致性问题7、如何应对缓存穿透和缓存雪崩问题8、如何解决 redis 的并发竞争问题 笔记解析1、为什么使用 redis分析：在项目中使用 redis 主">
-<meta name="keywords" content="Redis">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Redis笔记">
-<meta property="og:url" content="http://xiaoqinghua.site/Redis笔记.html">
+    <meta name="description" content="这是作者为五十年后的自己留下的，感恩生活。">
+<meta name="keywords" content="java,chengdu,Java,web">
+<meta property="og:type" content="website">
+<meta property="og:title" content="有幸的个人小站">
+<meta property="og:url" content="http://xiaoqinghua.site/categories/Summarize/Java类型转换/index.html">
 <meta property="og:site_name" content="有幸的个人小站">
-<meta property="og:description" content="Redis 重点笔记1、为什么使用 redis2、使用 redis 容易造成什么问题3、单线程的 redis 为什么这么快4、redis 的数据类型，以及每种数据类型的使用场景5、redis 的过期策略以及内存淘汰机制6、redis 和数据库双写一致性问题7、如何应对缓存穿透和缓存雪崩问题8、如何解决 redis 的并发竞争问题 笔记解析1、为什么使用 redis分析：在项目中使用 redis 主">
+<meta property="og:description" content="这是作者为五十年后的自己留下的，感恩生活。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://venturebeat.com/wp-content/uploads/2016/05/Redis.png?fit=578%2C305&strip=all">
-<meta property="og:updated_time" content="2018-07-14T09:58:11.140Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis笔记">
-<meta name="twitter:description" content="Redis 重点笔记1、为什么使用 redis2、使用 redis 容易造成什么问题3、单线程的 redis 为什么这么快4、redis 的数据类型，以及每种数据类型的使用场景5、redis 的过期策略以及内存淘汰机制6、redis 和数据库双写一致性问题7、如何应对缓存穿透和缓存雪崩问题8、如何解决 redis 的并发竞争问题 笔记解析1、为什么使用 redis分析：在项目中使用 redis 主">
-<meta name="twitter:image" content="https://venturebeat.com/wp-content/uploads/2016/05/Redis.png?fit=578%2C305&strip=all">
+<meta name="twitter:title" content="有幸的个人小站">
+<meta name="twitter:description" content="这是作者为五十年后的自己留下的，感恩生活。">
     
 
     
@@ -156,204 +151,83 @@ var _hmt = _hmt || [];
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Code/Redis/">Redis</a>
+    <i class="icon fa fa-folder-open"></i>Category: <em class="page-title-link">Java类型转换</em>
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-Redis笔记" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+                            
+
+    
+    
         
-            <header class="article-header">
-                
+        
+        <section class="archives-wrap">
+            <div class="archive-year-wrap">
+                <a href="/archives/2017" class="archive-year"><i class="icon fa fa-calendar-o"></i>2017</a>
+            </div>
+            <div class="archives">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/Java类型转换.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.tianbianyu.com/wp-content/uploads/2018/07/pexels-photo.jpg)" alt="Java类型转换" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://xiaoqinghua.site/Java类型转换.html">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Summarize/">Summarize</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Summarize/Java类型转换/">Java类型转换</a>
+            </div>
+            <div class="date"><time datetime="2017-08-21T12:28:23.000Z" itemprop="datePublished">2017-08-21</time></div>
+        </div>
+        
     
         <h1 class="article-title" itemprop="name">
-        Redis笔记
+        <a href="/Java类型转换.html">Java类型转换</a>
         </h1>
     
 
-            </header>
-        
-        
-            <div class="article-meta">
-                
-    <div class="article-date">
-        <a href="/Redis笔记.html" class="article-date">
-            <time datetime="2017-07-13T15:04:49.000Z" itemprop="datePublished">2017-07-13</time>
-        </a>
-    </div>
+        <p class="article-excerpt">
+            类型转换Java 语言是一种强类型的语言。强类型的语言有以下几个要求：
 
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Redis/">Redis</a>
-    </div>
+变量或常量必须有类型:要求声明变量或常量时必须声明类型，而且只能在声明以后才能使用。
 
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-            <h1 id="Redis-重点笔记"><a href="#Redis-重点笔记" class="headerlink" title="Redis 重点笔记"></a>Redis 重点笔记</h1><p>1、为什么使用 redis<br>2、使用 redis 容易造成什么问题<br>3、单线程的 redis 为什么这么快<br>4、redis 的数据类型，以及每种数据类型的使用场景<br>5、redis 的过期策略以及内存淘汰机制<br>6、redis 和数据库双写一致性问题<br>7、如何应对缓存穿透和缓存雪崩问题<br>8、如何解决 redis 的并发竞争问题</p>
-<h1 id="笔记解析"><a href="#笔记解析" class="headerlink" title="笔记解析"></a>笔记解析</h1><h3 id="1、为什么使用-redis"><a href="#1、为什么使用-redis" class="headerlink" title="1、为什么使用 redis"></a>1、为什么使用 redis</h3><p><code>分析</code>：在项目中使用 redis 主要考虑两点<code>性能</code>和<code>并发</code>。除此之外，redis 还具备做分布式锁等其他功能（<code>// TODO 什么其他功能</code>），但是如果只是为了分布式锁这些其他功能，完全还有其他中间件（如 zookeeper 等）代替，并不是非要用 redis。</p>
-<ul>
-<li><code>性能</code> 和 <code>并发</code></li>
-</ul>
-<p><strong>性能：</strong></p>
-<p>如下图所示，我们在碰到需要执行耗时特别久，且执行结果不频繁变动的 SQL，就特别适合将运行结果放入缓存。这样，后面的请求就去缓存中读取，使得请求能够<code>迅速响应</code>，因此提高了<code>性能</code>。</p>
-<p><img src="../Redis笔记/o_redis1.png" alt="improve performance"></p>
-<p><strong>并发：</strong></p>
-<p>如下图所示，在高并发的情况下，所有的请求直接访问数据库，数据库会出现连接异常。这个时候，就需要使用 redis 做一个缓冲操作，让请求先访问到 redis，而不是直接访问数据库。</p>
-<p><img src="../Redis笔记/o_redis2.png" alt="handle concurrent"></p>
-<h3 id="2、使用-redis-容易造成什么问题"><a href="#2、使用-redis-容易造成什么问题" class="headerlink" title="2、使用 redis 容易造成什么问题"></a>2、使用 redis 容易造成什么问题</h3><p><code>分析</code>：诚然 redis 解决了很多问题，提高了系统性能，优化了系统处理并发的能力，但是使用 redis 也会遇到解决上述问题进而所产生的衍生问题。</p>
-<ul>
-<li>主要是四个问题<ul>
-<li>缓存和数据库双写一致性问题</li>
-<li>缓存雪崩（大面积的数据崩溃）</li>
-<li>缓存击穿</li>
-<li>缓存并发竞争问题</li>
-</ul>
-</li>
-</ul>
-<p>下文中给出解决方案。</p>
-<h3 id="3、单线程的-redis-为什么这么快"><a href="#3、单线程的-redis-为什么这么快" class="headerlink" title="3、单线程的 redis 为什么这么快"></a>3、单线程的 redis 为什么这么快</h3><p><code>分析</code>：这个问题其实是对 redis 内部机制的一个考察。redis 是单线程的！！！！</p>
-<ul>
-<li>为什么快，主要是以下三点<ul>
-<li>纯内存操作</li>
-<li>单线程操作，避免频繁切换上下文</li>
-<li>采用非阻塞 I/O 多路复用机制（想到了 netty ）</li>
-</ul>
-</li>
-</ul>
-<p><code>I/O 多路复用</code>：单个线程，通过跟踪每个<code>I/O</code>流的状态，来管理多个<code>I/O</code>流。下图是类比到真实的 redis 线程模型：我们使用<code>redis-client</code>在操作的时候，会产生具有不同事件类型的<code>socket</code>。在服务端，有一段<code>I/O 多路复用</code>的程序，将其置入队列之中（<code>//TODO 可理解为一个线程模型，单线程处理</code>），然后发送到<code>文件事件分派器</code>，依次去队列中取，转发到不同的事件处理器中。<code>redis</code>的这个I/O 多路复用<code>机制，还体现在</code>redis<code>提供了</code>select<code>，</code>epoll<code>，</code>evport<code>，</code>kqueue`等多路复用函数库。</p>
-<p><img src="../Redis笔记/o_redis3.png" alt="I/O multiplexing"></p>
-<h3 id="4、redis的数据类型，以及每种数据类型的使用场景"><a href="#4、redis的数据类型，以及每种数据类型的使用场景" class="headerlink" title="4、redis的数据类型，以及每种数据类型的使用场景"></a>4、redis的数据类型，以及每种数据类型的使用场景</h3><p><code>分析</code>：这是一个基础问题，配合熟记食用更佳。</p>
-<ul>
-<li>有五种数据类型</li>
-</ul>
-<p><strong>String</strong></p>
-<p>常规<code>set/get</code>操作，<code>value</code>可以是<code>String</code>也可以是数字。一般做<code>一些复杂计算功能的缓存</code>。</p>
-<p><strong>hash</strong></p>
-<p><code>hash</code>数据类型的<code>value</code>存放的是结构化的对象，比较方便的就是操作其中的某个字段。在做<code>单点登录</code>的时候，就可以用这种结构存储<code>用户信息</code>，以<code>cookieId</code>作为<code>key</code>，设置30分钟为缓存过期时间，能很好的模拟出类似<code>session</code>的效果。</p>
-<p><strong>list</strong></p>
-<p><code>list</code>数据结构，可以做<code>简单的消息队列的功能</code>。另外一个是，可以利用<code>lrange</code>命令，<code>做基于redis的分页功能</code>（<code>lrange mylist 0 10</code>），性能极佳，用户体验很好。</p>
-<p><strong>set</strong></p>
-<p><code>set</code>数据结构存放的是一堆不重复的集合。所以可以做<code>全局去重的功能</code>。可以使用交集、并集、差集等操作，可以<code>计算共同喜好，全部喜好，自己独有喜好等功能</code>。</p>
-<p><strong>sorted set</strong></p>
-<p><code>sorted set</code>多了一个权重参数<code>score</code>，集合中的元素能够按照<code>score</code>进行排列。可以做<code>排行榜应用</code>，<code>取TOP N操作</code>，<code>延时任务</code>，<code>范围查找</code>。</p>
-<h3 id="5、-redis的过期策略以及内存淘汰机制"><a href="#5、-redis的过期策略以及内存淘汰机制" class="headerlink" title="5、 redis的过期策略以及内存淘汰机制"></a>5、 redis的过期策略以及内存淘汰机制</h3><p><code>分析</code>：假如<code>redis</code>只能存 5G 数据量，写入了 10G 的数据，就会删除 5G 数据，怎么删除，按照什么策略删除。</p>
-<ul>
-<li>redis 采用 <code>定期删除</code>+<code>惰性删除</code>策略</li>
-</ul>
-<p><strong>为什么不用定时删除策略</strong></p>
-<p><code>定时删除</code>，用一个定时器来负责监视 key，过期则自动删除。虽然内存及时释放，但是十分消耗 CPU 资源。在高并发场景下，CPU 应该将时间应用在处理请求上，而不是删除 key，因此不采用这一种策略。</p>
-<p><strong>定期删除+惰性删除是如何工作的？</strong></p>
-<p><code>定期删除</code>，redis 默认每隔<code>100ms</code>检查是否有过期的<code>key</code>，有过期的<code>key</code>直接删除。需要说明的是，<code>redis</code>不是每隔<code>100ms</code>将所有的<code>key</code>检查一次，而是<code>随机抽取进行检查</code>（如果每隔<code>100ms</code>将所有的<code>key</code>检查一次，<code>redis</code>应该已经爆炸💥了），因此如果只采取<code>定期删除策略</code>，会导致很多过期的<code>key</code>没有被删除。<br>于是，惰性删除派上用场了。也就是说在你获取某个<code>key</code>的时候，<code>redis</code>会检查一下，这个<code>key</code>如果设置了过期时间，那么是否过期了？如果过期此时就会被删除。（感觉就是一波亡羊补牢的操作，不过能这样还是挺 NB 的）</p>
-<p><strong>采用定期删除+惰性删除就没其他问题了？？？</strong></p>
-<p><code>不是的！</code>，如果定期删除没有删除<code>key</code>。然后你也没有去<code>get</code>这个<code>key</code>，也就是说惰性删除没有生效。这样，<code>redis</code>的内存占用会越来越大。此时就应该采用<code>内存淘汰机制</code>。</p>
-<p>在<code>reids.conf</code>中有一行配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># maxmemory-policy volatile-lru</span><br></pre></td></tr></table></figure>
-<p>这个配置就是<code>内存淘汰策略</code>，一下是几种淘汰策略，解析一下：</p>
-<ul>
-<li><p>noeviction：当内存不足以容纳新写入的数据时，新写入操作会报错。<code>这个应该没人用吧😂</code></p>
-</li>
-<li><p>allkeys-lru：当内存不足以容纳新写入的数据时，在键空间中，移除最近最少使用的<code>key</code>（least recently used）。<code>推荐使用这一种策略</code>。</p>
-</li>
-<li><p>volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的<code>key</code>。<code>这种情况一般是把 redis 既当缓存，又做持久化存储的时候采用。不推荐</code></p>
-</li>
-<li><p>volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个<code>key</code>。<code>依然不推荐 //TODO why</code></p>
-</li>
-<li><p>volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的<code>key</code>优先移除。<code>不推荐</code>。</p>
-</li>
-</ul>
-<blockquote>
-<p>如果没有设置<code>expire</code>的<code>key</code>，不满足先决条件<code>prerequisites</code>；那么<code>volatile-lru</code>，<code>volatile-random</code>和<code>volatile-ttl</code>策略的行为和<code>noeviction（不删除）</code>基本一致。</p>
-</blockquote>
-<h3 id="6、redis-和数据库双写一致性问题"><a href="#6、redis-和数据库双写一致性问题" class="headerlink" title="6、redis 和数据库双写一致性问题"></a>6、redis 和数据库双写一致性问题</h3><p><code>分析</code>：一致性问题是分布式常见的问题，还可以分为<code>最终一致性</code>和<code>强一致性</code>。数据库和缓存双写，就必然会存在不一致问题。注意：有一个前提，<code>如果对数据有强一致性要求，数据就不能存放在缓存</code>。我们所做的一切只能保证<code>最终一致性</code>。另外，我们所做的方案从根本上来说，只能<code>降低不一致发生的概率</code>，无法完全避免。因此，有强一致性要求的数据，不能放缓存。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">首先，采取正确的更新策略，先更新数据库，再删除缓存。其次，因为可能存在缓存删除失败的问题，提供一个补偿措施即可，例如利用消息队列。</span><br></pre></td></tr></table></figure>
-<h3 id="7、如何应对缓存穿透和缓存雪崩问题"><a href="#7、如何应对缓存穿透和缓存雪崩问题" class="headerlink" title="7、如何应对缓存穿透和缓存雪崩问题"></a>7、如何应对缓存穿透和缓存雪崩问题</h3><p><code>分析</code>：这个问题，一版高并发的项目可能会遇到，流量几百万左右。</p>
-<p><strong>缓存穿透</strong></p>
-<p>有人故意去请求缓存中不存在的数据，导致所有的请求怼到数据库上，从而数据库连接异常。</p>
-<p>解决方案：</p>
-<p>1、利用<code>互斥锁</code>，缓存失效的时候，先去获得锁，得到锁之后，再去请求数据库。没得到锁，则休眠一端时间重试。</p>
-<p>2、采用异步更新策略，无论是<code>key</code>是否取到值，都直接返回。<code>value</code>值中维护一个缓存失效时间，缓存如果过期，就异步起一个线程去读数据库，更新缓存。这个方案，需要做<code>缓存预热（羡慕启动前，先预加载缓存）</code>操作。</p>
-<p>3、提供一个能迅速判断请求是否有效的拦截机制。比如，利用<code>布隆过滤器（bloom filter）</code>，内部维护一系列合法有效的<code>key</code>。迅速判断出，请求所携带的<code>key</code>是否合法有效。如果不合法，则直接返回。</p>
-<p><strong>缓存雪崩</strong></p>
-<p>缓存同一时间大面积的失效，这个时候又来了一波请求，结果请求都到了数据库上，从而导致数据库连接异常。</p>
-<p>解决方案：</p>
-<p>1、给缓存的失效时间，加上一个随机值，避免集体失效。</p>
-<p>2、使用互斥锁，但是吞吐量明显下降了。</p>
-<p>3、使用<code>双缓存</code>，两个缓存，A，B。缓存 A 的失效时间是20分钟，缓存 B 不设失效时间。自己做缓存预热操作。然后细分一下几个小点：</p>
-<ul>
-<li>从缓存 A 读数据库，有则直接返回。</li>
-<li>A 没有读到数据，直接从 B 读数据，有则直接返回，并异步启动一个更新线程。</li>
-<li>更新线程同时更新缓存 A 和缓存 B。</li>
-</ul>
-<h3 id="8、如何解决-Redis-的并发竞争问题"><a href="#8、如何解决-Redis-的并发竞争问题" class="headerlink" title="8、如何解决 Redis 的并发竞争问题"></a>8、如何解决 Redis 的并发竞争问题</h3><p><code>分析</code>：这个问题大致就是，同时又多个子系统去<code>set</code>一个<code>key</code>。一般很多回答是使用<code>redis的事务机制</code>。但是因为我们的生产环境，一般都是<code>redis集群环境</code>，做了数据分片操作。你一个事务中所有涉及到多个<code>key</code>操作的时候，这个<code>key</code>不一定都存储在同一个<code>redis-server</code>上。因此，redis 的事务机制，有点鸡肋。（<code>// TODO</code>）</p>
-<p>如下所示：</p>
-<p>1、如果这个<code>key</code>操作，不要求顺序，可以准备一个<code>分布式锁</code>，大家去抢锁，抢到了锁就做<code>set</code>操作即可。</p>
-<p>2、如果这个<code>key</code>操作，要求顺序，假设有一个<code>key1</code>，系统 A 需要将<code>key1</code>设置为<code>valueA</code>，系统 B 需要将 <code>key1</code>设置为<code>valueB</code>，系统 C 需要将<code>key1</code>设置为<code>valueC</code>。</p>
-<p>我们期望按照<code>key1</code>的<code>value</code>值按照<code>valueA</code>–&gt;<code>valueB</code>–&gt;<code>valueC</code>的顺序变化。这时候我们在写入数据库的时候，就需要保存一个时间戳。假设时间戳如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">系统A key1 &#123;valueA  3:00&#125;</span><br><span class="line">系统B key1 &#123;valueB  3:05&#125;</span><br><span class="line">系统C key1 &#123;valueC  3:10&#125;</span><br></pre></td></tr></table></figure>
-<p>那么根据上述，假设是系统 B 先抢到锁，将<code>key1</code>设置为<code>{valueB  3:05}</code>。那么接下来，如果 A 抢到锁，发现自己的<code>valueA</code>的时间戳早于缓存中的时间戳，那么久不做<code>set</code>操作了。</p>
-<p>其他方法，如利用<code>队列</code>，将<code>set</code>方法变成串行访问也可以。</p>
-<hr>
-<blockquote>
-<p>本文出处<a href="http://rjzheng.cnblogs.com/" target="_blank" rel="noopener"><code>孤独烟</code></a>，个人只是一字一字的解读，理解前辈总结的经验。我认为只是大致浏览一篇博文，看一篇公众号整理的干货文章，是没有用的，还是要多理解，多实践，加深记忆，才能深刻，<code>涓涓细流</code>，<code>沁人心脾</code>，<code>强劲壮骨</code>。这种方式只是我个人的学习方式，可能比较笨重，比较慢，但<code>好记性不如烂笔头</code>。这也是为什么写博客的原因。有幸</p>
-</blockquote>
+赋值时类型必须一致:值的类型必须和变量或常量的类型完全一致。
 
-        </div>
-        <footer class="article-footer">
-            
-
-    <div class="bdsharebuttonbox">
-    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
-    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
-    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
-    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
-</div>
-<script>
-window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-<style>
-    .bdshare_popup_box {
-        border-radius: 4px;
-        border: #e1e1e1 solid 1px;
-    }
-    .bdshare-button-style0-16 a,
-    .bdshare-button-style0-16 .bds_more {
-        padding-left: 20px;
-        margin: 6px 10px 6px 0;
-    }
-    .bdshare_dialog_list a,
-    .bdshare_popup_list a,
-    .bdshare_popup_bottom a {
-        font-family: 'Microsoft Yahei';
-    }
-    .bdshare_popup_top {
-        display: none;
-    }
-    .bdshare_popup_bottom {
-        height: auto;
-        padding: 5px;
-    }
-</style>
+运算时类型必须一致:参与运算的数据类型必须一致才能运算。
 
 
-
-        </footer>
+但是在实际的使用中，经常需要在不同类型的值之间进行操作，这就需要一种新的语法来适应这种需要，这个语法就是数据类型
+        </p>
     </div>
 </article>
-
-    <section id="comments">
     
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-
+        </div>
     
-    </section>
+
+
+    </div></section>
+
+
 
 
                         </div>
@@ -398,29 +272,6 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
             
         </ul>
     </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/Redis基础及高级特性与性能调优.html" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            Redis基础及高级特性与性能调优
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-    
-    
-        <a href="/iterm2小技巧.html" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">iterm2小技巧</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
-
     
     <div class="widgets-container">
         
@@ -633,13 +484,11 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://xiaoqinghua.site/Redis笔记.html';
-    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>

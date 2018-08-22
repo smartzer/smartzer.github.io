@@ -21,7 +21,7 @@
 <meta property="og:description" content="String 的用法String类在 java.lang 包中，java 使用String类创建一个字符串变量，字符串变量属于对象。java 把String类声明的final类，不能有子类。String类对象创建后不能修改，由 0 或多个字符组成，包含在一对双引号之间，下面简单的熟悉一下其常用的 API： 1234567891011121314151617char charAt (int inde">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://cdn.jiemodui.com/img/Public/Uploads/item/20170307/1488860951646808.jpg">
-<meta property="og:updated_time" content="2018-08-22T08:17:44.460Z">
+<meta property="og:updated_time" content="2018-08-22T08:20:41.235Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="String的那些事">
 <meta name="twitter:description" content="String 的用法String类在 java.lang 包中，java 使用String类创建一个字符串变量，字符串变量属于对象。java 把String类声明的final类，不能有子类。String类对象创建后不能修改，由 0 或多个字符组成，包含在一对双引号之间，下面简单的熟悉一下其常用的 API： 1234567891011121314151617char charAt (int inde">
@@ -260,8 +260,22 @@ var _hmt = _hmt || [];
 <h2 id="举几个🌰"><a href="#举几个🌰" class="headerlink" title="举几个🌰"></a>举几个🌰</h2><p>🌰1:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String a = <span class="string">"Hello World!"</span>;  </span><br><span class="line">String b = <span class="string">"Hello World!"</span>;  </span><br><span class="line">String c = <span class="keyword">new</span> String(<span class="string">"Hello World!"</span>);  </span><br><span class="line">String d = <span class="string">"Hello"</span>+<span class="string">" "</span>+<span class="string">"World!"</span>;</span><br><span class="line">System.out.println(a == b);<span class="comment">//true</span></span><br><span class="line">System.out.println(a == c);<span class="comment">//false</span></span><br><span class="line">System.out.println(a == d);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 <p>我们应该明白：</p>
-<p>首先String不属于<code>8种基本数据类型</code>，String是一个<code>对象</code>。<br>因为对象的默认值是<code>null</code>，所以 String 的默认值也是<code>null</code>；但它又是一种特殊的对象，有其它对象没有的一些特性。<br>在这里，我们先不谈堆，也不谈栈，只先简单引入常量池这个简单的概念。<br>常量池(constant pool)指的是在编译期被确定，并被保存在已编译的.class文件中的一些数据。它包括了关于类、方法、接口等中的常量，也包括字符串常量。</p>
-<p>Java会确保一个字符串常量只有一个拷贝。<br>因为例子中的a和b都是字符串常量，它们在编译期就被确定了，所以<br><code>a==b为true</code>；而<code>&quot;Hello&quot;</code>和<code>&quot; &quot;</code>以及<code>&quot;World!&quot;</code>也都是字符串常量，当一个字符串由多个字符串常量连接而成时，它自己肯定也是字符串常量，所以d也同样在编译期就被解析为一个字符串常量，所以d也是常量池中<code>&quot;Hello World!&quot;</code>的一个引用。所以我们得出<code>a==b==d</code>;<br>用<code>new String()</code>创建的字符串不是常量,不能在编译期就确定，所以<code>new String()</code>创建的字符串不放入常量池中，它们有自己的地址空间</p>
+<ul>
+<li><p>首先String不属于<code>8种基本数据类型</code>，String是一个<code>对象</code>。</p>
+</li>
+<li><p>因为对象的默认值是<code>null</code>，所以 String 的默认值也是<code>null</code>；但它又是一种特殊的对象，有其它对象没有的一些特性。</p>
+</li>
+<li><p>在这里，我们先不谈堆，也不谈栈，只先简单引入常量池这个简单的概念。</p>
+</li>
+<li><p>常量池(constant pool)指的是在编译期被确定，并被保存在已编译的.class文件中的一些数据。它包括了关于类、方法、接口等中的常量，也包括字符串常量。</p>
+</li>
+<li><p>Java会确保一个字符串常量只有一个拷贝。</p>
+</li>
+<li><p>因为例子中的a和b都是字符串常量，它们在编译期就被确定了，所以<code>a==b为true</code>；而<code>&quot;Hello&quot;</code>和<code>&quot; &quot;</code>以及<code>&quot;World!&quot;</code>也都是字符串常量，当一个字符串由多个字符串常量连接而成时，它自己肯定也是字符串常量，所以d也同样在编译期就被解析为一个字符串常量，所以d也是常量池中<code>&quot;Hello World!&quot;</code>的一个引用。所以我们得出<code>a==b==d</code></p>
+</li>
+<li><p>用<code>new String()</code>创建的字符串不是常量,不能在编译期就确定，所以<code>new String()</code>创建的字符串不放入常量池中，它们有自己的地址空间</p>
+</li>
+</ul>
 <p>🌰2:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String a = <span class="string">"HelloWorld"</span>;    </span><br><span class="line">String b = <span class="keyword">new</span> String(<span class="string">"HelloWorld"</span>);    </span><br><span class="line">String c = <span class="string">"Hello"</span>+ <span class="keyword">new</span> String(<span class="string">"World"</span>);    </span><br><span class="line">System.out.println( a == b );<span class="comment">//false</span></span><br><span class="line">System.out.println( a == c );<span class="comment">//false</span></span><br><span class="line">System.out.println( b == c );<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
 <p>a还是常量池中<code>”HelloWorld”</code>的引用，b因为无法在编译期确定，所以是运行时创建的新对象<code>”HelloWorld”</code>的引用，c因为有后半部分<code>new String(“World”)</code>所以也无法在编译期确定，所以也是一个新创建对象<code>”HelloWorld”</code>的引用，明白了这些也就知道为何得出此结果了。</p>

@@ -5,11 +5,34 @@
     
   <url>
     <loc>http://xiaoqinghua.site/Java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html</loc>
-    <lastmod>2018-08-22T08:57:22.628Z</lastmod>
+    <lastmod>2018-08-22T09:01:01.131Z</lastmod>
     <data>
         <display>
         <title>Java数据类型</title>
         <pubTime>2017-08-21T03:58:52.000Z</pubTime>
+        
+        <tag>Java-Fundamental</tag>
+         
+         
+           
+             
+              <breadCrumb title="Code" url="http://xiaoqinghua.site/categories/Code/"/>
+          
+             
+              <breadCrumb title="Java-Fundamental" url="http://xiaoqinghua.site/categories/Code/Java-Fundamental/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xiaoqinghua.site/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%BC%93%E5%AD%98%E6%B1%A0.html</loc>
+    <lastmod>2018-08-22T08:59:37.036Z</lastmod>
+    <data>
+        <display>
+        <title>Java数据类型缓存池</title>
+        <pubTime>2017-08-23T02:28:23.000Z</pubTime>
         
         <tag>Java-Fundamental</tag>
          
@@ -56,29 +79,6 @@
         <display>
         <title>String的那些事</title>
         <pubTime>2017-08-25T02:28:23.000Z</pubTime>
-        
-        <tag>Java-Fundamental</tag>
-         
-         
-           
-             
-              <breadCrumb title="Code" url="http://xiaoqinghua.site/categories/Code/"/>
-          
-             
-              <breadCrumb title="Java-Fundamental" url="http://xiaoqinghua.site/categories/Code/Java-Fundamental/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://xiaoqinghua.site/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%BC%93%E5%AD%98%E6%B1%A0.html</loc>
-    <lastmod>2018-08-22T08:57:02.175Z</lastmod>
-    <data>
-        <display>
-        <title>Java数据类型缓存池</title>
-        <pubTime>2017-08-23T02:28:23.000Z</pubTime>
         
         <tag>Java-Fundamental</tag>
          

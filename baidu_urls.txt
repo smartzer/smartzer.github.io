@@ -8,6 +8,7 @@ http://xiaoqinghua.site/etherpad技术分析.html
 http://xiaoqinghua.site/hackpad技术分析.html
 http://xiaoqinghua.site/云文档的难点.html
 http://xiaoqinghua.site/VIM练习手册.html
+http://xiaoqinghua.site/Java参数传递.html
 http://xiaoqinghua.site/再记String.html
 http://xiaoqinghua.site/数据类型缓存池.html
 http://xiaoqinghua.site/Java类型转换.html

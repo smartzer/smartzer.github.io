@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://xiaoqinghua.site/%E6%88%90%E9%83%BD.html</loc>
+    <lastmod>2018-08-23T07:59:45.200Z</lastmod>
+    <data>
+        <display>
+        <title>成都</title>
+        <pubTime>2018-07-21T08:38:55.000Z</pubTime>
+        
+        <tag>City</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://xiaoqinghua.site/Java%E5%86%85%E9%83%A8%E7%B1%BB.html</loc>
     <lastmod>2018-08-23T07:41:37.844Z</lastmod>
     <data>
@@ -537,23 +554,6 @@
              
               <breadCrumb title="Redis" url="http://xiaoqinghua.site/categories/Code/Redis/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://xiaoqinghua.site/%E6%88%90%E9%83%BD.html</loc>
-    <lastmod>2018-07-21T12:51:16.036Z</lastmod>
-    <data>
-        <display>
-        <title>成都</title>
-        <pubTime>2018-07-21T08:38:55.000Z</pubTime>
-        
-        <tag>City</tag>
-         
-         
-           
         </display>
     </data>
     </url>

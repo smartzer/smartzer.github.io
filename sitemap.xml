@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xiaoqinghua.site/%E6%88%90%E9%83%BD.html</loc>
+    
+    <lastmod>2018-08-23T07:59:45.200Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://xiaoqinghua.site/Java%E5%86%85%E9%83%A8%E7%B1%BB.html</loc>
     
     <lastmod>2018-08-23T07:41:37.844Z</lastmod>
@@ -173,13 +180,6 @@
     <loc>http://xiaoqinghua.site/Redis%E5%9F%BA%E7%A1%80%E5%8F%8A%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7%E4%B8%8E%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.html</loc>
     
     <lastmod>2018-08-05T06:43:06.815Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://xiaoqinghua.site/%E6%88%90%E9%83%BD.html</loc>
-    
-    <lastmod>2018-07-21T12:51:16.036Z</lastmod>
     
   </url>
   

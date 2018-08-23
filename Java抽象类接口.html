@@ -21,7 +21,7 @@
 <meta property="og:description" content="抽象类 当编写一个类时，常常会为该类定义一些方法，这些方法用以描述该类的行为方式，那么这些方法都有具体的方法体。但在某些情况下，某个父类只是知道其子类应该包含怎样的方法，但无法准确地知道这些子类如何实现这些方法。使用抽象方法即可满足该要求：抽象方法是只有方法签名（方法名+形参列表），没有方法实现的方法 抽象方法和抽象类抽象方法和抽象类必须使用abstract修饰符来定义，有抽象方法的类只能被定义成">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://cdn1.i-scmp.com/sites/default/files/styles/980x551/public/images/methode/2016/01/20/3626f1a2-bf4f-11e5-9503-d84cbca18933_1280x720.jpg?itok=Jfie9tE5">
-<meta property="og:updated_time" content="2018-08-23T05:57:13.551Z">
+<meta property="og:updated_time" content="2018-08-23T06:08:56.885Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java抽象类接口">
 <meta name="twitter:description" content="抽象类 当编写一个类时，常常会为该类定义一些方法，这些方法用以描述该类的行为方式，那么这些方法都有具体的方法体。但在某些情况下，某个父类只是知道其子类应该包含怎样的方法，但无法准确地知道这些子类如何实现这些方法。使用抽象方法即可满足该要求：抽象方法是只有方法签名（方法名+形参列表），没有方法实现的方法 抽象方法和抽象类抽象方法和抽象类必须使用abstract修饰符来定义，有抽象方法的类只能被定义成">
@@ -178,7 +178,7 @@ var _hmt = _hmt || [];
                 
     <div class="article-date">
         <a href="/Java抽象类接口.html" class="article-date">
-            <time datetime="2018-08-29T11:56:48.000Z" itemprop="datePublished">2018-08-29</time>
+            <time datetime="2017-08-29T11:56:48.000Z" itemprop="datePublished">2017-08-29</time>
         </a>
     </div>
 
@@ -231,11 +231,11 @@ var _hmt = _hmt || [];
 <li><p>一个接口可以有多个直接父接口，但接口只能继承接口，不能继承类。</p>
 </li>
 </ul>
-<p>==由于接口定义的是一种规范，因此接口里不能包含构造器和初始化块定义。接口里可以包含成员变量（只能是静态常量）、方法（只能是抽象实例方法、类方法或默认方法）、内部类（包括内部接口、枚举）定义==</p>
-<p>==接口里定义的是多个类共同的公共行为规范，因此接口里的所有成员，包括常量、方法、内部类和内部枚举都是public访问权限。定义接口成员时，可以省略访问控制修饰符，如果指定访问控制修饰符，则只能使用public访问控制修饰符。==</p>
-<p>==对于接口里定义的静态常量而言，它们是接口相关的，因此系统会自动为这些成员变量增加static和final两个修饰符。也就是说，在接口中定义成员变量时，不管是否使用public static final修饰符，接口里的成员变量总是使用这三个修饰符来修饰。而且接口里没有构造器和初始化块，因此接口里定义的成员变量只能在定义时指定默认值==</p>
-<p>==接口里定义的内部类、内部接口、内部枚举默认都采用public static两个修饰符，不管定义时是否指定这两个修饰符，系统都会自动使用public static对它们进行修饰==</p>
-<p>==接口里定义的方法只能是抽象方法、类方法或默认方法，因此如果不是定义默认方法，系统将自动为普通方法增加abstract修饰符；定义接口里的普通方法时不管是否使用public abstract修饰符，接口里的普通方法总是public abstract来修饰。接口里的普通方法不能有方法实现（方法体）；但类方法、默认（default）方法都必须有方法实现（方法体==</p>
+<p>由于接口定义的是一种规范，因此接口里不能包含构造器和初始化块定义。接口里可以包含成员变量（只能是静态常量）、方法（只能是抽象实例方法、类方法或默认方法）、内部类（包括内部接口、枚举）定义</p>
+<p>接口里定义的是多个类共同的公共行为规范，因此接口里的所有成员，包括常量、方法、内部类和内部枚举都是public访问权限。定义接口成员时，可以省略访问控制修饰符，如果指定访问控制修饰符，则只能使用public访问控制修饰符。</p>
+<p>对于接口里定义的静态常量而言，它们是接口相关的，因此系统会自动为这些成员变量增加static和final两个修饰符。也就是说，在接口中定义成员变量时，不管是否使用public static final修饰符，接口里的成员变量总是使用这三个修饰符来修饰。而且接口里没有构造器和初始化块，因此接口里定义的成员变量只能在定义时指定默认值</p>
+<p>接口里定义的内部类、内部接口、内部枚举默认都采用public static两个修饰符，不管定义时是否指定这两个修饰符，系统都会自动使用public static对它们进行修饰</p>
+<p>接口里定义的方法只能是抽象方法、类方法或默认方法，因此如果不是定义默认方法，系统将自动为普通方法增加abstract修饰符；定义接口里的普通方法时不管是否使用public abstract修饰符，接口里的普通方法总是public abstract来修饰。接口里的普通方法不能有方法实现（方法体）；但类方法、默认（default）方法都必须有方法实现（方法体</p>
 <blockquote>
 <p>Java8允许在接口中定义类方法，类方法必须使用<code>static</code>修饰，该方法不能使用<code>default</code>修饰，无论程序是否指定，类方法总是使用<code>public</code>修饰——如果开发者没有指定<code>public</code>，系统会自动为类方法添加<code>public</code>修饰符。类方法可以直接使用接口来调用。</p>
 </blockquote>
@@ -381,10 +381,20 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
         
 <nav id="article-nav">
     
+        <a href="/VIM练习手册.html" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            VIM练习手册
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
     
-        <a href="/follow算法图解.html" id="article-nav-older" class="article-nav-link-wrap">
+    
+        <a href="/Java参数传递.html" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">follow算法图解</p>
+        <p class="article-nav-title">Java参数传递</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -402,26 +412,6 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/Java抽象类接口.html" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://cdn1.i-scmp.com/sites/default/files/styles/980x551/public/images/methode/2016/01/20/3626f1a2-bf4f-11e5-9503-d84cbca18933_1280x720.jpg?itok=Jfie9tE5)" alt="Java抽象类接口" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/Java-Fundamental/">Java-Fundamental</a></p>
-                            <p class="item-title"><a href="/Java抽象类接口.html" class="title">Java抽象类接口</a></p>
-                            <p class="item-date"><time datetime="2018-08-29T11:56:48.000Z" itemprop="datePublished">2018-08-29</time></p>
-                        </div>
-                    </li>
                 
                     <li>
                         
@@ -469,7 +459,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                             <a href="/composeAttributes算法解析.html" class="thumbnail">
     
     
-        <span style="background-image:url(http://www.aqee.net/wp-content/uploads/2018/06/maxresdefault.jpg)" alt="composeAttributes算法解析" class="thumbnail-image"></span>
+        <span style="background-image:url(https://apptractor.ru/wp-content/uploads/2017/07/feature.jpg)" alt="composeAttributes算法解析" class="thumbnail-image"></span>
     
     
 </a>
@@ -503,6 +493,26 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                         </div>
                     </li>
                 
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/followAttributes算法解析.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.gaoimg.com/uploads/allimg/170206/1-1F2061U22RA.jpg)" alt="followAttributes算法解析" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
+                            <p class="item-title"><a href="/followAttributes算法解析.html" class="title">followAttributes算法解析</a></p>
+                            <p class="item-date"><time datetime="2018-06-14T07:09:01.000Z" itemprop="datePublished">2018-06-14</time></p>
+                        </div>
+                    </li>
+                
             </ul>
         </div>
     </div>
@@ -522,7 +532,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 

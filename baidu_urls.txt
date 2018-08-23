@@ -11,6 +11,7 @@ http://xiaoqinghua.site/VIM练习手册.html
 http://xiaoqinghua.site/Java抽象类接口.html
 http://xiaoqinghua.site/Java参数传递.html
 http://xiaoqinghua.site/再记String.html
+http://xiaoqinghua.site/Java内部类.html
 http://xiaoqinghua.site/数据类型缓存池.html
 http://xiaoqinghua.site/Java类型转换.html
 http://xiaoqinghua.site/Java基本数据类型.html

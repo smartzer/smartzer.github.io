@@ -6,7 +6,7 @@
     
 
     
-    <title>Java内部类 | 有幸的个人小站</title>
+    <title>Java 内部类 | 有幸的个人小站</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -15,15 +15,15 @@
     <meta name="description" content="少啰嗦，先上代码123456789101112131415161718192021222324252627public class OuterClass &amp;#123;    private String name ;    private int age;    public String getName() &amp;#123;        return name;    &amp;#125;    publ">
 <meta name="keywords" content="Java-Fundamental">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java内部类">
+<meta property="og:title" content="Java 内部类">
 <meta property="og:url" content="http://xiaoqinghua.site/Java内部类.html">
 <meta property="og:site_name" content="有幸的个人小站">
 <meta property="og:description" content="少啰嗦，先上代码123456789101112131415161718192021222324252627public class OuterClass &amp;#123;    private String name ;    private int age;    public String getName() &amp;#123;        return name;    &amp;#125;    publ">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://www.goodnewsfinland.com/wp-content/uploads/2016/04/man-and-a-computer_iStock_by_DeanDrobot.jpg">
-<meta property="og:updated_time" content="2018-08-23T07:36:46.177Z">
+<meta property="og:updated_time" content="2018-08-23T07:41:37.844Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java内部类">
+<meta name="twitter:title" content="Java 内部类">
 <meta name="twitter:description" content="少啰嗦，先上代码123456789101112131415161718192021222324252627public class OuterClass &amp;#123;    private String name ;    private int age;    public String getName() &amp;#123;        return name;    &amp;#125;    publ">
 <meta name="twitter:image" content="http://www.goodnewsfinland.com/wp-content/uploads/2016/04/man-and-a-computer_iStock_by_DeanDrobot.jpg">
     
@@ -167,7 +167,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-        Java内部类
+        Java 内部类
         </h1>
     
 
@@ -234,8 +234,7 @@ var _hmt = _hmt || [];
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> InnerClass <span class="title">getInnerClass</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> num,String str2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> InnerClass()&#123;</span><br><span class="line">            <span class="keyword">int</span> number = num + <span class="number">3</span>;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNumber</span><span class="params">()</span></span>&#123;</span><br><span class="line">                <span class="keyword">return</span> number;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;        <span class="comment">/* 注意：分号不能省 */</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        OuterClass out = <span class="keyword">new</span> OuterClass();</span><br><span class="line">        InnerClass inner = out.getInnerClass(<span class="number">2</span>, <span class="string">"xiaoqinghua"</span>);</span><br><span class="line">        System.out.println(inner.getNumber());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">InnerClass</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getNumber</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">----------------</span><br><span class="line">Output:</span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
 <p>这里我们就需要看清几个地方</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、 匿名内部类是没有访问修饰符的。</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、 <span class="keyword">new</span> 匿名内部类，这个类首先是要存在的。如果我们将那个InnerClass接口注释掉，就会出现编译出错。</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、 注意getInnerClass()方法的形参，第一个形参是用<span class="keyword">final</span>修饰的，而第二个却没有。</span><br><span class="line">同时我们也发现第二个形参在匿名内部类中没有使用过，所以当所在方法的形参需要被匿名内部类使用，那么这个形参就必须为<span class="keyword">final</span>。</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、 匿名内部类是没有构造方法的。因为它连名字都没有何来构造方法。</span><br></pre></td></tr></table></figure>
-<p>###<br>六、静态内部类</p>
-<p><code>static</code>可以修饰成员变量、方法、代码块，其他它还可以修饰内部类，使用<code>static</code>修饰的内部类我们称之为静态内部类，不过我们更喜欢称之为嵌套内部类。静态内部类与非静态内部类之间存在一个最大的区别，我们知道非静态内部类在编译完成之后会隐含地保存着一个引用，该引用是指向创建它的外围内，但是静态内部类却没有。没有这个引用就意味着：</p>
+<h3 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h3><p><code>static</code>可以修饰成员变量、方法、代码块，其他它还可以修饰内部类，使用<code>static</code>修饰的内部类我们称之为静态内部类，不过我们更喜欢称之为嵌套内部类。静态内部类与非静态内部类之间存在一个最大的区别，我们知道非静态内部类在编译完成之后会隐含地保存着一个引用，该引用是指向创建它的外围内，但是静态内部类却没有。没有这个引用就意味着：</p>
 <ul>
 <li><p>它的创建是不需要依赖于外围类的。</p>
 </li>
@@ -406,7 +405,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                             <a href="/follow算法图解.html" class="thumbnail">
     
     
-        <span style="background-image:url(https://cdn-images-1.medium.com/max/1600/1*s6QZBNMEEwBQ5VwMy48Dbw.png)" alt="follow算法图解" class="thumbnail-image"></span>
+        <span style="background-image:url(https://cdn-images-1.medium.com/max/1600/1*s6QZBNMEEwBQ5VwMy48Dbw.png)" alt="Follow 算法图解" class="thumbnail-image"></span>
     
     
 </a>
@@ -415,7 +414,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
-                            <p class="item-title"><a href="/follow算法图解.html" class="title">follow算法图解</a></p>
+                            <p class="item-title"><a href="/follow算法图解.html" class="title">Follow 算法图解</a></p>
                             <p class="item-date"><time datetime="2018-08-05T07:09:28.000Z" itemprop="datePublished">2018-08-05</time></p>
                         </div>
                     </li>
@@ -446,7 +445,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                             <a href="/composeAttributes算法解析.html" class="thumbnail">
     
     
-        <span style="background-image:url(https://apptractor.ru/wp-content/uploads/2017/07/feature.jpg)" alt="composeAttributes算法解析" class="thumbnail-image"></span>
+        <span style="background-image:url(https://apptractor.ru/wp-content/uploads/2017/07/feature.jpg)" alt="ComposeAttributes 算法解析" class="thumbnail-image"></span>
     
     
 </a>
@@ -455,7 +454,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
-                            <p class="item-title"><a href="/composeAttributes算法解析.html" class="title">composeAttributes算法解析</a></p>
+                            <p class="item-title"><a href="/composeAttributes算法解析.html" class="title">ComposeAttributes 算法解析</a></p>
                             <p class="item-date"><time datetime="2018-06-16T07:10:02.000Z" itemprop="datePublished">2018-06-16</time></p>
                         </div>
                     </li>
@@ -466,7 +465,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                             <a href="/compose算法过程验算.html" class="thumbnail">
     
     
-        <span style="background-image:url(http://imgtec.eetrend.com/sites/imgtec.eetrend.com/files/201712/blog/10811-31282-1-1.jpg?1513300463)" alt="compose算法过程验算" class="thumbnail-image"></span>
+        <span style="background-image:url(http://imgtec.eetrend.com/sites/imgtec.eetrend.com/files/201712/blog/10811-31282-1-1.jpg?1513300463)" alt="Compose 算法过程验算" class="thumbnail-image"></span>
     
     
 </a>
@@ -475,7 +474,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
-                            <p class="item-title"><a href="/compose算法过程验算.html" class="title">compose算法过程验算</a></p>
+                            <p class="item-title"><a href="/compose算法过程验算.html" class="title">Compose 算法过程验算</a></p>
                             <p class="item-date"><time datetime="2018-06-15T07:09:51.000Z" itemprop="datePublished">2018-06-15</time></p>
                         </div>
                     </li>
@@ -486,7 +485,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                             <a href="/followAttributes算法解析.html" class="thumbnail">
     
     
-        <span style="background-image:url(http://www.gaoimg.com/uploads/allimg/170206/1-1F2061U22RA.jpg)" alt="followAttributes算法解析" class="thumbnail-image"></span>
+        <span style="background-image:url(http://www.gaoimg.com/uploads/allimg/170206/1-1F2061U22RA.jpg)" alt="FollowAttributes 算法解析" class="thumbnail-image"></span>
     
     
 </a>
@@ -495,7 +494,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
-                            <p class="item-title"><a href="/followAttributes算法解析.html" class="title">followAttributes算法解析</a></p>
+                            <p class="item-title"><a href="/followAttributes算法解析.html" class="title">FollowAttributes 算法解析</a></p>
                             <p class="item-date"><time datetime="2018-06-14T07:09:01.000Z" itemprop="datePublished">2018-06-14</time></p>
                         </div>
                     </li>

@@ -6,26 +6,26 @@
     
 
     
-    <title>Java关键字final和static | 有幸的个人小站</title>
+    <title>Java反射 | 有幸的个人小站</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="Java-Fundamental" />
     
-    <meta name="description" content="关键字final1、数据： 声明数据为常量，可以是编译时常量，也可以是在运行时被初始化后不能被改变的常量。  对于基本类型，final 使数值不变； 对于引用类型，final 使引用不变，也就不能引用其它对象，但是被引用的对象本身是可以修改的。  1234final int x = 1;// x = 2;  // cannot assign value to final variable &apos;x&apos;f">
+    <meta name="description" content="反射每个类都有一个 Class 对象，包含了与类有关的信息。当编译一个新类时，会产生一个同名的 .class 文件，该文件内容保存着 Class 对象。 类加载相当于 Class 对象的加载。类在第一次使用时才动态加载到 JVM 中，可以使用 Class.forName(&amp;quot;com.mysql.jdbc.Driver&amp;quot;) 这种方式来控制类的加载，该方法会返回一个 Class 对象">
 <meta name="keywords" content="Java-Fundamental">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java关键字final和static">
-<meta property="og:url" content="http://xiaoqinghua.site/Java关键字final和static.html">
+<meta property="og:title" content="Java反射">
+<meta property="og:url" content="http://xiaoqinghua.site/Java反射.html">
 <meta property="og:site_name" content="有幸的个人小站">
-<meta property="og:description" content="关键字final1、数据： 声明数据为常量，可以是编译时常量，也可以是在运行时被初始化后不能被改变的常量。  对于基本类型，final 使数值不变； 对于引用类型，final 使引用不变，也就不能引用其它对象，但是被引用的对象本身是可以修改的。  1234final int x = 1;// x = 2;  // cannot assign value to final variable &apos;x&apos;f">
+<meta property="og:description" content="反射每个类都有一个 Class 对象，包含了与类有关的信息。当编译一个新类时，会产生一个同名的 .class 文件，该文件内容保存着 Class 对象。 类加载相当于 Class 对象的加载。类在第一次使用时才动态加载到 JVM 中，可以使用 Class.forName(&amp;quot;com.mysql.jdbc.Driver&amp;quot;) 这种方式来控制类的加载，该方法会返回一个 Class 对象">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://i.pinimg.com/originals/18/0b/86/180b8608a7219fcccb87e96719401d7c.jpg">
-<meta property="og:updated_time" content="2018-08-24T07:42:38.998Z">
+<meta property="og:image" content="https://cdn.shopify.com/s/files/1/1658/0235/products/Java_Code_Design_Close-Up_1024x1024.jpg?v=1527529739g">
+<meta property="og:updated_time" content="2018-08-24T09:11:38.628Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java关键字final和static">
-<meta name="twitter:description" content="关键字final1、数据： 声明数据为常量，可以是编译时常量，也可以是在运行时被初始化后不能被改变的常量。  对于基本类型，final 使数值不变； 对于引用类型，final 使引用不变，也就不能引用其它对象，但是被引用的对象本身是可以修改的。  1234final int x = 1;// x = 2;  // cannot assign value to final variable &apos;x&apos;f">
-<meta name="twitter:image" content="https://i.pinimg.com/originals/18/0b/86/180b8608a7219fcccb87e96719401d7c.jpg">
+<meta name="twitter:title" content="Java反射">
+<meta name="twitter:description" content="反射每个类都有一个 Class 对象，包含了与类有关的信息。当编译一个新类时，会产生一个同名的 .class 文件，该文件内容保存着 Class 对象。 类加载相当于 Class 对象的加载。类在第一次使用时才动态加载到 JVM 中，可以使用 Class.forName(&amp;quot;com.mysql.jdbc.Driver&amp;quot;) 这种方式来控制类的加载，该方法会返回一个 Class 对象">
+<meta name="twitter:image" content="https://cdn.shopify.com/s/files/1/1658/0235/products/Java_Code_Design_Close-Up_1024x1024.jpg?v=1527529739g">
     
 
     
@@ -160,14 +160,14 @@ var _hmt = _hmt || [];
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-Java关键字final和static" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-Java反射" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        Java关键字final和static
+        Java反射
         </h1>
     
 
@@ -177,8 +177,8 @@ var _hmt = _hmt || [];
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/Java关键字final和static.html" class="article-date">
-            <time datetime="2017-09-02T07:31:51.000Z" itemprop="datePublished">2017-09-02</time>
+        <a href="/Java反射.html" class="article-date">
+            <time datetime="2017-09-10T09:06:08.000Z" itemprop="datePublished">2017-09-10</time>
         </a>
     </div>
 
@@ -192,46 +192,24 @@ var _hmt = _hmt || [];
         
         
         <div class="article-entry" itemprop="articleBody">
-            <h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h3 id="final"><a href="#final" class="headerlink" title="final"></a>final</h3><p>1、数据：</p>
-<p>声明数据为常量，可以是编译时常量，也可以是在运行时被初始化后不能被改变的常量。</p>
+            <h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><p>每个类都有一个 <code>Class</code> 对象，包含了与类有关的信息。当编译一个新类时，会产生一个同名的 <code>.class</code> 文件，该文件内容保存着 <code>Class</code> 对象。</p>
+<p>类加载相当于 <code>Class</code> 对象的加载。类在第一次使用时才动态加载到 <code>JVM</code> 中，可以使用 <code>Class.forName(&quot;com.mysql.jdbc.Driver&quot;)</code> 这种方式来控制类的加载，该方法会返回一个 <code>Class</code> 对象。</p>
+<p><code>反射</code>可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 <code>.class</code> 不存在也可以加载进来。</p>
+<p>Class 和 java.lang.reflect 一起对反射提供了支持，java.lang.reflect 类库主要包含了以下三个类：</p>
 <ul>
-<li>对于基本类型，<code>final</code> 使数值不变；</li>
-<li>对于引用类型，<code>final</code> 使引用不变，也就不能引用其它对象，但是被引用的对象本身是可以修改的。</li>
+<li>Field ：可以使用 get() 和 set() 方法读取和修改 Field 对象关联的字段；</li>
+<li>Method ：可以使用 invoke() 方法调用与 Method 对象关联的方法；</li>
+<li>Constructor ：可以用 Constructor 创建新的对象。</li>
+<li>Advantages of Using Reflection:</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">int</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="comment">// x = 2;  // cannot assign value to final variable 'x'</span></span><br><span class="line"><span class="keyword">final</span> A y = <span class="keyword">new</span> A();</span><br><span class="line">y.a = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-<p>2、方法：</p>
-<p>声明方法不能被子类重写。</p>
-<p>private 方法隐式地被指定为 final，如果在子类中定义的方法和基类中的一个 private 方法签名相同，此时子类的方法不是重写基类方法，而是在子类中定义了一个新的方法。</p>
-<p>3、类：</p>
-<p>声明类不允许被继承。</p>
-<h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><p>1、静态变量：</p>
-<ul>
-<li>静态变量：又称为类变量，也就是说这个变量属于类的，类所有的实例都共享静态变量，可以直接通过类名来访问它；静态变量在内存中只存在一份。</li>
-<li>实例变量：每创建一个实例就会产生一个实例变量，它与该实例同生共死。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x;         <span class="comment">// 实例变量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> y;  <span class="comment">// 静态变量</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// int x = A.x;  // Non-static field 'x' cannot be referenced from a static context</span></span><br><span class="line">        A a = <span class="keyword">new</span> A();</span><br><span class="line">        <span class="keyword">int</span> x = a.x;</span><br><span class="line">        <span class="keyword">int</span> y = A.y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2、静态方法：</p>
-<p>静态方法在类加载的时候就存在了，它不依赖于任何实例。所以静态方法必须有实现，也就是说它不能是抽象方法（abstract）。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">func1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// public abstract static void func2();  // Illegal combination of modifiers: 'abstract' and 'static'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>只能访问所属类的静态字段和静态方法，方法中不能有 this 和 super 关键字。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> y;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">func1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = x;</span><br><span class="line">        <span class="comment">// int b = y;  // Non-static field 'y' cannot be referenced from a static context</span></span><br><span class="line">        <span class="comment">// int b = this.y;     // 'A.this' cannot be referenced from a static context</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3、静态语句块：</p>
-<p>静态语句块在类初始化时运行一次。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"123"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        A a1 = <span class="keyword">new</span> A();</span><br><span class="line">        A a2 = <span class="keyword">new</span> A();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">123</span></span><br></pre></td></tr></table></figure>
-<p>4、静态内部类：</p>
-<p>非静态内部类依赖于外部类的实例，而静态内部类不需要。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticInnerClass</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// InnerClass innerClass = new InnerClass(); // 'OuterClass.this' cannot be referenced from a static context</span></span><br><span class="line">        OuterClass outerClass = <span class="keyword">new</span> OuterClass();</span><br><span class="line">        InnerClass innerClass = outerClass.new InnerClass();</span><br><span class="line">        StaticInnerClass staticInnerClass = <span class="keyword">new</span> StaticInnerClass();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>静态内部类不能访问外部类的非静态的变量和方法。</p>
-<p>5、静态导包：</p>
-<p>在使用静态变量和方法时不用再指明 ClassName，从而简化代码，但可读性大大降低。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> com.xxx.ClassName.*</span><br></pre></td></tr></table></figure>
-<p>6、初始化顺序：</p>
-<p>静态变量和静态语句块优先于实例变量和普通语句块，静态变量和静态语句块的初始化顺序取决于它们在代码中的顺序。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String staticField = <span class="string">"静态变量"</span>;</span><br><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">"静态语句块"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> String field = <span class="string">"实例变量"</span>;</span><br><span class="line">&#123;</span><br><span class="line">    System.out.println(<span class="string">"普通语句块"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>最后才是构造函数的初始化。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">InitialOrderTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"构造函数"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>存在继承的情况下，初始化顺序为：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> 父类（静态变量、静态语句块）</span><br><span class="line"><span class="number">2</span> 子类（静态变量、静态语句块）</span><br><span class="line"><span class="number">3</span> 父类（实例变量、普通语句块）</span><br><span class="line"><span class="number">4</span> 父类（构造函数）</span><br><span class="line"><span class="number">5</span> 子类（实例变量、普通语句块）</span><br><span class="line"><span class="number">6</span> 子类（构造函数）</span><br></pre></td></tr></table></figure>
+<h3 id="Extensibility-Features"><a href="#Extensibility-Features" class="headerlink" title="Extensibility Features :"></a>Extensibility Features :</h3><p>An application may make use of external, user-defined classes by creating instances of extensibility objects using their fully-qualified names.<br>Class Browsers and Visual Development Environments : A class browser needs to be able to enumerate the members of classes. Visual development environments can benefit from making use of type information available in reflection to aid the developer in writing correct code.<br>Debuggers and Test Tools : Debuggers need to be able to examine private members on classes. Test harnesses can make use of reflection to systematically call a discoverable set APIs defined on a class, to insure a high level of code coverage in a test suite.</p>
+<h3 id="Drawbacks-of-Reflection"><a href="#Drawbacks-of-Reflection" class="headerlink" title="Drawbacks of Reflection:"></a>Drawbacks of Reflection:</h3><p>Reflection is powerful, but should not be used indiscriminately. If it is possible to perform an operation without using reflection, then it is preferable to avoid using it. The following concerns should be kept in mind when accessing code via reflection.</p>
+<p>Performance Overhead : Because reflection involves types that are dynamically resolved, certain Java virtual machine optimizations can not be performed. Consequently, reflective operations have slower performance than their non-reflective counterparts, and should be avoided in sections of code which are called frequently in performance-sensitive applications.</p>
+<p>Security Restrictions : Reflection requires a runtime permission which may not be present when running under a security manager. This is in an important consideration for code which has to run in a restricted security context, such as in an Applet.</p>
+<p>Exposure of Internals :Since reflection allows code to perform operations that would be illegal in non-reflective code, such as accessing private fields and methods, the use of reflection can result in unexpected side-effects, which may render code dysfunctional and may destroy portability. Reflective code breaks abstractions and therefore may change behavior with upgrades of the platform.</p>
+<p><a href="https://docs.oracle.com/javase/tutorial/reflect/index.html" target="_blank" rel="noopener">Trail: The Reflection API</a></p>
+<p><a href="https://www.cnblogs.com/zhaoyanjun/p/6074887.html" target="_blank" rel="noopener">Java 反射使用总结</a></p>
+
         </div>
         <footer class="article-footer">
             
@@ -334,20 +312,20 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
         
 <nav id="article-nav">
     
-        <a href="/Object总结.html" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/VIM练习手册.html" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            Object类总结
+            VIM练习手册
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/Java抽象类接口.html" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/Object总结.html" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">Java 抽象和类接口</p>
+        <p class="article-nav-title">Object类总结</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -565,7 +543,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://xiaoqinghua.site/Java关键字final和static.html';
+    var disqus_url = 'http://xiaoqinghua.site/Java反射.html';
     
     (function() {
     var dsq = document.createElement('script');

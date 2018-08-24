@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Object类总结 | 有幸的个人小站</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Java-Fundamental" />
+    
+    <meta name="description" content="Object 上帝类Object类是Java中其他所有类的祖先，没有Object类Java面向对象无从谈起。作为其他所有类的基类，Object具有哪些属性和行为，是Java语言设计背后的思维体现。 Object类位于java.lang包中，java.lang包包含着Java最基础和核心的类，在编译时会自动导入。Object类没有定义属性，一共有13个方法： 12345678910111213141">
+<meta name="keywords" content="Java-Fundamental">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Object类总结">
+<meta property="og:url" content="http://xiaoqinghua.site/Object总结.html">
+<meta property="og:site_name" content="有幸的个人小站">
+<meta property="og:description" content="Object 上帝类Object类是Java中其他所有类的祖先，没有Object类Java面向对象无从谈起。作为其他所有类的基类，Object具有哪些属性和行为，是Java语言设计背后的思维体现。 Object类位于java.lang包中，java.lang包包含着Java最基础和核心的类，在编译时会自动导入。Object类没有定义属性，一共有13个方法： 12345678910111213141">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://interiorsroom.ru/wp-content/uploads/home-office-design-08.jpg">
+<meta property="og:updated_time" content="2018-08-24T05:57:57.669Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Object类总结">
+<meta name="twitter:description" content="Object 上帝类Object类是Java中其他所有类的祖先，没有Object类Java面向对象无从谈起。作为其他所有类的基类，Object具有哪些属性和行为，是Java语言设计背后的思维体现。 Object类位于java.lang包中，java.lang包包含着Java最基础和核心的类，在编译时会自动导入。Object类没有定义属性，一共有13个方法： 12345678910111213141">
+<meta name="twitter:image" content="http://interiorsroom.ru/wp-content/uploads/home-office-design-08.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="有幸的个人小站" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?406f7b4a3caadab9aabc8241063812a6";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">code is poetry</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/tags/Life">Life</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/tags/City">City</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/">Code</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Cloud-Office/">Cloud-Office</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/EtherPad/">EtherPad</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Iterm2/">Iterm2</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Java-Fundamental/">Java-Fundamental</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/MySql/">MySql</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/OT/">OT</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Redis/">Redis</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Vim/">Vim</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Code/Java-Fundamental/">Java-Fundamental</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-Object总结" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Object类总结
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/Object总结.html" class="article-date">
+            <time datetime="2017-09-03T09:06:13.000Z" itemprop="datePublished">2017-09-03</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java-Fundamental/">Java-Fundamental</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="Object-上帝类"><a href="#Object-上帝类" class="headerlink" title="Object 上帝类"></a>Object 上帝类</h2><p>Object类是Java中其他所有类的祖先，没有Object类Java面向对象无从谈起。作为其他所有类的基类，Object具有哪些属性和行为，是Java语言设计背后的思维体现。</p>
+<p>Object类位于java.lang包中，java.lang包包含着Java最基础和核心的类，在编译时会自动导入。Object类没有定义属性，一共有13个方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 隐式构造方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Object</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用本地C/C++实现的方法</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">registerNatives</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化调用</span></span><br><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    registerNatives();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">native</span> Object <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> Class&lt;?&gt; <span class="title">getClass</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="keyword">long</span> timeout, <span class="keyword">int</span> nanos)</span> <span class="keyword">throws</span> InterruptedException</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">notify</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">notifyAll</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="keyword">long</span> timeout)</span> <span class="keyword">throws</span> InterruptedException</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1、类构造器public-Object"><a href="#1、类构造器public-Object" class="headerlink" title="1、类构造器public Object();"></a>1、类构造器public Object();</h3><p>大部分情况下，Java中通过形如 <code>new A(args..)</code>形式创建一个属于该类型的对象。其中 A 即是类名，<code>A(args..)</code>即此类定义中相对应的构造函数。<br>通过此种形式创建的对象都是通过类中的构造函数完成。为体现此特性，Java中规定：在类定义过程中，<code>对于未定义构造函数的类，默认会有一个无参数的构造函数</code>。作为所有类的基类，Object类自然要反映出此特性，在源码中，未给出Object类构造函数定义，但实际上，此构造函数是存在的。</p>
+<p>当然，并不是所有的类都是通过此种方式去构建，也自然的，并不是所有的类构造函数都是public。</p>
+<h3 id="2、private-static-native-void-registerNatives"><a href="#2、private-static-native-void-registerNatives" class="headerlink" title="2、private static native void registerNatives();"></a>2、private static native void registerNatives();</h3><p><code>registerNatives</code>函数前面有<code>native</code>关键字修饰，Java中，用<code>native</code>关键字修饰的函数表明该方法的实现并不是在Java中去完成，而是由<code>C/C++</code>去完成，并被编译成了<code>.dll</code>，由Java去调用。方法的具体实现体在<code>dll文件</code>中，对于不同平台，其具体实现应该有所不同。用<code>native</code>修饰，即表示<code>操作系统</code>，需要提供此方法，Java本身需要使用。具体到<code>registerNatives()</code>方法本身，其主要作用是将<code>C/C++</code>中的方法映射到Java中的<code>native</code>方法，实现方法命名的<code>解耦</code>。</p>
+<p>既然如此，可能有人会问，<code>registerNatives()</code>修饰符为private，且并没有执行，作用何以达到？其实，在Java源码中，此方法的声明后有紧接着一段<code>静态代码块</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">registerNatives</span><span class="params">()</span></span>;</span><br><span class="line"><span class="number">2</span> <span class="keyword">static</span> &#123;</span><br><span class="line"><span class="number">3</span>     registerNatives();</span><br><span class="line"><span class="number">4</span> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3、protected-native-Object-clone-throws-CloneNotSupportedException"><a href="#3、protected-native-Object-clone-throws-CloneNotSupportedException" class="headerlink" title="3、protected native Object clone() throws CloneNotSupportedException;"></a>3、protected native Object clone() throws CloneNotSupportedException;</h3><p><code>clone()</code>方法又是一个被声明为native的方法，因此，我们知道了<code>clone()</code>方法并不是Java的原生方法，具体的实现是有<code>C/C++</code>完成的。clone英文翻译为<code>&quot;克隆&quot;</code>，其目的是创建并返回此对象的一个副本。形象点理解，这有一辆科鲁兹，你看着不错，想要个一模一样的。你调用此方法即可像变魔术一样变出一辆一模一样的科鲁兹出来。配置一样，长相一样。但从此刻起，原来的那辆科鲁兹如果进行了新的装饰，与你克隆出来的这辆科鲁兹没有任何关系了。你克隆出来的对象变不变完全在于你对克隆出来的科鲁兹有没有进行过什么操作了。Java术语表述为：<code>clone函数返回的是一个引用，指向的是新的clone出来的对象，此对象与原对象分别占用不同的堆空间。</code></p>
+<p>明白了clone的含义后，接下来看看如果调用clone()函数对象进行此克隆操作。</p>
+<p>首先看一下下面的这个例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Object o1 = <span class="keyword">new</span> Object();</span><br><span class="line">         <span class="comment">// The method clone() from the type Object is not visible</span></span><br><span class="line">         Object clone = o1.clone();</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例子很简单，在<code>main()</code>方法中，<code>new</code>一个<code>Object</code>对象后，想直接调用此对象的<code>clone</code>方法克隆一个对象，但是出现错误提示：<code>&quot;The method clone() from the type Object is not visible&quot;</code></p>
+<p>why? 根据提示，第一反应是<code>ObjectTest</code>类中定义的<code>Object</code>对象无法访问其<code>clone()</code>方法。回到<code>Object</code>类中<code>clone()</code>方法的定义，可以看到其被声明为<code>protected</code>，估计问题就在这上面了，<code>protected</code>修饰的属性或方法表示：<code>在同一个包内或者不同包的子类可以访问</code>。显然，<code>Object</code>类与<code>ObjectTest</code>类在不同的包中，但是<code>ObjectTest</code>继承自<code>Object</code>，是<code>Object</code>类的子类，于是，现在却出现子类中通过<code>Object</code>引用不能访问<code>protected</code>方法，原因在于对<code>&quot;不同包中的子类可以访问&quot;</code>没有正确理解。</p>
+<p><code>&quot;不同包中的子类可以访问&quot;</code>，是指当两个类不在同一个包中的时候，继承自父类的子类内部且主调（调用者）为子类的引用时才能访问父类用protected修饰的成员（属性/方法）。 在子类内部，主调为父类的引用时并不能访问此<code>protected</code>修饰的成员。！<code>（super关键字除外）</code></p>
+<p>于是，上例改成如下形式，可以正常编译：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ObjectTest ot1 = <span class="keyword">new</span> ObjectTest();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            ObjectTest ot2 = (ObjectTest) ot1.clone();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (CloneNotSupportedException e) &#123;</span><br><span class="line">            <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>是的，因为此时的主调已经是子类的引用了。</p>
+<p>上述代码在运行过程中会抛出<code>&quot;java.lang.CloneNotSupportedException&quot;</code>,表明<code>clone()</code>方法并未正确执行完毕，问题的原因在与Java中的语法规定：</p>
+<p>clone()的正确调用是需要实现<code>Cloneable</code>接口，如果没有实现<code>Cloneable</code>接口，并且子类直接调用<code>Object</code>类的<code>clone()</code>方法，则会抛出<code>CloneNotSupportedException</code>异常。</p>
+<p>Cloneable接口仅是一个表示接口，接口本身不包含任何方法，用来指示<code>Object.clone()</code>可以合法的被子类引用所调用。</p>
+<p>于是，上述代码改成如下形式，即可正确指定clone()方法以实现克隆。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> <span class="number">3</span> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectTest</span> <span class="keyword">implements</span> <span class="title">Cloneable</span> </span>&#123;</span><br><span class="line"> <span class="number">4</span> </span><br><span class="line"> <span class="number">5</span>     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"> <span class="number">6</span> </span><br><span class="line"> <span class="number">7</span>         ObjectTest ot1 = <span class="keyword">new</span> ObjectTest();</span><br><span class="line"> <span class="number">8</span> </span><br><span class="line"> <span class="number">9</span>         <span class="keyword">try</span> &#123;</span><br><span class="line"><span class="number">10</span>             ObjectTest ot2 = (ObjectTest) ot1.clone();</span><br><span class="line"><span class="number">11</span>             System.out.println(<span class="string">"ot2:"</span> + ot2);</span><br><span class="line"><span class="number">12</span>         &#125; <span class="keyword">catch</span> (CloneNotSupportedException e) &#123;</span><br><span class="line"><span class="number">13</span>             <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line"><span class="number">14</span>             e.printStackTrace();</span><br><span class="line"><span class="number">15</span>         &#125;</span><br><span class="line"><span class="number">16</span>     &#125;</span><br><span class="line"><span class="number">17</span> </span><br><span class="line"><span class="number">18</span> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4、public-final-native-Class-lt-gt-getClass"><a href="#4、public-final-native-Class-lt-gt-getClass" class="headerlink" title="4、public final native Class&lt;?&gt; getClass();"></a>4、public final native Class&lt;?&gt; getClass();</h3><p><code>getClass()</code>也是一个<code>native</code>方法，返回的是此<code>Object</code>对象的类对象/运行时类对象<code>Class&lt;?&gt;</code>。效果与<code>Object.class</code>相同。</p>
+<p>首先解释下<code>&quot;类对象&quot;</code>的概念：在Java中，类是对具有一组相同特征或行为的实例的抽象并进行描述，对象则是此类所描述的特征或行为的具体实例。作为概念层次的类，其本身也具有某些共同的特性，如都具有类名称、由类加载器去加载，都具有包，具有父类，属性和方法等。于是，Java中有专门定义了一个类，<code>Class</code>，去描述其他类所具有的这些特性，因此，从此角度去看，类本身也都是属于Class类的对象。为与经常意义上的对象相区分，在此称之为<code>&quot;类对象&quot;</code>。</p>
+<h3 id="5、public-boolean-equals-Object-obj"><a href="#5、public-boolean-equals-Object-obj" class="headerlink" title="5、public boolean equals(Object obj);"></a>5、public boolean equals(Object obj);</h3><p><code>==</code>与<code>equals</code>在 Java 中经常被使用，大家也都知道<code>==</code>与<code>equals</code>的区别：</p>
+<p><code>==</code>表示的是<code>变量值</code>完成相同<code>（对于基础类型，地址中存储的是值，引用类型则存储指向实际对象的地址）</code></p>
+<p><code>equals</code>表示的是<code>对象的内容</code>完全相同，此处的内容多指<code>对象的特征/属性</code>。</p>
+<p>实际上，上面说法是不严谨的，更多的只是常见于<code>String</code>类中。首先看一下<code>Object</code>类中关于<code>equals()</code>方法的定义：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> (<span class="keyword">this</span> == obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由此可见，<code>Object</code>原生的<code>equals()</code>方法内部调用的正是<code>==</code>，与<code>==</code>具有相同的含义。既然如此，为什么还要定义此<code>equals()</code>方法？</p>
+<p><code>equlas()</code>方法的正确理解应该是：判断两个对象是否相等。那么判断对象相等的标尺又是什么？</p>
+<p>如上，在<code>Object</code>类中，此<code>标尺</code>即为<code>==</code>。当然，这个<code>标尺</code>不是固定的，其他类中可以按照实际的需要对此标尺含义进行重定义。如<code>String</code>类中则是依据<code>字符串内容是否相等</code>来重定义了此标尺含义。如此可以增加类的功能型和实际编码的灵活性。当然了，如果自定义的类没有重写<code>equals()</code>方法来重新定义此标尺，那么默认的将是其父类的<code>equals()</code>，直到<code>Object</code>基类。</p>
+<p>String 类的 equals():</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object anObject)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == anObject) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">            String anotherString = (String)anObject;</span><br><span class="line">            <span class="keyword">int</span> n = value.length;</span><br><span class="line">            <span class="keyword">if</span> (n == anotherString.value.length) &#123;</span><br><span class="line">                <span class="keyword">char</span> v1[] = value;</span><br><span class="line">                <span class="keyword">char</span> v2[] = anotherString.value;</span><br><span class="line">                <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">while</span> (n-- != <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (v1[i] != v2[i])</span><br><span class="line">                        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                    i++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>如下场景的实际业务需求，对于User bean，由实际的业务需求可知当属性uid相同时，表示的是同一个User，即两个User对象相等。则可以重写equals以重定义User对象相等的标尺。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> uid;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getUid</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> uid;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUid</span><span class="params">(<span class="keyword">int</span> uid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.uid = uid;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (obj == <span class="keyword">null</span> || !(obj <span class="keyword">instanceof</span> User)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (((User) obj).getUid() == <span class="keyword">this</span>.getUid()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectTest</span> <span class="keyword">implements</span> <span class="title">Cloneable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        User u1 = <span class="keyword">new</span> User();</span><br><span class="line">        u1.setUid(<span class="number">111</span>);</span><br><span class="line">        u1.setName(<span class="string">"张三"</span>);</span><br><span class="line"></span><br><span class="line">        User u2 = <span class="keyword">new</span> User();</span><br><span class="line">        u2.setUid(<span class="number">111</span>);</span><br><span class="line">        u2.setName(<span class="string">"张三丰"</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(u1.equals(u2)); <span class="comment">//返回true</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>ObjectTest</code>中打印出true，因为User类定义中重写了equals()方法，这很好理解，很可能张三是一个人小名，张三丰才是其大名，判断这两个人是不是同一个人，这时只用判断uid是否相同即可。</p>
+<p>如上重写equals方法表面上看上去是可以了，实则不然。因为它破坏了Java中的约定：<code>重写equals()方法必须重写hasCode()方法</code></p>
+<blockquote>
+<p>补充</p>
+</blockquote>
+<ol>
+<li>等价关系</li>
+</ol>
+<ul>
+<li>自反性</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x.equals(x); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>对称性</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x.equals(y) == y.equals(x); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>传递性</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (x.equals(y) &amp;&amp; y.equals(z))</span><br><span class="line">    x.equals(z); <span class="comment">// true;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>一致性</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">多次调用 equals() 方法结果不变</span><br><span class="line">x.equals(y) == x.equals(y); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>与 null 的比较</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">对任何不是 <span class="keyword">null</span> 的对象 x 调用 x.equals(<span class="keyword">null</span>) 结果都为 <span class="keyword">false</span></span><br><span class="line">x.equals(<span class="keyword">null</span>); <span class="comment">// false;</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><code>equals()</code> 与 <code>==</code></li>
+</ol>
+<ul>
+<li>对于基本类型，== 判断两个值是否相等，基本类型没有 equals() 方法。</li>
+<li>对于引用类型，== 判断两个变量是否引用同一个对象，而 equals() 判断引用的对象是否等价。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Integer x = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">Integer y = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">System.out.println(x.equals(y)); <span class="comment">// true</span></span><br><span class="line">System.out.println(x == y);      <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h3 id="6、public-native-int-hashCode"><a href="#6、public-native-int-hashCode" class="headerlink" title="6、public native int hashCode();"></a>6、public native int hashCode();</h3><p><code>hashCode()</code>方法返回一个<code>整形数值</code>，表示该对象的<code>哈希码值</code>。</p>
+<p><code>hashCode()</code>具有如下约定：</p>
+<ul>
+<li><p>在Java应用程序程序执行期间，对于同一对象多次调用<code>hashCode()</code>方法时，其返回的<code>哈希码</code>是相同的，前提是将对象进行<code>equals</code>比较时所用的标尺信息未做修改。在Java应用程序的一次执行到另外一次执行，同一对象的hashCode()返回的哈希码无须保持一致；</p>
+</li>
+<li><p>如果两个对象相等（依据：调用<code>equals()</code>方法），那么这两个对象调用<code>hashCode()</code>返回的哈希码也必须相等；</p>
+</li>
+<li><p>反之，两个对象调用<code>hasCode()</code>返回的<code>哈希码</code>相等，这两个对象不一定相等。</p>
+</li>
+</ul>
+<p>下面的代码中，新建了两个等价的对象，并将它们添加到 <code>HashSet</code> 中。我们希望将这两个对象当成一样的，只在集合中添加一个对象，但是因为 <code>EqualExample</code> 没有实现 <code>hasCode()</code> 方法，因此这两个对象的散列值是不同的，最终导致集合添加了两个等价的对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">EqualExample e1 = <span class="keyword">new</span> EqualExample(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">EqualExample e2 = <span class="keyword">new</span> EqualExample(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">System.out.println(e1.equals(e2)); <span class="comment">// true</span></span><br><span class="line">HashSet&lt;EqualExample&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">set.add(e1);</span><br><span class="line">set.add(e2);</span><br><span class="line">System.out.println(set.size());   <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>理想的散列函数应当具有<code>均匀性</code>，即不相等的对象应当均匀分布到所有可能的散列值上。这就要求了散列函数要把所有域的值都考虑进来，可以将每个域都当成 <code>R</code> 进制的某一位，然后组成一个 <code>R</code> 进制的整数。<code>R</code> 一般取 <code>31</code>，因为它是一个奇素数，如果是偶数的话，当出现乘法溢出，信息就会丢失，因为与 2 相乘相当于向左移一位。</p>
+<p>一个数与 31 相乘可以转换成移位和减法：<code>31*x == (x&lt;&lt;5)-x</code>，编译器会自动进行这个优化。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = <span class="number">17</span>;</span><br><span class="line">    result = <span class="number">31</span> * result + x;</span><br><span class="line">    result = <span class="number">31</span> * result + y;</span><br><span class="line">    result = <span class="number">31</span> * result + z;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="7、public-String-toString"><a href="#7、public-String-toString" class="headerlink" title="7、public String toString();"></a>7、public String toString();</h3><p><code>toString()</code>方法返回该对象的字符串表示。先看一下<code>Object</code>中的具体方法体：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> getClass().getName() + <span class="string">"@"</span> + Integer.toHexString(hashCode());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>toString()</code>方法相信大家都经常用到，即使没有显式调用，但当我们使用<code>System.out.println(obj)</code>时，其内部也是通过<code>toString()</code>来实现的。</p>
+<p><code>getClass()</code>返回对象的类对象，<code>getClassName()</code>以<code>String</code>形式返回类对象的名称（含包名）。<code>Integer.toHexString(hashCode())</code>则是以对象的哈希码为实参，以16进制无符号整数形式返回此哈希码的字符串表示形式。</p>
+<p>因此：<code>toString()</code>是由对象的<code>类型</code>和其<code>哈希码</code>唯一确定，同一类型但不相等的两个对象分别调用<code>toString()</code>方法返回的结果可能相同。</p>
+<h3 id="8-12、wait-…-notify-notifyAll"><a href="#8-12、wait-…-notify-notifyAll" class="headerlink" title="8~12、wait(…) / notify() / notifyAll()"></a>8~12、wait(…) / notify() / notifyAll()</h3><p>一说到<code>wait(...) / notify() | notifyAll()</code>几个方法，首先想到的是<code>线程</code>。确实，这几个方法主要用于<code>java多线程</code>之间的<code>协作</code>。先具体看下这几个方法的主要含义：</p>
+<ul>
+<li><p>wait()：调用此方法所在的当前线程等待，直到在其他线程上调用此方法的主调（某一对象）的<code>notify()/notifyAll()</code>方法。</p>
+</li>
+<li><p><code>wait(long timeout)/wait(long timeout, int nanos)</code>：调用此方法所在的当前线程等待，直到在其他线程上调用此方法的主调（某一对象）的<code>notify()/notifyAll()</code>方法，或超过指定的超时时间量。</p>
+</li>
+<li><p><code>notify()/notifyAll()</code>：唤醒在此对象监视器上等待的单个线程/所有线程。</p>
+</li>
+<li><p><code>wait(...) / notify() | notifyAll()</code>一般情况下都是配套使用。下面来看一个简单的例子：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> args</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        MyRunnable r = <span class="keyword">new</span> MyRunnable();</span><br><span class="line">        Thread t = <span class="keyword">new</span> Thread(r);</span><br><span class="line">        t.start();</span><br><span class="line">        <span class="keyword">synchronized</span> (r) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">"main thread 等待t线程执行完"</span>);</span><br><span class="line">                r.wait();</span><br><span class="line">                System.out.println(<span class="string">"被notity唤醒，得以继续执行"</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">                e.printStackTrace();</span><br><span class="line">                System.out.println(<span class="string">"main thread 本想等待，但被意外打断了"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"线程t执行相加结果"</span> + r.getTotal());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> total;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Thread name is:"</span> + Thread.currentThread().getName());</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">                total += i;</span><br><span class="line">            &#125;</span><br><span class="line">            notify();</span><br><span class="line">            System.out.println(<span class="string">"执行notif后同步代码块中依然可以继续执行直至完毕"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"执行notif后且同步代码块外的代码执行时机取决于线程调度"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getTotal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> total;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">main thread 等待t线程执行完</span><br><span class="line">Thread name is:Thread-<span class="number">0</span></span><br><span class="line">执行notif后同步代码块中依然可以继续执行直至完毕</span><br><span class="line">执行notif后且同步代码块外的代码执行时机取决于线程调度  <span class="comment">//此行输出位置有具体的JVM线程调度决定，有可能最后执行</span></span><br><span class="line">被notity唤醒，得以继续执行</span><br><span class="line">线程t执行相加结果<span class="number">45</span></span><br></pre></td></tr></table></figure>
+<p>既然是作用于多线程中，为什么却是<code>Object</code>这个基类所具有的方法？原因在于理论上任何对象都可以视为线程同步中的监听器，且<code>wait(...)/notify()|notifyAll()</code>方法只能在同步代码块中才能使用。</p>
+<p>从上述例子的输出结果中可以得出如下结论：</p>
+<ul>
+<li><p><code>wait(...)</code>方法调用后当前线程将立即阻塞，且释放其所持有的同步代码块中的锁，直到被唤醒或超时或打断后且重新获取到锁后才能继续执行；</p>
+</li>
+<li><p><code>notify()/notifyAll()</code>方法调用后，其所在线程不会立即释放所持有的锁，直到其所在同步代码块中的代码执行完毕，此时释放锁，因此，如果其同步代码块后还有代码，其执行则依赖于JVM的线程调度。</p>
+</li>
+</ul>
+<p>在Java源码中，可以看到<code>wait()</code>具体定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">    wait(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>且<code>wait(long timeout, int nanos)</code>方法定义内部实质上也是通过调用<code>wait(long timeout)</code>完成。而<code>wait(long timeout)</code>是一个<code>native</code>方法。因此，<code>wait(...)</code>方法本质上都是<code>native</code>方式实现。</p>
+<p><code>notify()/notifyAll()</code>方法也都是<code>native</code>方法。</p>
+<h3 id="13、protected-void-finalize"><a href="#13、protected-void-finalize" class="headerlink" title="13、protected void finalize();"></a>13、protected void finalize();</h3><p><code>finalize</code>方法主要与<code>Java垃圾回收机制</code>有关。首先我们看一下<code>finalized</code>方法在<code>Object</code>中的具体定义：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123; &#125;</span><br></pre></td></tr></table></figure>
+<p>我们发现<code>Object</code>类中<code>finalize</code>方法被定义成一个<code>空方法</code>，为什么要如此定义呢？<code>finalize</code>方法的调用时机是怎么样的呢？</p>
+<p>首先，<code>Object</code>中定义<code>finalize</code>方法表明<code>Java</code>中每一个对象都将具有<code>finalize</code>这种行为，其具体调用时机在：<code>JVM准备对此对对象所占用的内存空间进行垃圾回收前，将被调用</code>。由此可以看出，此方法并不是由我们主动去调用的（虽然可以主动去调用，此时与其他自定义方法无异）。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weixin" href="/../css/images/zz_qrcode.jpeg" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weixin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/smartzer" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="https://weibo.com/2476387642/profile?topnav=1&wvr=6" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/VIM练习手册.html" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            VIM练习手册
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/Java抽象类接口.html" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Java 抽象和类接口</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/follow算法图解.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://cdn-images-1.medium.com/max/1600/1*s6QZBNMEEwBQ5VwMy48Dbw.png)" alt="Follow 算法图解" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
+                            <p class="item-title"><a href="/follow算法图解.html" class="title">Follow 算法图解</a></p>
+                            <p class="item-date"><time datetime="2018-08-05T07:09:28.000Z" itemprop="datePublished">2018-08-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/成都.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.upchengdu.com/data/attachment/forum/201604/21/163843ldwql2fm4wwzhvqq.jpeg)" alt="成都" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/成都.html" class="title">成都</a></p>
+                            <p class="item-date"><time datetime="2018-07-21T08:38:55.000Z" itemprop="datePublished">2018-07-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/composeAttributes算法解析.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://cdn.dribbble.com/users/84852/screenshots/2353226/workspace-dribbble2.png)" alt="ComposeAttributes 算法解析" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
+                            <p class="item-title"><a href="/composeAttributes算法解析.html" class="title">ComposeAttributes 算法解析</a></p>
+                            <p class="item-date"><time datetime="2018-06-16T07:10:02.000Z" itemprop="datePublished">2018-06-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/compose算法过程验算.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://imgtec.eetrend.com/sites/imgtec.eetrend.com/files/201712/blog/10811-31282-1-1.jpg?1513300463)" alt="Compose 算法过程验算" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
+                            <p class="item-title"><a href="/compose算法过程验算.html" class="title">Compose 算法过程验算</a></p>
+                            <p class="item-date"><time datetime="2018-06-15T07:09:51.000Z" itemprop="datePublished">2018-06-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/followAttributes算法解析.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.gaoimg.com/uploads/allimg/170206/1-1F2061U22RA.jpg)" alt="FollowAttributes 算法解析" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a></p>
+                            <p class="item-title"><a href="/followAttributes算法解析.html" class="title">FollowAttributes 算法解析</a></p>
+                            <p class="item-date"><time datetime="2018-06-14T07:09:01.000Z" itemprop="datePublished">2018-06-14</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Code/">Code</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Cloud-Office/">Cloud-Office</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/EtherPad/">EtherPad</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Iterm2/">Iterm2</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Java-Fundamental/">Java-Fundamental</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/MySql/">MySql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/OT/">OT</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Redis/">Redis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Vim/">Vim</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/City/">City</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Office/">Cloud-Office</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EtherPad/">EtherPad</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Iterm2/">Iterm2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Fundamental/">Java-Fundamental</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Life/">Life</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OT/">OT</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/City/" style="font-size: 10px;">City</a> <a href="/tags/Cloud-Office/" style="font-size: 10px;">Cloud-Office</a> <a href="/tags/EtherPad/" style="font-size: 10px;">EtherPad</a> <a href="/tags/Iterm2/" style="font-size: 10px;">Iterm2</a> <a href="/tags/Java-Fundamental/" style="font-size: 20px;">Java-Fundamental</a> <a href="/tags/Life/" style="font-size: 16.67px;">Life</a> <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/OT/" style="font-size: 16.67px;">OT</a> <a href="/tags/Redis/" style="font-size: 13.33px;">Redis</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://github.com/">Github</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 xiaoqinghua 有幸</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://xiaoqinghua.site/Object总结.html';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

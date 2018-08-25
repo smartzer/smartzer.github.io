@@ -172,35 +172,36 @@ var _hmt = _hmt || [];
     
 
             </header>
-        
-        
-            <div class="article-meta">
+            
                 
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <a href="/云文档的难点.html" class="article-date">
             <time datetime="2018-04-05T06:50:30.000Z" itemprop="datePublished">2018-04-05</time>
         </a>
     </div>
 
-                
+                            
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Cloud-Office/">Cloud-Office</a>
     </div>
 
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-            <h2 id="1-多人协作，实时同步"><a href="#1-多人协作，实时同步" class="headerlink" title="1. 多人协作，实时同步"></a>1. 多人协作，实时同步</h2><p>在云文档上同时编写的客户可能会非常多，如果一个成员更新了别的成员无法及时看到，或者几个成员无法同时更新，那就不可能实现团队协作，甚至会出现业务错误风险。在石墨文档上，用户输入的每一个文字都需要在毫秒级尺度内实时计算，并传给同一个文档的其他协作者。<br>为此，石墨文档引用了 NATS 数据管道，对进入服务器的所有流量进行削峰填谷的处理。在数据高峰期引入服务器的数据进行延时处理，等待空闲时间再计算，从而使服务器可以平稳运行。同时基于此，还实现了根据数据流量对后端服务器自动扩容，当数据量突然增大时，自动增加服务器，提高整个系统负载能力。</p>
+                    </div>
+                    
+                        
+                            <div class="article-entry" itemprop="articleBody">
+                                <h2 id="1-多人协作，实时同步"><a href="#1-多人协作，实时同步" class="headerlink" title="1. 多人协作，实时同步"></a>1. 多人协作，实时同步</h2><p>在云文档上同时编写的客户可能会非常多，如果一个成员更新了别的成员无法及时看到，或者几个成员无法同时更新，那就不可能实现团队协作，甚至会出现业务错误风险。在石墨文档上，用户输入的每一个文字都需要在毫秒级尺度内实时计算，并传给同一个文档的其他协作者。<br>为此，石墨文档引用了 NATS 数据管道，对进入服务器的所有流量进行削峰填谷的处理。在数据高峰期引入服务器的数据进行延时处理，等待空闲时间再计算，从而使服务器可以平稳运行。同时基于此，还实现了根据数据流量对后端服务器自动扩容，当数据量突然增大时，自动增加服务器，提高整个系统负载能力。</p>
 <h2 id="2-多客户端实时同步"><a href="#2-多客户端实时同步" class="headerlink" title="2.多客户端实时同步"></a>2.多客户端实时同步</h2><p> 互联网时代，各种终端层出不穷，每个人日常中至少会使用两种设备，手机和电脑，如果一个人同时在手机和电脑上编辑同一份笔记，出现冲突时，很多笔记类应用会为每一个冲突创建独立的副本，需要用户手工合并，使得用户使用笔记便利性大大下降；</p>
 <p>为了支持实时协作，石墨文档技术团队对算法进行了改进，这个算法可以解决一段文字，多个客户端同时修改引起的冲突合并问题。另外到目前为止，已经适配了 50 种不同的机器和浏览器。</p>
 <h2 id="3-离线编辑，避免冲突"><a href="#3-离线编辑，避免冲突" class="headerlink" title="3.离线编辑，避免冲突"></a>3.离线编辑，避免冲突</h2><p>离线编辑，用户同步过来的数据往往是他几个小时编写的成果，此时，这个版本或已经与服务器的版本相差甚远了，按着此前方法，如何解决文档冲突是个问题。</p>
 <p>对此，石墨文档尽可能多地记录用户编辑过程中的每一步操作，然后利用各用户端的历史操作信息挨个重放，从而还原用户编辑的本意。比如，对于“今天天气很好”，第一个人可能会删除中间的“天气”两字，变成“今天很好”；而另外一个人可能会加上一个“真”字，变成“今天天气真的很好”，按着石墨文档的基于还原用户意图的算法，最后合并的结果则是“今天真的很好”，既满足删除“天气”，又满足增加“真”的双方意图。当然，这种合并方法也并非百分百完美，但李子骅表示这是最适合目前编写体验的。</p>
 
-        </div>
-        <footer class="article-footer">
-            
+                                    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=30431376&auto=1&height=66"></iframe>
+                            </div>
+                            <footer class="article-footer">
+                                
 
     <div class="bdsharebuttonbox">
     <a href="#" class="bds_more" data-cmd="more">分享到：</a>
@@ -239,7 +240,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
 
 
-        </footer>
+                            </footer>
     </div>
 </article>
 
@@ -335,7 +336,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/易燃易爆炸-Java版.html" class="thumbnail">
+                            <a href="/易燃易爆炸(程序员版).html" class="thumbnail">
     
     
         <span style="background-image:url(https://www.moedict.tw/%E6%AC%B2%E8%93%8B%E5%BD%8C%E5%BD%B0.png)" alt="易燃易爆炸(程序员版)" class="thumbnail-image"></span>
@@ -347,7 +348,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/易燃易爆炸-Java版.html" class="title">易燃易爆炸(程序员版)</a></p>
+                            <p class="item-title"><a href="/易燃易爆炸(程序员版).html" class="title">易燃易爆炸(程序员版)</a></p>
                             <p class="item-date"><time datetime="2018-08-24T16:12:09.000Z" itemprop="datePublished">2018-08-25</time></p>
                         </div>
                     </li>

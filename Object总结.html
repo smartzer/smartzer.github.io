@@ -172,27 +172,27 @@ var _hmt = _hmt || [];
     
 
             </header>
-        
-        
-            <div class="article-meta">
+            
                 
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <a href="/Object总结.html" class="article-date">
             <time datetime="2017-09-03T09:06:13.000Z" itemprop="datePublished">2017-09-03</time>
         </a>
     </div>
 
-                
+                            
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Java-Fundamental/">Java-Fundamental</a>
     </div>
 
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-            <h2 id="Object-上帝类"><a href="#Object-上帝类" class="headerlink" title="Object 上帝类"></a>Object 上帝类</h2><p>Object类是Java中其他所有类的祖先，没有Object类Java面向对象无从谈起。作为其他所有类的基类，Object具有哪些属性和行为，是Java语言设计背后的思维体现。</p>
+                    </div>
+                    
+                        
+                            <div class="article-entry" itemprop="articleBody">
+                                <h2 id="Object-上帝类"><a href="#Object-上帝类" class="headerlink" title="Object 上帝类"></a>Object 上帝类</h2><p>Object类是Java中其他所有类的祖先，没有Object类Java面向对象无从谈起。作为其他所有类的基类，Object具有哪些属性和行为，是Java语言设计背后的思维体现。</p>
 <p>Object类位于java.lang包中，java.lang包包含着Java最基础和核心的类，在编译时会自动导入。Object类没有定义属性，一共有13个方法：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 隐式构造方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Object</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用本地C/C++实现的方法</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">registerNatives</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化调用</span></span><br><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    registerNatives();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">native</span> Object <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> Class&lt;?&gt; <span class="title">getClass</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="keyword">long</span> timeout, <span class="keyword">int</span> nanos)</span> <span class="keyword">throws</span> InterruptedException</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">notify</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">notifyAll</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="keyword">long</span> timeout)</span> <span class="keyword">throws</span> InterruptedException</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="1、类构造器public-Object"><a href="#1、类构造器public-Object" class="headerlink" title="1、类构造器public Object();"></a>1、类构造器public Object();</h3><p>大部分情况下，Java中通过形如 <code>new A(args..)</code>形式创建一个属于该类型的对象。其中 A 即是类名，<code>A(args..)</code>即此类定义中相对应的构造函数。<br>通过此种形式创建的对象都是通过类中的构造函数完成。为体现此特性，Java中规定：在类定义过程中，<code>对于未定义构造函数的类，默认会有一个无参数的构造函数</code>。作为所有类的基类，Object类自然要反映出此特性，在源码中，未给出Object类构造函数定义，但实际上，此构造函数是存在的。</p>
@@ -317,9 +317,10 @@ var _hmt = _hmt || [];
 <p>我们发现<code>Object</code>类中<code>finalize</code>方法被定义成一个<code>空方法</code>，为什么要如此定义呢？<code>finalize</code>方法的调用时机是怎么样的呢？</p>
 <p>首先，<code>Object</code>中定义<code>finalize</code>方法表明<code>Java</code>中每一个对象都将具有<code>finalize</code>这种行为，其具体调用时机在：<code>JVM准备对此对对象所占用的内存空间进行垃圾回收前，将被调用</code>。由此可以看出，此方法并不是由我们主动去调用的（虽然可以主动去调用，此时与其他自定义方法无异）。</p>
 
-        </div>
-        <footer class="article-footer">
-            
+                                    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=30431376&auto=1&height=66"></iframe>
+                            </div>
+                            <footer class="article-footer">
+                                
 
     <div class="bdsharebuttonbox">
     <a href="#" class="bds_more" data-cmd="more">分享到：</a>
@@ -358,7 +359,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
 
 
-        </footer>
+                            </footer>
     </div>
 </article>
 
@@ -454,7 +455,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/易燃易爆炸-Java版.html" class="thumbnail">
+                            <a href="/易燃易爆炸(程序员版).html" class="thumbnail">
     
     
         <span style="background-image:url(https://www.moedict.tw/%E6%AC%B2%E8%93%8B%E5%BD%8C%E5%BD%B0.png)" alt="易燃易爆炸(程序员版)" class="thumbnail-image"></span>
@@ -466,7 +467,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/易燃易爆炸-Java版.html" class="title">易燃易爆炸(程序员版)</a></p>
+                            <p class="item-title"><a href="/易燃易爆炸(程序员版).html" class="title">易燃易爆炸(程序员版)</a></p>
                             <p class="item-date"><time datetime="2018-08-24T16:12:09.000Z" itemprop="datePublished">2018-08-25</time></p>
                         </div>
                     </li>

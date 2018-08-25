@@ -172,27 +172,27 @@ var _hmt = _hmt || [];
     
 
             </header>
-        
-        
-            <div class="article-meta">
+            
                 
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <a href="/Java基本数据类型.html" class="article-date">
             <time datetime="2017-08-19T03:58:52.000Z" itemprop="datePublished">2017-08-19</time>
         </a>
     </div>
 
-                
+                            
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Java-Fundamental/">Java-Fundamental</a>
     </div>
 
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-            <p>基本类型，或者叫做内置类型，是JAVA中不同于类的特殊类型。它们是我们编程中使用最频繁的类型。java是一种强类型语言，第一次申明变量必须说明数据类型（Java 9 之后的 <code>var</code>类型推断，了解一下），第一次变量赋值称为变量的初始化。</p>
+                    </div>
+                    
+                        
+                            <div class="article-entry" itemprop="articleBody">
+                                <p>基本类型，或者叫做内置类型，是JAVA中不同于类的特殊类型。它们是我们编程中使用最频繁的类型。java是一种强类型语言，第一次申明变量必须说明数据类型（Java 9 之后的 <code>var</code>类型推断，了解一下），第一次变量赋值称为变量的初始化。</p>
 <h2 id="1-Java的简单类型及其封装器类"><a href="#1-Java的简单类型及其封装器类" class="headerlink" title="1. Java的简单类型及其封装器类"></a>1. Java的简单类型及其封装器类</h2><p>Java基本类型共有八种，基本类型可以分为三类，<code>字符类型char</code>，<code>布尔类型boolean</code>以及<code>数值类型</code>byte、short、int、long、float、double。数值类型又可以分为<code>整数类型</code>byte、short、int、long和<code>浮点数类型</code>float、double。JAVA中的数值类型不存在无符号的，它们的取值范围是固定的，不会随着机器硬件环境或者操作系统的改变而改变。实际上，JAVA中还存在另外一种基本类型<code>void</code>，它也有对应的包装类 java.lang.Void，不过我们无法直接对它们进行操作。8 中类型表示范围如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">byte：8位，最大存储数据量是255，存放的数据范围是-128~127之间。</span><br><span class="line"></span><br><span class="line">char：16位，存储Unicode码，用单引号赋值。</span><br><span class="line"></span><br><span class="line">short：16位，最大数据存储量是65536，数据范围是-32768~32767之间。</span><br><span class="line"></span><br><span class="line">int：32位，最大数据存储容量是2的32次方减1，数据范围是负的2的31次方到正的2的31次方减1。</span><br><span class="line"></span><br><span class="line">long：64位，最大数据存储容量是2的64次方减1，数据范围为负的2的63次方到正的2的63次方减1。</span><br><span class="line"></span><br><span class="line">float：32位，数据范围在3.4e-45~1.4e38，直接赋值时必须在数字后加上f或F。</span><br><span class="line"></span><br><span class="line">double：64位，数据范围在4.9e-324~1.8e308，赋值时可以加d或D也可以不加。</span><br><span class="line"></span><br><span class="line">boolean：只有true和false两个取值。</span><br></pre></td></tr></table></figure>
 <p>对于数值类型的基本类型的取值范围，我们无需强制去记忆，因为它们的值都已经以常量的形式定义在对应的包装类中了。如：</p>
@@ -243,9 +243,10 @@ var _hmt = _hmt || [];
 <p>JVM的内存空间：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">（1）Heap 堆空间：分配对象 `new Student（）`</span><br><span class="line"></span><br><span class="line">（2）Stack 栈空间：临时变量 `Student stu`</span><br><span class="line"></span><br><span class="line">（3）Code 代码区 ：类的定义，静态资源 `Student.class`</span><br><span class="line"></span><br><span class="line">eg：Student stu = new Student（）； //new 在内存的堆空间创建对象</span><br><span class="line"></span><br><span class="line">stu.study(); //把对象的地址赋给stu引用变量</span><br><span class="line"></span><br><span class="line">上例实现步骤：</span><br><span class="line"></span><br><span class="line">a.JVM 加载 `Student.class` 到Code区</span><br><span class="line"></span><br><span class="line">b.`new Student()`在堆空间分配空间并创建一个Student实例</span><br><span class="line"></span><br><span class="line">c.将此实例的地址赋值给引用`stu`栈空间</span><br></pre></td></tr></table></figure>
 
-        </div>
-        <footer class="article-footer">
-            
+                                    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=30431376&auto=1&height=66"></iframe>
+                            </div>
+                            <footer class="article-footer">
+                                
 
     <div class="bdsharebuttonbox">
     <a href="#" class="bds_more" data-cmd="more">分享到：</a>
@@ -284,7 +285,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
 
 
-        </footer>
+                            </footer>
     </div>
 </article>
 
@@ -380,7 +381,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/易燃易爆炸-Java版.html" class="thumbnail">
+                            <a href="/易燃易爆炸(程序员版).html" class="thumbnail">
     
     
         <span style="background-image:url(https://www.moedict.tw/%E6%AC%B2%E8%93%8B%E5%BD%8C%E5%BD%B0.png)" alt="易燃易爆炸(程序员版)" class="thumbnail-image"></span>
@@ -392,7 +393,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/易燃易爆炸-Java版.html" class="title">易燃易爆炸(程序员版)</a></p>
+                            <p class="item-title"><a href="/易燃易爆炸(程序员版).html" class="title">易燃易爆炸(程序员版)</a></p>
                             <p class="item-date"><time datetime="2018-08-24T16:12:09.000Z" itemprop="datePublished">2018-08-25</time></p>
                         </div>
                     </li>

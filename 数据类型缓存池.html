@@ -172,27 +172,27 @@ var _hmt = _hmt || [];
     
 
             </header>
-        
-        
-            <div class="article-meta">
+            
                 
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <a href="/数据类型缓存池.html" class="article-date">
             <time datetime="2017-08-27T02:28:23.000Z" itemprop="datePublished">2017-08-27</time>
         </a>
     </div>
 
-                
+                            
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Java-Fundamental/">Java-Fundamental</a>
     </div>
 
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-            <p><code>new Integer(123)</code> 与 <code>Integer.valueOf(123)</code> 的区别在于：</p>
+                    </div>
+                    
+                        
+                            <div class="article-entry" itemprop="articleBody">
+                                <p><code>new Integer(123)</code> 与 <code>Integer.valueOf(123)</code> 的区别在于：</p>
 <p>new Integer(123) 每次都会新建一个对象<br>Integer.valueOf(123) 会使用缓存池中的对象，多次调用会取得同一个对象的引用。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Integer x = <span class="keyword">new</span> Integer(<span class="number">123</span>);</span><br><span class="line">Integer y = <span class="keyword">new</span> Integer(<span class="number">123</span>);</span><br><span class="line">System.out.println(x == y);    <span class="comment">// false</span></span><br><span class="line">Integer z = Integer.valueOf(<span class="number">123</span>);</span><br><span class="line">Integer k = Integer.valueOf(<span class="number">123</span>);</span><br><span class="line">System.out.println(z == k);   <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <p>valueOf() 方法的实现比较简单，就是先判断值是否在缓存池中，如果在的话就直接返回缓存池的内容。</p>
@@ -206,9 +206,10 @@ var _hmt = _hmt || [];
 <p>在使用这些基本类型对应的包装类型时，就可以直接使用缓存池中的对象。</p>
 <p><a href="https://stackoverflow.com/questions/9030817/differences-between-new-integer123-integer-valueof123-and-just-123" target="_blank" rel="noopener">StackOverflow : Differences between new Integer(123), Integer.valueOf(123) and just 123</a></p>
 
-        </div>
-        <footer class="article-footer">
-            
+                                    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=30431376&auto=1&height=66"></iframe>
+                            </div>
+                            <footer class="article-footer">
+                                
 
     <div class="bdsharebuttonbox">
     <a href="#" class="bds_more" data-cmd="more">分享到：</a>
@@ -247,7 +248,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
 
 
-        </footer>
+                            </footer>
     </div>
 </article>
 
@@ -343,7 +344,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/易燃易爆炸-Java版.html" class="thumbnail">
+                            <a href="/易燃易爆炸(程序员版).html" class="thumbnail">
     
     
         <span style="background-image:url(https://www.moedict.tw/%E6%AC%B2%E8%93%8B%E5%BD%8C%E5%BD%B0.png)" alt="易燃易爆炸(程序员版)" class="thumbnail-image"></span>
@@ -355,7 +356,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/易燃易爆炸-Java版.html" class="title">易燃易爆炸(程序员版)</a></p>
+                            <p class="item-title"><a href="/易燃易爆炸(程序员版).html" class="title">易燃易爆炸(程序员版)</a></p>
                             <p class="item-date"><time datetime="2018-08-24T16:12:09.000Z" itemprop="datePublished">2018-08-25</time></p>
                         </div>
                     </li>

@@ -228,7 +228,7 @@ var _hmt = _hmt || [];
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int  n  =  123;</span><br><span class="line">byte  b  =  (byte)n;</span><br><span class="line">int  m  =  1234;</span><br><span class="line">byte  b1  =  (byte)m;</span><br></pre></td></tr></table></figure>
 <p>则 b 的值还是 123，而 b1 的值为<code>-46</code>。b1 的计算方法如下：m 的值转换为二进制是<code>10011010010</code>，取该数字低8位的值作为b1的值，则b1的二进制值是<code>11010010</code>，按照机器数的规定，最高位是符号位，<code>1</code>代表负数，在计算机中负数存储的是补码，则该负数的原码是 <code>10101110</code>，该值就是十进制的<code>-46</code>。<br>注意问题:强制类型转换通常都会存储精度的损失，所以使用时需要谨慎。</p>
 
-                                    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=30431376&auto=1&height=66"></iframe>
+                                    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=449577773&auto=1&height=66"></iframe>
                             </div>
                             <footer class="article-footer">
                                 

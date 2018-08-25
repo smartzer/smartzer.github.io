@@ -21,7 +21,7 @@
 <meta property="og:description" content="new Integer(123) 与 Integer.valueOf(123) 的区别在于： new Integer(123) 每次都会新建一个对象Integer.valueOf(123) 会使用缓存池中的对象，多次调用会取得同一个对象的引用。 123456Integer x = new Integer(123);Integer y = new Integer(123);System.out.pr">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://www.g2mediagroup.pl/wp-content/uploads/2011/12/shutterstock_385257541.jpg">
-<meta property="og:updated_time" content="2018-08-24T07:45:53.514Z">
+<meta property="og:updated_time" content="2018-08-25T06:53:10.199Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java数据类型缓存池">
 <meta name="twitter:description" content="new Integer(123) 与 Integer.valueOf(123) 的区别在于： new Integer(123) 每次都会新建一个对象Integer.valueOf(123) 会使用缓存池中的对象，多次调用会取得同一个对象的引用。 123456Integer x = new Integer(123);Integer y = new Integer(123);System.out.pr">
@@ -205,6 +205,9 @@ var _hmt = _hmt || [];
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> values <span class="keyword">true</span> and <span class="keyword">false</span></span><br><span class="line">all <span class="keyword">byte</span> values</span><br><span class="line"><span class="keyword">short</span> values between -<span class="number">128</span> and <span class="number">127</span></span><br><span class="line"><span class="keyword">int</span> values between -<span class="number">128</span> and <span class="number">127</span></span><br><span class="line"><span class="keyword">char</span> in the range \u0000 to \u007F</span><br></pre></td></tr></table></figure>
 <p>在使用这些基本类型对应的包装类型时，就可以直接使用缓存池中的对象。</p>
 <p><a href="https://stackoverflow.com/questions/9030817/differences-between-new-integer123-integer-valueof123-and-just-123" target="_blank" rel="noopener">StackOverflow : Differences between new Integer(123), Integer.valueOf(123) and just 123</a></p>
+<blockquote>
+<p>作者：xiaoqinghua 有幸<br>联系地址：<a href="https://github.com/smartzer" target="_blank" rel="noopener">https://github.com/smartzer</a> <a href="http://xiaoqinghua.site/css/images/zz_qrcode.jpeg">http://xiaoqinghua.site/css/images/zz_qrcode.jpeg</a><br>本文地址：<a href="http://xiaoqinghua.site/数据类型缓存池.html">http://xiaoqinghua.site/数据类型缓存池.html</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="noopener">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！</p>
+</blockquote>
 
                             </div>
                             <footer class="article-footer">

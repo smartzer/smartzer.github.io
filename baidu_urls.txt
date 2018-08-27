@@ -16,6 +16,7 @@ http://xiaoqinghua.site/Object总结.html
 http://xiaoqinghua.site/Java关键字final和static.html
 http://xiaoqinghua.site/Java抽象类接口.html
 http://xiaoqinghua.site/Java参数传递.html
+http://xiaoqinghua.site/Java泛型.html
 http://xiaoqinghua.site/数据类型缓存池.html
 http://xiaoqinghua.site/Java内部类.html
 http://xiaoqinghua.site/再记String.html

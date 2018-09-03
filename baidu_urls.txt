@@ -10,6 +10,7 @@ http://xiaoqinghua.site/compose算法过程验算.html
 http://xiaoqinghua.site/hackpad技术分析.html
 http://xiaoqinghua.site/云文档的难点.html
 http://xiaoqinghua.site/VIM练习手册.html
+http://xiaoqinghua.site/Java并发总结.html
 http://xiaoqinghua.site/Java集合框架源码分析.html
 http://xiaoqinghua.site/Java集合框架总结.html
 http://xiaoqinghua.site/Java异常总结.html

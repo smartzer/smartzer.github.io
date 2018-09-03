@@ -6,26 +6,21 @@
     
 
     
-    <title>Java集合框架总结 | 有幸的个人小站</title>
+    <title>Archive: 2017/11 | 有幸的个人小站</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="Java集合框架" />
-    
-    <meta name="description" content="概览容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。 Collection  Set   TreeSet：基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如HashSet，HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)。  HashSet：基">
-<meta name="keywords" content="Java集合框架">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java集合框架总结">
-<meta property="og:url" content="http://xiaoqinghua.site/Java集合框架总结.html">
+    <meta name="description" content="这是作者为五十年后的自己留下的，感恩生活。">
+<meta name="keywords" content="java,chengdu,Java,web">
+<meta property="og:type" content="website">
+<meta property="og:title" content="有幸的个人小站">
+<meta property="og:url" content="http://xiaoqinghua.site/archives/2017/11/index.html">
 <meta property="og:site_name" content="有幸的个人小站">
-<meta property="og:description" content="概览容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。 Collection  Set   TreeSet：基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如HashSet，HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)。  HashSet：基">
+<meta property="og:description" content="这是作者为五十年后的自己留下的，感恩生活。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://resource.feng.com/resource/h061/h26/img201606221201530.jpg">
-<meta property="og:updated_time" content="2018-08-27T11:11:23.208Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java集合框架总结">
-<meta name="twitter:description" content="概览容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。 Collection  Set   TreeSet：基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如HashSet，HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)。  HashSet：基">
-<meta name="twitter:image" content="https://resource.feng.com/resource/h061/h26/img201606221201530.jpg">
+<meta name="twitter:title" content="有幸的个人小站">
+<meta name="twitter:description" content="这是作者为五十年后的自己留下的，感恩生活。">
     
 
     
@@ -156,188 +151,78 @@ var _hmt = _hmt || [];
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Code/Java集合框架/">Java集合框架</a>
+    <i class="icon fa fa-archive"></i>Archive: 2017/11
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-Java集合框架总结" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+                            
+
+    
+    
         
-            <header class="article-header">
-                
+        
+        <section class="archives-wrap">
+            <div class="archive-year-wrap">
+                <a href="/archives/2017" class="archive-year"><i class="icon fa fa-calendar-o"></i>2017</a>
+            </div>
+            <div class="archives">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/Java并发总结.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.decorreport.com/inline/home/th/7e80198975e8247e3555b708507e2952.jpg)" alt="Java并发总结" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://xiaoqinghua.site/Java并发总结.html">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/Java-Fundamental/">Java-Fundamental</a>
+            </div>
+            <div class="date"><time datetime="2017-11-18T07:52:59.000Z" itemprop="datePublished">2017-11-18</time></div>
+        </div>
+        
     
         <h1 class="article-title" itemprop="name">
-        Java集合框架总结
+        <a href="/Java并发总结.html">Java并发总结</a>
         </h1>
     
 
-            </header>
-            
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <a href="/Java集合框架总结.html" class="article-date">
-            <time datetime="2017-10-03T06:49:27.000Z" itemprop="datePublished">2017-10-03</time>
-        </a>
-    </div>
+        <p class="article-excerpt">
+            线程状态转换
+新建 (New)线程创建后但未启动
+可运行 (Runnable)可能正在运行，也可能正在等待 CPU 时间片包含了操作系统线程状态中的Running和Ready
+阻塞 (Blocking)等待获取一个排它锁，如果其他线程释放了锁就会结束此状态
+无限期等待 (Waiting)等待其他线程显示地唤醒，否则不会被分配CPU时间片
 
-                            
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Java集合框架/">Java集合框架</a>
-    </div>
-
-                    </div>
-                    
-                        
-                            <div class="article-entry" itemprop="articleBody">
-                                <h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>容器主要包括 <code>Collection</code> 和 <code>Map</code> 两种，<code>Collection</code> 存储着对象的集合，而 <code>Map</code> 存储着键值对（两个对象）的映射表。</p>
-<h3 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h3><p><img src="../Java集合框架总结/collection.png" alt="Collection"></p>
-<ol>
-<li>Set</li>
-</ol>
-<ul>
-<li><p>TreeSet：基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如HashSet，HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)。</p>
-</li>
-<li><p>HashSet：基于哈希表实现，支持快速查找，但不支持有序性操作。并且失去了元素的插入顺序信息，也就是说使用 Iterator 遍历 HashSet 得到的结果是不确定的。</p>
-</li>
-<li><p>LinkedHashSet：具有 HashSet 的查找效率，且内部使用双向链表维护元素的插入顺序。</p>
-</li>
-</ul>
-<ol start="2">
-<li>List</li>
-</ol>
-<ul>
-<li><p>ArrayList：基于动态数组实现，支持随机访问。</p>
-</li>
-<li><p>Vector：和 ArrayList 类似，但它是线程安全的。</p>
-</li>
-<li><p>LinkedList：基于双向链表实现，只能顺序访问，但是可以快速地在链表中间插入和删除元素。不仅如此，LinkedList 还可以用作栈、队列和双向队列。</p>
-</li>
-</ul>
-<ol start="3">
-<li>Queue</li>
-</ol>
-<ul>
-<li><p>LinkedList：可以用它来实现双向队列。</p>
-</li>
-<li><p>PriorityQueue：基于堆结构实现，可以用它来实现优先队列。</p>
-</li>
-</ul>
-<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><p><img src="../Java集合框架总结/map.png" alt="Map"></p>
-<ul>
-<li><p>TreeMap：基于红黑树实现。</p>
-</li>
-<li><p>HashMap：基于哈希表实现。</p>
-</li>
-<li><p>HashTable：和 HashMap 类似，但它是线程安全的，这意味着同一时刻多个线程可以同时写入 HashTable 并且不会导致数据不一致。它是遗留类，不应该去使用它。现在可以使用 ConcurrentHashMap 来支持线程安全，并且 ConcurrentHashMap 的效率会更高，因为 ConcurrentHashMap 引入了分段锁。</p>
-</li>
-<li><p>LinkedHashMap：使用双向链表来维护元素的顺序，顺序为插入顺序或者最近最少使用（LRU）顺序。</p>
-</li>
-</ul>
-<h2 id="容器中的设计模式"><a href="#容器中的设计模式" class="headerlink" title="容器中的设计模式"></a>容器中的设计模式</h2><h3 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h3><p><img src="../Java集合框架总结/iterator.png" alt="Iterator"></p>
-<p>Collection 实现了 Iterable 接口，其中的 iterator() 方法能够产生一个 Iterator 对象，通过这个对象就可以迭代遍历 Collection 中的元素。</p>
-<p>从 JDK 1.5 之后可以使用 foreach 方法来遍历实现了 Iterable 接口的聚合对象。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">list.add(<span class="string">"a"</span>);</span><br><span class="line">list.add(<span class="string">"b"</span>);</span><br><span class="line"><span class="keyword">for</span> (String item : list) &#123;</span><br><span class="line">    System.out.println(item);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h3><p><code>java.util.Arrays#asList()</code> 可以把数组类型转换为 List 类型。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SafeVarargs</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">asList</span><span class="params">(T... a)</span></span></span><br></pre></td></tr></table></figure>
-<p>应该注意的是 asList() 的参数为泛型的变长参数，不能使用基本类型数组作为参数，只能使用相应的包装类型数组。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer[] arr = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">List list = Arrays.asList(arr);</span><br></pre></td></tr></table></figure>
-<p>也可以使用以下方式调用 asList()：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>Collection</code>: 是一个接口</p>
-<ul>
-<li>List ：元素<code>有序</code>，<code>可重复</code> ，并引入位置下标；<ul>
-<li>LinkedList ：底层是<code>双向循环链表</code>。<strong>增删快，查询慢，线程不安全，效率高</strong>；</li>
-<li>ArrayList ：底层数据结构是<code>数组</code> 。<strong>查询快，增删慢，线程不安全，效率高</strong>；</li>
-<li>Vector ：底层数据结构是<code>数组</code>，<strong>查询快，增删慢，线程安全，效率低</strong>；<ul>
-<li>Stack</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Set ：元素<code>无序</code>，<code>不可重复</code></p>
-<ul>
-<li>HashSet ：无序的，底层数据结构是<code>哈希表</code>，储存对象的时候依赖两个方法：<code>hashcode()</code>和<code>equals()</code>，重写<code>hashcode()</code> 和<code>equals()</code>即可；</li>
-<li><p>TreesSet：按照<code>自然顺序</code>进行排列，如果是汉字会按照a-z排序，底层数据结构是<code>红黑树</code>。<br>  对集合中的元素排序两种方式：</p>
-<p>  1.自然排序（元素具有比较性）<br>  让元素所属的类实现<code>Comparable</code>接口</p>
-<p>  2.比较器排序（集合具有比较性）<br>  让集合接收一个<code>Comparator</code>的实现类对象</p>
-</li>
-<li><p>LinkedHashSet: 底层数据结构是<code>哈希表和链表</code>组成，<code>链表保证有序</code>，<code>哈希表保证唯一</code></p>
-</li>
-</ul>
-</li>
-<li>Quene ： 队列</li>
-</ul>
-<p>Map ：</p>
-<ul>
-<li><p>Hashtable ：不可以添加为空，底层数据结构是哈希表，<strong>线程安全，效率低</strong></p>
-</li>
-<li><p>HashMap ：可以添加为空，底层数据结构是哈希表，<strong>线程不安全，效率高</strong></p>
-</li>
-<li><p>WeakHashMap ：以<code>弱键</code>实现的基于哈希表的 <code>Map</code>。</p>
-</li>
-<li><p>TreeMap：底层数据结构是<code>红黑树</code>，有序的，效率比<code>HashMap</code> 低</p>
-</li>
-<li><p>LinkedHashMap：底层数据结构是哈希表和链表组成，链表保证有序，哈希表保证唯一，仅比<code>HashMap</code>慢一点</p>
-</li>
-</ul>
-
-                            </div>
-                            <footer class="article-footer">
-                                
-
-    <div class="bdsharebuttonbox">
-    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
-    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
-    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
-    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
-</div>
-<script>
-window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-<style>
-    .bdshare_popup_box {
-        border-radius: 4px;
-        border: #e1e1e1 solid 1px;
-    }
-    .bdshare-button-style0-16 a,
-    .bdshare-button-style0-16 .bds_more {
-        padding-left: 20px;
-        margin: 6px 10px 6px 0;
-    }
-    .bdshare_dialog_list a,
-    .bdshare_popup_list a,
-    .bdshare_popup_bottom a {
-        font-family: 'Microsoft Yahei';
-    }
-    .bdshare_popup_top {
-        display: none;
-    }
-    .bdshare_popup_bottom {
-        height: auto;
-        padding: 5px;
-    }
-</style>
-
-
-
-                            </footer>
+        </p>
     </div>
 </article>
-
-    <section id="comments">
     
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-
+        </div>
     
-    </section>
+
+
+    </div></section>
+
 
 
                         </div>
@@ -382,29 +267,6 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
             
         </ul>
     </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/Java集合框架源码分析.html" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            Java集合框架源码分析
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-    
-    
-        <a href="/Java异常总结.html" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">Java异常总结</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
-
     
     <div class="widgets-container">
         
@@ -617,13 +479,11 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://xiaoqinghua.site/Java集合框架总结.html';
-    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>

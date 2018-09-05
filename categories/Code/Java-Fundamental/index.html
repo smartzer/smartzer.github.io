@@ -207,12 +207,18 @@ var _hmt = _hmt || [];
     
 
         <p class="article-excerpt">
-            线程状态转换
+            一、线程状态转换
 新建 (New)线程创建后但未启动
-可运行 (Runnable)可能正在运行，也可能正在等待 CPU 时间片包含了操作系统线程状态中的Running和Ready
+可运行 (Runnable)包含了操作系统线程状态中的Running和Ready
 阻塞 (Blocking)等待获取一个排它锁，如果其他线程释放了锁就会结束此状态
 无限期等待 (Waiting)等待其他线程显示地唤醒，否则不会被分配CPU时间片
 
+进入方法
+
+
+没有设置Timeout的Object.wait()方法
+
+没有设置Timeout的O
         </p>
     </div>
 </article>

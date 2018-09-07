@@ -1,4 +1,3 @@
-http://xiaoqinghua.site/MyBatis总结01.html
 http://xiaoqinghua.site/Java8-时间戳和LocalDateTime互转.html
 http://xiaoqinghua.site/易燃易爆炸(程序员版).html
 http://xiaoqinghua.site/计算机世界的潜规则.html
@@ -12,6 +11,7 @@ http://xiaoqinghua.site/compose算法过程验算.html
 http://xiaoqinghua.site/hackpad技术分析.html
 http://xiaoqinghua.site/云文档的难点.html
 http://xiaoqinghua.site/VIM练习手册.html
+http://xiaoqinghua.site/MyBatis总结.html
 http://xiaoqinghua.site/Spring-MVC总结.html
 http://xiaoqinghua.site/Spring-AOP总结.html
 http://xiaoqinghua.site/Spring-Bean总结.html

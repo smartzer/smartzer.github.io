@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>http://xiaoqinghua.site/MyBatis%E6%80%BB%E7%BB%93.html</loc>
+    <lastmod>2018-09-07T12:51:32.148Z</lastmod>
+    <data>
+        <display>
+        <title>MyBatis总结</title>
+        <pubTime>2017-12-10T05:22:36.000Z</pubTime>
+        
+        <tag>MyBatis</tag>
+         
+         
+           
+             
+              <breadCrumb title="Code" url="http://xiaoqinghua.site/categories/Code/"/>
+          
+             
+              <breadCrumb title="MyBatis" url="http://xiaoqinghua.site/categories/Code/MyBatis/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://xiaoqinghua.site/Spring-MVC%E6%80%BB%E7%BB%93.html</loc>
     <lastmod>2018-09-07T10:58:51.813Z</lastmod>
     <data>
@@ -21,21 +44,6 @@
              
               <breadCrumb title="Spring" url="http://xiaoqinghua.site/categories/Code/Spring/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://xiaoqinghua.site/MyBatis%E6%80%BB%E7%BB%9301.html</loc>
-    <lastmod>2018-09-07T10:56:54.563Z</lastmod>
-    <data>
-        <display>
-        <title>MyBatis总结01</title>
-        <pubTime>2018-09-07T10:56:54.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>

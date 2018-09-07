@@ -6,21 +6,26 @@
     
 
     
-    <title>Archive | 有幸的个人小站</title>
+    <title>Spring之IoC总结 | 有幸的个人小站</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="这是作者为五十年后的自己留下的，感恩生活。">
-<meta name="keywords" content="java,chengdu,Java,web">
-<meta property="og:type" content="website">
-<meta property="og:title" content="有幸的个人小站">
-<meta property="og:url" content="http://xiaoqinghua.site/archives/page/2/index.html">
+        <meta name="keywords" content="Spring" />
+    
+    <meta name="description" content="Spring IoC 阐述这就是一种控制反转的理念：控制反转是一种通过描述（在 Java 中可以是 XML 或者注解）并通过第三方（Spring）去产生或获取特定对象的方式。  好处： 降低对象之间的耦合 我们不需要理解一个类的具体实现，只需要知道它有什么用就好了（直接向 IoC 容器拿）   主动创建的模式中，责任归于开发者，而在被动的模式下，责任归于 IoC 容器，基于这样的被动形式，我们就说">
+<meta name="keywords" content="Spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring之IoC总结">
+<meta property="og:url" content="http://xiaoqinghua.site/Spring之IoC总结.html">
 <meta property="og:site_name" content="有幸的个人小站">
-<meta property="og:description" content="这是作者为五十年后的自己留下的，感恩生活。">
+<meta property="og:description" content="Spring IoC 阐述这就是一种控制反转的理念：控制反转是一种通过描述（在 Java 中可以是 XML 或者注解）并通过第三方（Spring）去产生或获取特定对象的方式。  好处： 降低对象之间的耦合 我们不需要理解一个类的具体实现，只需要知道它有什么用就好了（直接向 IoC 容器拿）   主动创建的模式中，责任归于开发者，而在被动的模式下，责任归于 IoC 容器，基于这样的被动形式，我们就说">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://img04.tooopen.com/images/20131113/sy_47070866326.jpg">
+<meta property="og:updated_time" content="2018-09-07T05:19:46.631Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="有幸的个人小站">
-<meta name="twitter:description" content="这是作者为五十年后的自己留下的，感恩生活。">
+<meta name="twitter:title" content="Spring之IoC总结">
+<meta name="twitter:description" content="Spring IoC 阐述这就是一种控制反转的理念：控制反转是一种通过描述（在 Java 中可以是 XML 或者注解）并通过第三方（Spring）去产生或获取特定对象的方式。  好处： 降低对象之间的耦合 我们不需要理解一个类的具体实现，只需要知道它有什么用就好了（直接向 IoC 容器拿）   主动创建的模式中，责任归于开发者，而在被动的模式下，责任归于 IoC 容器，基于这样的被动形式，我们就说">
+<meta name="twitter:image" content="http://img04.tooopen.com/images/20131113/sy_47070866326.jpg">
     
 
     
@@ -151,576 +156,198 @@ var _hmt = _hmt || [];
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-archive"></i>Archive
+    <a class="page-title-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Code/Spring/">Spring</a>
     </h1>
 </div>
                         <div class="main-body-content">
+                            <article id="post-Spring之IoC总结" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Spring之IoC总结
+        </h1>
+    
+
+            </header>
+            
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <a href="/Spring之IoC总结.html" class="article-date">
+            <time datetime="2017-12-03T02:58:53.000Z" itemprop="datePublished">2017-12-03</time>
+        </a>
+    </div>
+
                             
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Spring/">Spring</a>
+    </div>
 
-    
-    
-        
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2018" class="archive-year"><i class="icon fa fa-calendar-o"></i>2018</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/hackpad技术分析.html" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://img.mp.itc.cn/upload/20160527/c8e05c86cb034da58619bb1c6ab0c129_th.jpg)" alt="Hackpad 技术分析" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://xiaoqinghua.site/hackpad技术分析.html">0</span>
-    
-</span>
+                    </div>
+                    
+                        
+                            <div class="article-entry" itemprop="articleBody">
+                                <h2 id="Spring-IoC-阐述"><a href="#Spring-IoC-阐述" class="headerlink" title="Spring IoC 阐述"></a>Spring IoC 阐述</h2><p>这就是一种控制反转的理念：<strong>控制反转是一种通过描述<code>（在 Java 中可以是 XML 或者注解）</code>并通过<code>第三方（Spring）</code>去产生或获取特定对象的方式。</strong></p>
+<ul>
+<li><p>好处：</p>
+<p><code>降低对象之间的耦合</code></p>
+<p>我们不需要理解一个类的具体实现，只需要知道它有什么用就好了<code>（直接向 IoC 容器拿）</code></p>
+</li>
+</ul>
+<p>主动创建的模式中，责任归于开发者，而在被动的模式下，责任归于 IoC 容器，基于这样的被动形式，我们就说对象被控制反转了。（也可以说是反转了控制）</p>
+<h2 id="Spring-IoC-容器"><a href="#Spring-IoC-容器" class="headerlink" title="Spring IoC 容器"></a>Spring IoC 容器</h2><p><code>Spring</code> 会提供 <code>IoC</code> 容器来管理和容纳我们所开发的各种各样的 <code>Bean</code>，并且我们可以从中获取各种发布在 <code>Spring IoC</code> 容器里的 <code>Bean</code>，并且通过描述可以得到它。</p>
+<h3 id="Spring-IoC-容器的设计"><a href="#Spring-IoC-容器的设计" class="headerlink" title="Spring IoC 容器的设计"></a>Spring IoC 容器的设计</h3><p><code>Spring IoC</code> 容器的设计主要是基于以下两个接口：</p>
+<ul>
+<li><p>BeanFactory</p>
+</li>
+<li><p>ApplicationContext</p>
+</li>
+</ul>
+<p>其中 <code>ApplicationContext</code> 是 <code>BeanFactory</code> 的子接口之一，换句话说：<code>BeanFactory</code> 是 <code>Spring IoC 容器</code>所定义的最底底接口，而 <code>ApplicationContext</code> 是其最高级接口之一，并对 BeanFactory 功能做了许多的扩展，所以在绝大部分的工作场景下，<strong>都会使用 ApplicationContext 作为 Spring IoC 容器。</strong></p>
+<p><img src="../Spring之IoC总结/applicationContext.png" alt="ApplicationContext"></p>
+<h3 id="BeanFactory"><a href="#BeanFactory" class="headerlink" title="BeanFactory"></a>BeanFactory</h3><p>从上图中我们可以几乎看到， <code>BeanFactory</code> 位于设计的最底层，它提供了 <code>Spring IoC</code> 最底层的设计，为此，我们先来看看该类中提供了哪些方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">String FACTORY_BEAN_PREFIX = <span class="string">"&amp;"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">Object <span class="title">getBean</span><span class="params">(String name)</span> <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line"></span><br><span class="line">&lt;T&gt; <span class="function">T <span class="title">getBean</span><span class="params">(String name, @Nullable Class&lt;T&gt; requiredType)</span> <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">Object <span class="title">getBean</span><span class="params">(String name, Object... args)</span> <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line"></span><br><span class="line">&lt;T&gt; <span class="function">T <span class="title">getBean</span><span class="params">(Class&lt;T&gt; requiredType)</span> <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line"></span><br><span class="line">&lt;T&gt; <span class="function">T <span class="title">getBean</span><span class="params">(Class&lt;T&gt; requiredType, Object... args)</span> <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">containsBean</span><span class="params">(String name)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isSingleton</span><span class="params">(String name)</span> <span class="keyword">throws</span> NoSuchBeanDefinitionException</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isPrototype</span><span class="params">(String name)</span> <span class="keyword">throws</span> NoSuchBeanDefinitionException</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isTypeMatch</span><span class="params">(String name, ResolvableType typeToMatch)</span> <span class="keyword">throws</span> NoSuchBeanDefinitionException</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isTypeMatch</span><span class="params">(String name, @Nullable Class&lt;?&gt; typeToMatch)</span> <span class="keyword">throws</span> NoSuchBeanDefinitionException</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Nullable</span></span><br><span class="line">Class&lt;?&gt; getType(String name) <span class="keyword">throws</span> NoSuchBeanDefinitionException;</span><br><span class="line"></span><br><span class="line">String[] getAliases(String name);</span><br></pre></td></tr></table></figure>
+<p>由于这个接口的重要性，所以有必要在这里作一下简短的说明：</p>
+<ul>
+<li><code>getBean</code> 对应了多个方法来获取配置给 <code>Spring IoC</code> 容器的 <code>Bean</code>。</li>
+</ul>
+<ol>
+<li>按照类型拿 <code>bean</code>：</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bean = (Bean) factory.getBean(Bean.class);</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：要求在 Spring 中只配置了一个这种类型的实例，否则报错。（如果有多个那 Spring 就懵了，不知道该获取哪一个）</p>
+<ol start="2">
+<li>按照 <code>bean</code> 的名字拿 <code>bean</code>:</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bean = (Bean) factory.getBean(<span class="string">"beanName"</span>);</span><br></pre></td></tr></table></figure>
+<p>注意：这种方法<code>不太安全</code>，<code>IDE</code> 不会检查其安全性（关联性）</p>
+<ol start="3">
+<li>按照<code>名字</code>和<code>类型</code>拿 bean：（推荐）</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bean = (Bean) factory.getBean(<span class="string">"beanName"</span>, Bean.class);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>isSingleton</code> 用于判断是否单例，如果判断为真，其意思是该 <code>Bean</code> 在容器中是作为一个唯一单例存在的。而<code>isPrototype</code>则相反，如果判断为真，意思是当你从容器中获取 <code>Bean</code>，容器就为你生成一个新的实例。</li>
+</ul>
+<p><strong>注意</strong>：在默认情况下，【isSingleton】为 ture，而【isPrototype】为 false</p>
+<ul>
+<li><p>关于 <code>type</code> 的匹配，这是一个按 Java 类型匹配的方式</p>
+</li>
+<li><p><code>getAliases</code>方法是获取别名的方法</p>
+</li>
+</ul>
+<p><strong>这就是 Spring IoC 最底层的设计，所有关于 Spring IoC 的容器将会遵守它所定义的方法。</strong></p>
+<h3 id="ApplicationContext"><a href="#ApplicationContext" class="headerlink" title="ApplicationContext"></a>ApplicationContext</h3><p>根据 <code>ApplicationContext</code> 的类继承关系图，可以看到 <code>ApplicationContext</code> 接口扩展了许许多多的接口，因此它的<code>功能十分强大</code>，所以在实际应用中常常会使用到的是 <code>ApplicationContext</code> 接口，因为 <code>BeanFactory</code> 的方法和功能较少，而 <code>ApplicationContext</code> 的方法和功能较多。</p>
+<p>我们来认识一个 ApplicationContext 的实现类——<code>ClassPathXmlApplicationContext</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ApplicationContext context = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"application.xml"</span>);</span><br><span class="line">Source source = (Source) context.getBean(<span class="string">"source"</span>, Source.class);</span><br></pre></td></tr></table></figure>
+<p>这样就会使用 <code>Application</code> 的实现类 <code>ClassPathXmlApplicationContext</code> 去<strong>初始化 Spring IoC 容器</strong>，然后开发者就可以通过 IoC 容器来获取资源了啦！</p>
+<h3 id="ApplicationContext-常见实现类："><a href="#ApplicationContext-常见实现类：" class="headerlink" title="ApplicationContext 常见实现类："></a>ApplicationContext 常见实现类：</h3><p>1.<code>ClassPathXmlApplicationContext</code>：</p>
+<p>读取<code>classpath</code>中的资源</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ApplicationContext ctx = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"applicationContext.xml"</span>);</span><br></pre></td></tr></table></figure>
+<p>2:<code>FileSystemXmlApplicationContext</code>:</p>
+<p>读取<code>指定路径</code>的资源</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ApplicationContext ac = <span class="keyword">new</span> FileSystemXmlApplicationContext(<span class="string">"c:/applicationContext.xml"</span>);</span><br></pre></td></tr></table></figure>
+<p>3.<code>XmlWebApplicationContext</code>:</p>
+<p>需要在<code>Web的环境</code>下才可以运行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">XmlWebApplicationContext ac = <span class="keyword">new</span> XmlWebApplicationContext(); <span class="comment">// 这时并没有初始化容器</span></span><br><span class="line">ac.setServletContext(servletContext); <span class="comment">// 需要指定ServletContext对象</span></span><br><span class="line">ac.setConfigLocation(<span class="string">"/WEB-INF/applicationContext.xml"</span>); <span class="comment">// 指定配置文件路径，开头的斜线表示Web应用的根目录</span></span><br><span class="line">ac.refresh(); <span class="comment">// 初始化容器</span></span><br></pre></td></tr></table></figure>
+<h3 id="BeanFactory-和-ApplicationContext-的区别："><a href="#BeanFactory-和-ApplicationContext-的区别：" class="headerlink" title="BeanFactory 和 ApplicationContext 的区别："></a>BeanFactory 和 ApplicationContext 的区别：</h3><ul>
+<li><p><code>BeanFactory</code>：是<code>Spring</code>中最底层的接口，只提供了最简单的<code>IoC</code>功能,<code>负责配置</code>，<code>创建</code>和<code>管理bean</code>。在应用中，<code>一般不使用 BeanFactory</code>，而推荐使用<code>ApplicationContext（应用上下文）</code>，原因如下。</p>
+</li>
+<li><p><code>ApplicationContext</code>：</p>
+<ol>
+<li><p>继承了 <code>BeanFactory</code>，拥有了<code>基本的 IoC 功能</code>；</p>
+</li>
+<li><p>除此之外，<code>ApplicationContext</code> 还提供了以下功能：</p>
+<ul>
+<li><p>支持国际化；</p>
+</li>
+<li><p>支持消息机制；</p>
+</li>
+<li><p>支持统一的资源加载；</p>
+</li>
+<li><p>支持AOP功能；</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="Spring-IoC-的容器的初始化和依赖注入"><a href="#Spring-IoC-的容器的初始化和依赖注入" class="headerlink" title="Spring IoC 的容器的初始化和依赖注入"></a>Spring IoC 的容器的初始化和依赖注入</h2><p>虽然 <code>Spring IoC</code> 容器的生成十分的复杂，但是大体了解一下 <code>Spring IoC 初始化</code>的过程还是必要的。这对于理解 Spring 的一系列行为是很有帮助的。</p>
+<p><strong>注意：<code>Bean 的定义</code>和<code>初始化在 Spring IoC 容器</code>是两大步骤，它是<code>先定义</code>，<code>然后初始化</code>和<code>依赖注入</code>的。</strong></p>
+<p>Bean 的定义分为 3 步：</p>
+<ul>
+<li><p>Resource 定位</p>
+<p>  <code>Spring IoC 容器</code>先根据开发者的<code>配置</code>，进行<code>资源的定位</code>，在 <code>Spring</code> 的开发中，通过 <code>XML</code> 或者<code>注解</code>都是十分常见的方式，<code>定位的内容是由开发者提供的</code>。</p>
+</li>
+<li><p>BeanDefinition 的载入</p>
+<p>  这个时候只是将 Resource 定位到的信息，保存到 Bean 定义（BeanDefinition）中，此时并不会创建 Bean 的实例</p>
+</li>
+<li><p>BeanDefinition 的注册</p>
+<p>  这个过程就是将 <code>BeanDefinition</code> 的信息<code>发布到 Spring IoC 容器中</code></p>
+<p>  注意：此时仍然没有对应的 Bean 的实例。</p>
+</li>
+</ul>
+<p>做完了以上 3 步，<code>Bean</code> 就在 <code>Spring IoC 容器</code>中被定义了，<code>而没有被初始化</code>，<code>更没有完成依赖注入</code>，也就是没有注入其配置的资源给 <code>Bean</code>，那么它还不能完全使用。</p>
+<p>对于<code>初始化</code>和<code>依赖注入</code>，<code>Spring Bean</code> 还有一个配置选项——<code>lazy-init</code>，其含义就是<code>是否初始化 Spring Bean</code>。在没有任何配置的情况下，它的默认值为 <code>default</code>，实际值为 <code>false</code>，也就是 <code>Spring IoC</code> 默认会自动初始化 <code>Bean</code>。如果将其设置为 <code>true</code>，那么只有当我们使用 <code>Spring IoC</code> 容器的 <code>getBean</code> 方法获取它时，它才会进行 <code>Bean</code> 的初始化，<code>完成依赖注入</code>。</p>
+
+                            </div>
+                            <footer class="article-footer">
+                                
+
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
 
 
-    
-</a>
 
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/OT/">OT</a>
-            </div>
-            <div class="date"><time datetime="2018-05-20T05:58:53.000Z" itemprop="datePublished">2018-05-20</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/hackpad技术分析.html">Hackpad 技术分析</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            hackpad 技术分析前言
-1、hackpad 是基于 etherpad 二次开发，增加了很多产品化的功能，如账户系统，文档权限等。腾讯文档也是基于 hackpad 开发，腾讯文档的表格则是基于开源项目 hansontable 作为前端载体，在协作算法上对 easysync 进行了略微的修改。
-2、hackpad 同样是基于 client + server模式开发，通讯协议大体相同，做了小
-        </p>
+                            </footer>
     </div>
 </article>
-    
 
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/云文档的难点.html" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://up.enterdesk.org/pic/84/60/56/846056f1453b5bd2e4d1cb3c65a736a5.jpg)" alt="云文档的难点" class="thumbnail-image"></span>
-    
+    <section id="comments">
     
         
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://xiaoqinghua.site/云文档的难点.html">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/Cloud-Office/">Cloud-Office</a>
-            </div>
-            <div class="date"><time datetime="2018-04-05T06:50:30.000Z" itemprop="datePublished">2018-04-05</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/云文档的难点.html">云文档的难点</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            1. 多人协作，实时同步在云文档上同时编写的客户可能会非常多，如果一个成员更新了别的成员无法及时看到，或者几个成员无法同时更新，那就不可能实现团队协作，甚至会出现业务错误风险。在石墨文档上，用户输入的每一个文字都需要在毫秒级尺度内实时计算，并传给同一个文档的其他协作者。为此，石墨文档引用了 NATS 数据管道，对进入服务器的所有流量进行削峰填谷的处理。在数据高峰期引入服务器的数据进行延时处理，等待
-        </p>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/VIM练习手册.html" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://cdn-images-1.medium.com/max/2000/1*lRiFQXsrauey4Lt9IHJIQg.jpeg)" alt="VIM练习手册" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://xiaoqinghua.site/VIM练习手册.html">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/Vim/">Vim</a>
-            </div>
-            <div class="date"><time datetime="2018-02-25T06:42:48.000Z" itemprop="datePublished">2018-02-25</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/VIM练习手册.html">VIM练习手册</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            ==VIM命令==1.一般模式可用的光标移动、复制粘贴、搜索替换等
-移动光标的方法
-1234567Ctrl+f 向下移动一页Ctrl+b 向上移动一页0 移动到这一行的最前面的字符处$ 移动到这一行的最后面的字符处G 移动到文本的最后一行gg 移动到文本的第一行，相当于1Gn&lt;Enter&gt; n为数字。光标向下移动n行
-
-搜索替换
-12345/word 向光标之下查询“word”的字符串
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-        
-            </div></section>
-        
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2017" class="archive-year"><i class="icon fa fa-calendar-o"></i>2017</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/Spring之IoC总结.html" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://img04.tooopen.com/images/20131113/sy_47070866326.jpg)" alt="Spring之IoC总结" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://xiaoqinghua.site/Spring之IoC总结.html">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/Spring/">Spring</a>
-            </div>
-            <div class="date"><time datetime="2017-12-03T02:58:53.000Z" itemprop="datePublished">2017-12-03</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/Spring之IoC总结.html">Spring之IoC总结</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            Spring IoC 阐述这就是一种控制反转的理念：控制反转是一种通过描述（在 Java 中可以是 XML 或者注解）并通过第三方（Spring）去产生或获取特定对象的方式。
-
-好处：
-降低对象之间的耦合
-我们不需要理解一个类的具体实现，只需要知道它有什么用就好了（直接向 IoC 容器拿）
-
-
-主动创建的模式中，责任归于开发者，而在被动的模式下，责任归于 IoC 容器，基于这样的被动形式，我们就说
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/Spring总结.html" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://www.cloudreach.com/wp-content/uploads/2018/06/Containerize-This-3.png)" alt="Spring总结" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://xiaoqinghua.site/Spring总结.html">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/Spring/">Spring</a>
-            </div>
-            <div class="date"><time datetime="2017-12-02T02:58:53.000Z" itemprop="datePublished">2017-12-02</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/Spring总结.html">Spring总结</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            认识 Spring 框架Spring 框架是 Java 应用最广的框架，它的成功来源于理念，而不是技术本身，它的理念包括 IoC (Inversion of Control，控制反转) 和 AOP(Aspect Oriented Programming，面向切面编程)。
-什么是 Spring：
-Spring 是一个轻量级的 DI / IoC 和 AOP 容器的开源框架，来源于 Rod Johnso
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/Java-I-O总结.html" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://dn-sdkcnssl.qbox.me/article/-DKmdIYCvI8rtAX_Yqj3.jpg)" alt="Java I/O总结" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://xiaoqinghua.site/Java-I-O总结.html">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/Java-Fundamental/">Java-Fundamental</a>
-            </div>
-            <div class="date"><time datetime="2017-11-25T10:25:51.000Z" itemprop="datePublished">2017-11-25</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/Java-I-O总结.html">Java I/O总结</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            一、概览Java 的 I/O 大概可以分成以下几类：
-
-磁盘操作：File
-
-字节操作：InputStream 和 OutputStream
-
-字符操作：Reader 和 Writer
-
-对象操作：Serializable
-
-网络操作：Socket
-
-non-blocking输入/输出：NIO
-
 
-二、磁盘操作File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。
-递归地列出一个目录下
-        </p>
-    </div>
-</article>
     
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/Java虚拟机总结.html" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://file03.16sucai.com/2017/1100/16sucai_p579d163_330.JPG)" alt="Java虚拟机总结" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://xiaoqinghua.site/Java虚拟机总结.html">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/Java-Fundamental/">Java-Fundamental</a>
-            </div>
-            <div class="date"><time datetime="2017-11-19T02:50:07.000Z" itemprop="datePublished">2017-11-19</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/Java虚拟机总结.html">Java虚拟机总结</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            一、运行时数据区域
-程序计数器记录正在执行的虚拟机字节码指令的地址（如果正在执行的是本地方法则为空）。
-Java 虚拟机栈每个 Java 方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，就对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。
-
-可以通过 -Xss 这个虚拟机参数来指定每个线程的 Java 虚拟机栈内存大小：
-1java
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/Java并发总结.html" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://www.decorreport.com/inline/home/th/7e80198975e8247e3555b708507e2952.jpg)" alt="Java并发总结" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://xiaoqinghua.site/Java并发总结.html">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/Java-Fundamental/">Java-Fundamental</a>
-            </div>
-            <div class="date"><time datetime="2017-11-18T07:52:59.000Z" itemprop="datePublished">2017-11-18</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/Java并发总结.html">Java并发总结</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            一、线程状态转换
-新建 (New)线程创建后但未启动
-可运行 (Runnable)包含了操作系统线程状态中的Running和Ready
-阻塞 (Blocking)等待获取一个排它锁，如果其他线程释放了锁就会结束此状态
-无限期等待 (Waiting)等待其他线程显示地唤醒，否则不会被分配CPU时间片
-
-进入方法
-
-
-没有设置Timeout的Object.wait()方法
-
-没有设置Timeout的O
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/Java集合框架源码分析.html" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://gtms04.alicdn.com/tps/i4/TB1tjp4KVXXXXXpaXXX2AXZ8pXX-900-500.png)" alt="Java集合框架源码分析" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://xiaoqinghua.site/Java集合框架源码分析.html">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/Java集合框架/">Java集合框架</a>
-            </div>
-            <div class="date"><time datetime="2017-10-04T13:04:20.000Z" itemprop="datePublished">2017-10-04</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/Java集合框架源码分析.html">Java集合框架源码分析</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            如果没有特别说明，以下源码分析基于 JDK 1.8
-ArrayList1. 概览实现了 RandomAccess 接口，因此支持随机访问。这是理所当然的，因为 ArrayList 是基于数组实现的。
-12public class ArrayList&lt;E&gt; extends AbstractList&lt;E&gt;        implements List&lt;E&gt;, Ran
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/Java集合框架总结.html" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://resource.feng.com/resource/h061/h26/img201606221201530.jpg)" alt="Java集合框架总结" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://xiaoqinghua.site/Java集合框架总结.html">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/Java集合框架/">Java集合框架</a>
-            </div>
-            <div class="date"><time datetime="2017-10-03T06:49:27.000Z" itemprop="datePublished">2017-10-03</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/Java集合框架总结.html">Java集合框架总结</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            概览容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。
-Collection
-
-Set
-
-
-TreeSet：基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如HashSet，HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)。
-
-HashSet：基
-        </p>
-    </div>
-</article>
-    
-
-
-    </div></section>
-
-
-    <nav id="page-nav">
-        <span class="pages">Page 2 of 5</span>
-        <a class="extend prev" rel="prev" href="/archives/">&laquo;</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/3/">&raquo;</a>
-    </nav>
+    </section>
 
 
                         </div>
@@ -765,6 +392,29 @@ HashSet：基
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/VIM练习手册.html" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            VIM练习手册
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/Spring总结.html" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Spring总结</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
@@ -977,11 +627,13 @@ HashSet：基
     var disqus_shortname = 'hexo-theme-hueman';
     
     
+    var disqus_url = 'http://xiaoqinghua.site/Spring之IoC总结.html';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>

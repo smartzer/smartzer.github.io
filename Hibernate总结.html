@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="Hibernate" />
     
-    <meta name="description" content="这是作者为五十年后的自己留下的，感恩生活。">
+    <meta name="description" content="什么是Hibernate框架Hibernate是一种ORM框架，全称为 Object Relative DateBase-Mapping，在Java对象与关系数据库之间建立某种映射，以实现直接存取Java对象 为什么要使用Hibernate既然Hibernate是关于Java对象和关系数据库之间的联系的话，也就是我们MVC中的数据持久层-&amp;gt;在编写程序中的DAO层… 首先，我们来回顾一下我们在">
 <meta name="keywords" content="Hibernate">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hibernate总结">
 <meta property="og:url" content="http://xiaoqinghua.site/Hibernate总结.html">
 <meta property="og:site_name" content="有幸的个人小站">
-<meta property="og:description" content="这是作者为五十年后的自己留下的，感恩生活。">
+<meta property="og:description" content="什么是Hibernate框架Hibernate是一种ORM框架，全称为 Object Relative DateBase-Mapping，在Java对象与关系数据库之间建立某种映射，以实现直接存取Java对象 为什么要使用Hibernate既然Hibernate是关于Java对象和关系数据库之间的联系的话，也就是我们MVC中的数据持久层-&amp;gt;在编写程序中的DAO层… 首先，我们来回顾一下我们在">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://images-platform.99static.com/EGAJCKD2Pc9Bkx6fwTB9FSnlUyE=/0x0:1200x1200/500x500/top/smart/99designs-contests-attachments/81/81105/attachment_81105678">
-<meta property="og:updated_time" content="2018-09-07T13:10:47.979Z">
+<meta property="og:updated_time" content="2018-09-08T05:19:05.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hibernate总结">
-<meta name="twitter:description" content="这是作者为五十年后的自己留下的，感恩生活。">
+<meta name="twitter:description" content="什么是Hibernate框架Hibernate是一种ORM框架，全称为 Object Relative DateBase-Mapping，在Java对象与关系数据库之间建立某种映射，以实现直接存取Java对象 为什么要使用Hibernate既然Hibernate是关于Java对象和关系数据库之间的联系的话，也就是我们MVC中的数据持久层-&amp;gt;在编写程序中的DAO层… 首先，我们来回顾一下我们在">
 <meta name="twitter:image" content="https://images-platform.99static.com/EGAJCKD2Pc9Bkx6fwTB9FSnlUyE=/0x0:1200x1200/500x500/top/smart/99designs-contests-attachments/81/81105/attachment_81105678">
     
 
@@ -192,7 +192,252 @@ var _hmt = _hmt || [];
                     
                         
                             <div class="article-entry" itemprop="articleBody">
-                                
+                                <h2 id="什么是Hibernate框架"><a href="#什么是Hibernate框架" class="headerlink" title="什么是Hibernate框架"></a>什么是Hibernate框架</h2><p><code>Hibernate</code>是一种<code>ORM</code>框架，全称为 <code>Object Relative DateBase-Mapping</code>，在<code>Java对象</code>与<code>关系数据库</code>之间建立某种映射，以实现直接<code>存取Java对象</code></p>
+<h2 id="为什么要使用Hibernate"><a href="#为什么要使用Hibernate" class="headerlink" title="为什么要使用Hibernate"></a>为什么要使用Hibernate</h2><p>既然<code>Hibernate</code>是关于<code>Java对象</code>和<code>关系数据库</code>之间的联系的话，也就是我们<code>MVC中的数据持久层</code>-&gt;在编写程序中的<code>DAO层</code>…</p>
+<p>首先，我们来回顾一下我们在<code>DAO层</code>写程序的历程吧：</p>
+<ol>
+<li><p>在DAO层操作XML，将数据封装到XML文件上，读写XML文件数据实现CRUD</p>
+</li>
+<li><p>在DAO层使用原生JDBC连接数据库，实现CRUD</p>
+</li>
+<li><p>嫌弃JDBC的Connection\Statement\ResultSet等对象太繁琐，使用对原生JDBC的封装组件–&gt;DbUtils组件</p>
+</li>
+</ol>
+<p>我们来看看使用DbUtils之后，程序的代码是怎么样的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CategoryDAOImpl</span> <span class="keyword">implements</span> <span class="title">zhongfucheng</span>.<span class="title">dao</span>.<span class="title">CategoryDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addCategory</span><span class="params">(Category category)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        QueryRunner queryRunner = <span class="keyword">new</span> QueryRunner(Utils2DB.getDataSource());</span><br><span class="line"></span><br><span class="line">        String sql = <span class="string">"INSERT INTO category (id, name, description) VALUES(?,?,?)"</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            queryRunner.update(sql, <span class="keyword">new</span> Object[]&#123;category.getId(), category.getName(), category.getDescription()&#125;);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Category <span class="title">findCategory</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">        QueryRunner queryRunner = <span class="keyword">new</span> QueryRunner(Utils2DB.getDataSource());</span><br><span class="line">        String sql = <span class="string">"SELECT * FROM category WHERE id=?"</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Category category = (Category) queryRunner.query(sql, id, <span class="keyword">new</span> BeanHandler(Category.class));</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> category;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Category&gt; <span class="title">getAllCategory</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        QueryRunner queryRunner = <span class="keyword">new</span> QueryRunner(Utils2DB.getDataSource());</span><br><span class="line">        String sql = <span class="string">"SELECT * FROM category"</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            List&lt;Category&gt; categories = (List&lt;Category&gt;) queryRunner.query(sql, <span class="keyword">new</span> BeanListHandler(Category.class));</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> categories;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span>  <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其实使用<code>DbUtils</code>时，<code>DAO层</code>中的代码编写是很有规律的。</p>
+<ul>
+<li><p>当插入数据的时候，就将JavaBean对象拆分，拼装成SQL语句</p>
+</li>
+<li><p>当查询数据的时候，用SQL把数据库表中的列组合，拼装成JavaBean对象</p>
+</li>
+</ul>
+<p>也就是说：<code>JavaBean对象</code>和<code>数据表中的列</code>存在<code>映射关系</code>!如果程序能够<code>自动生成SQL语句</code>就好了….那么<code>Hibernate</code>就实现了这个功能！</p>
+<p>简单来说：我们使用<code>Hibernate框架</code>就不用我们写很多繁琐的SQL语句，从而简化我们的开发！</p>
+<h2 id="ORM概述"><a href="#ORM概述" class="headerlink" title="ORM概述"></a>ORM概述</h2><p>在介绍<code>Hibernate</code>的时候，说了<code>Hibernate</code>是一种<code>ORM的框架</code>。那什么是<code>ORM</code>呢？<code>ORM是一种思想</code></p>
+<ul>
+<li><p>O代表的是<code>Objcet</code></p>
+</li>
+<li><p>R代表的是<code>Relative</code></p>
+</li>
+<li><p>M代表的是<code>Mapping</code></p>
+</li>
+</ul>
+<p><code>ORM</code>-&gt;<code>对象关系映射</code>….ORM关注是<code>对象</code>与`数据库中的列的关系</p>
+<h2 id="Hibernate快速入门"><a href="#Hibernate快速入门" class="headerlink" title="Hibernate快速入门"></a>Hibernate快速入门</h2><h3 id="编写对象和对象映射"><a href="#编写对象和对象映射" class="headerlink" title="编写对象和对象映射"></a>编写对象和对象映射</h3><p>编写一个<code>User对象</code>-&gt;<code>User.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">    <span class="keyword">private</span> String cellphone;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//各种setter和getter</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>编写对象映射</code>-&gt;<code>User.hbm.xml</code>。一般它和<code>JavaBean对象</code>放在同一目录下</p>
+<p>我们是不知道该<code>XML</code>是怎么写的，可以搜索一下<code>Hibernate</code>文件夹中后缀为<code>.hbm.xml</code>。看看它们是怎么写的。然后复制一份过来:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0"?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE hibernate-mapping PUBLIC </span></span><br><span class="line"><span class="meta">    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"</span></span><br><span class="line"><span class="meta">    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  This mapping demonstrates content-based discrimination for the</span></span><br><span class="line"><span class="comment">  table-per-hierarchy mapping strategy, using a formula</span></span><br><span class="line"><span class="comment">  discriminator.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">hibernate-mapping</span></span></span><br><span class="line"><span class="tag">    <span class="attr">package</span>=<span class="string">"org.hibernate.test.array"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"A"</span> <span class="attr">lazy</span>=<span class="string">"true"</span> <span class="attr">table</span>=<span class="string">"aaa"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"id"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"native"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">array</span> <span class="attr">name</span>=<span class="string">"bs"</span> <span class="attr">cascade</span>=<span class="string">"all"</span> <span class="attr">fetch</span>=<span class="string">"join"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">key</span> <span class="attr">column</span>=<span class="string">"a_id"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">list-index</span> <span class="attr">column</span>=<span class="string">"idx"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">one-to-many</span> <span class="attr">class</span>=<span class="string">"B"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">array</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">class</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"B"</span> <span class="attr">lazy</span>=<span class="string">"true"</span> <span class="attr">table</span>=<span class="string">"bbb"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"id"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"native"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">class</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">hibernate-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在上面的模板上修改～下面会具体讲解这个配置文件!</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--在domain包下--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hibernate-mapping</span> <span class="attr">package</span>=<span class="string">"xiaoqinghua.domain"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--类名为User，表名也为User--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"User"</span>  <span class="attr">table</span>=<span class="string">"user"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--主键映射，属性名为id，列名也为id--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">column</span>=<span class="string">"id"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--根据底层数据库主键自动增长--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"native"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--非主键映射，属性和列名一一对应--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">column</span>=<span class="string">"username"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"cellphone"</span> <span class="attr">column</span>=<span class="string">"cellphone"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">column</span>=<span class="string">"password"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">hibernate-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="主配置文件"><a href="#主配置文件" class="headerlink" title="主配置文件"></a>主配置文件</h3><p><code>hibernate.cfg.xml</code></p>
+<p>如果使用<code>Intellij Idea</code>生成的<code>Hibernate</code>可以指定生成出<code>主配置文件hibernate.cfg.xml</code>，它是要放在<code>src目录</code>下的</p>
+<p>如果不是自动生成的，我们可以在<code>Hibernate</code>的<code>hibernate-distribution-3.6.0.Final\project\etc这个目录</code>下可以找到</p>
+<p>它长得这个样子：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE hibernate-configuration PUBLIC</span></span><br><span class="line"><span class="meta">        "-//Hibernate/Hibernate Configuration DTD//EN"</span></span><br><span class="line"><span class="meta">        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hibernate-configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">session-factory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"connection.url."</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"connection.driver_class"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"connection.username"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"connection.password"</span>/&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- DB schema will be updated if needed --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- &lt;property name="hbm2ddl.auto"&gt;update&lt;/property&gt; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">session-factory</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">hibernate-configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过上面的模板进行修改</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">hibernate-configuration</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 通常，一个session-factory节点代表一个数据库 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">session-factory</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 1. 数据库连接配置 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.connection.driver_class"</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.connection.url"</span>&gt;</span>jdbc:mysql:///xiaoqinghua<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.connection.username"</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.connection.password"</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">            数据库方法配置， hibernate在运行的时候，会根据不同的方言生成符合当前数据库语法的sql</span></span><br><span class="line"><span class="comment">         --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.dialect"</span>&gt;</span>org.hibernate.dialect.MySQL5Dialect<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 2. 其他相关配置 --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 2.1 显示hibernate在运行时候执行的sql语句 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.show_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 2.2 格式化sql --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.format_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 2.3 自动建表  --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.hbm2ddl.auto"</span>&gt;</span>create<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--3. 加载所有映射--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mapping</span> <span class="attr">resource</span>=<span class="string">"xiaoqinghua/domain/User.hbm.xml"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">session-factory</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">hibernate-configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建对象</span></span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setPassword(<span class="string">"123"</span>);</span><br><span class="line">        user.setCellphone(<span class="string">"122222"</span>);</span><br><span class="line">        user.setUsername(<span class="string">"nihao"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取加载配置管理类</span></span><br><span class="line">        Configuration configuration = <span class="keyword">new</span> Configuration();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//不给参数就默认加载hibernate.cfg.xml文件，</span></span><br><span class="line">        configuration.configure();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建Session工厂对象</span></span><br><span class="line">        SessionFactory factory = configuration.buildSessionFactory();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//得到Session对象</span></span><br><span class="line">        Session session = factory.openSession();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//使用Hibernate操作数据库，都要开启事务,得到事务对象</span></span><br><span class="line">        Transaction transaction = session.getTransaction();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开启事务</span></span><br><span class="line">        transaction.begin();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//把对象添加到数据库中</span></span><br><span class="line">        session.save(user);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//提交事务</span></span><br><span class="line">        transaction.commit();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//关闭Session</span></span><br><span class="line">        session.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>值得注意的是：<code>JavaBean的主键类型</code>只能是<code>int类型</code>，因为在映射关系中配置是自动增长的，String类型是不能自动增长的。如果是你设置了String类型，又使用了自动增长，那么就会报出下面的错误！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table <span class="string">'xiaoqinghua.user'</span> does</span><br></pre></td></tr></table></figure>
+<p>执行完程序后，<code>Hibernate</code>就为我们创建对应的表，并把数据存进了数据库了</p>
+<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><p>配置管理类：主要管理配置文件的一个类</p>
+<p>它拥有一个<code>子类AnnotationConfiguration</code>，也就是说：我们可以使用<code>注解</code>来代替XML配置文件来配置相对应的信息</p>
+<h3 id="configure方法"><a href="#configure方法" class="headerlink" title="configure方法"></a>configure方法</h3><p><code>configure()</code>方法用于<code>加载配置文件</code></p>
+<p>加载主配置文件的方法</p>
+<ul>
+<li><p>如果指定参数，那么加载参数的路径配置文件</p>
+</li>
+<li><p>如果不指定参数，默认加载<code>src/目录</code>下的<code>hibernate.cfg.xml</code></p>
+</li>
+</ul>
+<h3 id="buildSessionFactory方法"><a href="#buildSessionFactory方法" class="headerlink" title="buildSessionFactory方法"></a>buildSessionFactory方法</h3><p><code>buildSessionFactory()</code>用于<code>创建Session工厂</code></p>
+<h3 id="SessionFactory"><a href="#SessionFactory" class="headerlink" title="SessionFactory"></a>SessionFactory</h3><p><code>SessionFactory</code>–&gt;<code>Session的工厂</code>，也可以说代表了<code>hibernate.cfg.xml</code>这个文件…<code>hibernate.cfg.xml</code>的就有<code>&lt;session-factory&gt;</code>这么一个节点</p>
+<ul>
+<li><p>openSession方法<br>  创建一个Session对象</p>
+</li>
+<li><p>getCurrentSession方法<br>  创建Session对象或取出Session对象</p>
+</li>
+</ul>
+<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><p><code>Session</code>是<code>Hibernate</code>最重要的对象，<code>Session维护了一个连接（Connection）</code>，只要使用<code>Hibernate</code>操作数据库，都需要用到<code>Session</code>对象</p>
+<p>通常我们在<code>DAO层</code>中都会有以下的方法，Session也为我们提供了对应的方法来实现！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IEmployeeDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">save</span><span class="params">(Employee emp)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(Employee emp)</span></span>;</span><br><span class="line">    <span class="function">Employee <span class="title">findById</span><span class="params">(Serializable id)</span></span>;</span><br><span class="line">    <span class="function">List&lt;Employee&gt; <span class="title">getAll</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">List&lt;Employee&gt; <span class="title">getAll</span><span class="params">(String employeeName)</span></span>;</span><br><span class="line">    <span class="function">List&lt;Employee&gt; <span class="title">getAll</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> count)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">delete</span><span class="params">(Serializable id)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="更新操作"><a href="#更新操作" class="headerlink" title="更新操作"></a>更新操作</h3><p>我们在快速入门中使用到了<code>save(Objcet o)</code>方法，调用了这个方法就把对象保存在数据库之中了。<code>Session对象</code>还提供着其他的方法来进行对数据库的更新</p>
+<ul>
+<li><p>session.save(obj); <code>保存一个对象</code></p>
+</li>
+<li><p>session.update(obj); <code>更新一个对象</code></p>
+</li>
+<li><p>session.saveOrUpdate(obj); <code>保存或者更新的方法</code></p>
+<ul>
+<li><p>没有设置主键，执行保存；</p>
+</li>
+<li><p>有设置主键，执行更新操作;</p>
+</li>
+<li><p>如果设置主键不存在报错！</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>我们来使用一下<code>update()</code>方法吧….既然是更新操作了，那么肯定需要设置主键的，不设置主键，数据库怎么知道你要更新什么。将id为1的记录修改成如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">user.setId(<span class="number">1</span>);</span><br><span class="line">user.setPassword(<span class="string">"fhjdlashf"</span>);</span><br><span class="line">user.setCellphone(<span class="string">"100865"</span>);</span><br><span class="line">user.setUsername(<span class="string">"xiaoqinghua"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="主键查询"><a href="#主键查询" class="headerlink" title="主键查询"></a>主键查询</h3><p>通过主键来查询数据库的记录，从而返回一个<code>JavaBean</code>对象</p>
+<ul>
+<li><p>session.get(javaBean.class, int id); <code>传入对应的class和id就可以查询</code></p>
+</li>
+<li><p>session.load(javaBean.class, int id); <code>支持懒加载</code></p>
+</li>
+</ul>
+<p>User重写toString()来看一下效果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">User user1 = (User) session.get(User.class, <span class="number">1</span>);</span><br><span class="line">System.out.println(user1);</span><br><span class="line"></span><br><span class="line">User&#123;id=<span class="number">1</span>，username=<span class="string">'xiaoqinghua'</span>，password=<span class="string">'fhjdlashf'</span>，cellphone=<span class="string">'100865'</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="HQL查询"><a href="#HQL查询" class="headerlink" title="HQL查询"></a>HQL查询</h3><p><code>HQL:hibernate query language</code> 即<code>hibernate</code>提供的面向对象的查询语言</p>
+<p>查询的是对象以及对象的属性<code>它查询的是对象以及属性，因此是区分大小写的！</code>。</p>
+<p><code>SQL：Struct query language</code> 结构化查询语言</p>
+<p>查询的是表以及列<code>不区分大小写</code></p>
+<p><strong>HQL是面向对象的查询语言，可以用来查询全部的数据！</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Query query = session.createQuery(<span class="string">"FROM User"</span>);</span><br><span class="line">List list = query.list();</span><br><span class="line">System.out.println(list);</span><br></pre></td></tr></table></figure>
+<p>也可以传递参数进去查询</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Query query = session.createQuery(<span class="string">"FROM User WHERE id=?"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//这里的？号是从0开始的，并不像JDBC从1开始的！</span></span><br><span class="line">query.setParameter(<span class="number">0</span>, user.getId());</span><br><span class="line"></span><br><span class="line">List list = query.list();</span><br><span class="line">System.out.println(list);</span><br></pre></td></tr></table></figure>
+<h3 id="QBC查询"><a href="#QBC查询" class="headerlink" title="QBC查询"></a>QBC查询</h3><p><code>QBC查询: query by criteria</code> 完全面向对象的查询</p>
+<p>从上面的<code>HQL查询</code>，我们就可以发现：<code>HQL查询</code>是需要<code>SQL的基础</code>的，因为还是要写少部分的SQL代码….QBC查询就是完全的面向对象查询…但是呢，我们用得比较少</p>
+<p>我们来看一下怎么使用吧：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建关于user对象的criteria对象</span></span><br><span class="line">Criteria criteria = session.createCriteria(User.class);</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加条件</span></span><br><span class="line">criteria.add(Restrictions.eq(<span class="string">"id"</span>, <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//查询全部数据</span></span><br><span class="line">List list = criteria.list();</span><br><span class="line">System.out.println(list);</span><br></pre></td></tr></table></figure>
+<h3 id="本地SQL查询"><a href="#本地SQL查询" class="headerlink" title="本地SQL查询"></a>本地SQL查询</h3><p>有的时候，如果SQL是非常复杂的，我们不能靠HQL查询来实现功能的话，我们就需要使用原生的SQL来进行复杂查询了！</p>
+<p>但是呢，它有一个缺陷：它是不能跨平台的…因此我们在主配置文件中已经配置了数据库的“方言“了。</p>
+<p>我们来简单使用一下把：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将所有的记录封装成User对象存进List集合中</span></span><br><span class="line">SQLQuery sqlQuery = session.createSQLQuery(<span class="string">"SELECT * FROM user"</span>).addEntity(User.class);</span><br><span class="line"></span><br><span class="line">List list = sqlQuery.list();</span><br><span class="line"></span><br><span class="line">System.out.println(list);</span><br></pre></td></tr></table></figure>
+<h3 id="beginTransaction方法"><a href="#beginTransaction方法" class="headerlink" title="beginTransaction方法"></a>beginTransaction方法</h3><p>开启事务，返回的是一个事务对象….<code>Hibernate规定所有的数据库操作都必须在事务环境下进行，否则报错！</code></p>
+<h2 id="主配置文件-1"><a href="#主配置文件-1" class="headerlink" title="主配置文件"></a>主配置文件</h2><p>主配置文件主要配置：</p>
+<ul>
+<li><p>数据库的信息</p>
+</li>
+<li><p>其他参数</p>
+</li>
+<li><p>加载映射文件</p>
+</li>
+</ul>
+<p>常用的配置信息都可以在hibernate-distribution-3.6.0.Final\project\etc\hibernate.properties目录下可以找到</p>
+<h3 id="数据库信息"><a href="#数据库信息" class="headerlink" title="数据库信息"></a>数据库信息</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 1. 数据库连接配置 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.connection.driver_class"</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.connection.url"</span>&gt;</span>jdbc:mysql:///hib_demo<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.connection.username"</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.connection.password"</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    数据库方法配置， hibernate在运行的时候，会根据不同的方言生成符合当前数据库语法的sql【大致可以理解成：不同的版本对应的SQL不同】</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.dialect"</span>&gt;</span>org.hibernate.dialect.MySQL5Dialect<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="其他参数信息"><a href="#其他参数信息" class="headerlink" title="其他参数信息"></a>其他参数信息</h3><p>常用的有那么三个：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 2. 其他相关配置 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 2.1 显示hibernate在运行时候执行的sql语句 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.show_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 2.2 格式化sql --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.format_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 2.3 自动建表  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.hbm2ddl.auto"</span>&gt;</span>update<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>需要我们注意的是自动建表，其中它有几个参数：</p>
+<ul>
+<li><p><code>create-drop</code> 每次在创建<code>sessionFactory</code>时候执行创建表。当调用<code>sesisonFactory的close方法的时候，删除表</code>！</p>
+</li>
+<li><p><code>create</code> 每次都重新建表； 如果表已经存在就<code>先删除再创建</code></p>
+</li>
+<li><p><code>update</code> 如果表不存在就创建； <code>表存在就不创建</code>；</p>
+</li>
+<li><p>validate (生成环境时候) 执行验证： <code>当映射文件的内容与数据库表结构不一样的时候就报错！</code></p>
+</li>
+</ul>
+<h3 id="加载映射文件"><a href="#加载映射文件" class="headerlink" title="加载映射文件"></a>加载映射文件</h3><p>值得注意的是：<code>mapping</code>的属性使用的是<code>resource</code>!</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--3. 加载映射文件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapping</span> <span class="attr">resource</span>=<span class="string">"xiaoqinghua/domain/User.hbm.xml"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>加载映射文件其实我们可以在<code>程序中加载</code>，不一定在配置文件中配置….一般地，我们在测试的时候一般使用程序的方式去加载映射文件</p>
+<p>那么怎么在程序中加载映射文件呢？</p>
+<p>在<code>Configuration对象</code>中提供了<code>addClass()</code>的方法。</p>
+<p>一般地我们的<code>映射配置文件</code>和<code>JavaBean对象</code>是放在同一个包下的。<strong>并且映射文件的命名是有规范的</strong>。因此<code>Hibernate</code>是可以通过提供的<code>JavaBean对象</code>从而找到相对应的映射文件！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取加载配置管理类</span></span><br><span class="line">Configuration configuration = <span class="keyword">new</span> Configuration();</span><br><span class="line"></span><br><span class="line"><span class="comment">//加载User的映射文件！</span></span><br><span class="line">configuration.configure().addClass(User.class);</span><br></pre></td></tr></table></figure>
+<h3 id="映射配置文件"><a href="#映射配置文件" class="headerlink" title="映射配置文件"></a>映射配置文件</h3><p>映射文件: <code>映射一个实体类对象</code>； 描述一个对象最终实现可以直接保存对象数据到数据库中</p>
+<p>通常地，我们都是一个<code>JavaBean</code>对象对应一个<code>映射配置文件</code>，并且<code>配置文件</code>和<code>JavaBean对象</code>是放在同一个目录下的</p>
+<p>我们按照快速入门的映射配置文件一步一步来讲解：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--在domain包下--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hibernate-mapping</span> <span class="attr">package</span>=<span class="string">"xiaoqinghua.domain"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--类名为User，表名也为User--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"User"</span>  <span class="attr">table</span>=<span class="string">"user"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--主键映射，属性名为id，列名也为id--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">column</span>=<span class="string">"id"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--根据底层数据库主键自动增长--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"native"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--非主键映射，属性和列名一一对应--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">column</span>=<span class="string">"username"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"cellphone"</span> <span class="attr">column</span>=<span class="string">"cellphone"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">column</span>=<span class="string">"password"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">hibernate-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>hibernate-mapping</code>节点</p>
+<p>常用的属性：</p>
+<ul>
+<li><p>package <code>要映射的对象所在的包(可选,如果不指定,此文件所有的类都要指定全路径)</code></p>
+</li>
+<li><p>auto-import</p>
+<ul>
+<li><p>默认为true， 在写hql的时候自动导入包名</p>
+</li>
+<li><p>如果指定为false, 再写hql的时候必须要写上类的全名；</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><code>class</code>节点</p>
+<p><code>class</code> 映射某一个对象的<code>(一般情况，一个对象写一个映射文件，即一个class节点)</code></p>
+<p>常用的属性：</p>
+<ul>
+<li><p>name <code>指定要映射的对象的类型</code></p>
+</li>
+<li><p>table <code>指定对象对应的表</code></p>
+<ul>
+<li>如果没有指定，默认与对象名称一样</li>
+</ul>
+</li>
+</ul>
+<p><code>property</code>节点</p>
+<p><code>property</code>是<code>普通属性的映射</code>，即<code>JavaBean</code>普通的成员变量属性就使用property来描述！</p>
+<p>常用的属性：</p>
+<ul>
+<li><p>name 指定对象的属性名称</p>
+</li>
+<li><p>column 指定对象属性对应的表的字段名称</p>
+<ul>
+<li>如果不写默认与对象属性一致。</li>
+</ul>
+</li>
+<li><p>length 指定字符的长度, 默认为255</p>
+</li>
+<li><p>type 指定映射表的字段的类型，如果不指定会匹配属性的类型</p>
+<ul>
+<li>java类型： 必须写全名【例：java.lang.String】</li>
+<li>hibernate类型： 直接写类型，都是小写</li>
+</ul>
+</li>
+</ul>
+<p>值得注意的是：如果列名称为数据库关键字，需要用反引号或改列名。当然啦，我们一般不使用关键字来作为列名</p>
+<p><code>id</code>节点</p>
+<p><code>id</code>是<code>主键</code>映射….</p>
+<ul>
+<li><p>name 指定对象的属性名</p>
+</li>
+<li><p>column 指定对象属性对应的表的字段名称</p>
+</li>
+</ul>
+<p><code>&lt;id&gt;节点下还有子节点&lt;generator class=&quot;&quot;/&gt;</code></p>
+<p>主键的自动生成策略</p>
+<ul>
+<li><p><code>identity</code> 自增长(mysql,db2)</p>
+</li>
+<li><p><code>sequence</code> 自增长(序列)， <code>oracle中自增长是以序列方法实现</code></p>
+</li>
+<li><p>native 自增长<code>会根据底层数据库自增长的方式选择identity或sequence</code></p>
+<ul>
+<li><p>如果是mysql数据库, 采用的自增长方式是identity</p>
+</li>
+<li><p>如果是oracle数据库， 使用sequence序列的方式实现自增长</p>
+</li>
+</ul>
+</li>
+<li><p>increment 自增长(会有并发访问的问题，一般在服务器集群环境使用会存在问题。)</p>
+</li>
+</ul>
+<p>指定主键生成策略为手动指定主键的值</p>
+<p><code>assigned</code></p>
+<p>指定主键生成策略为UUID生成的值</p>
+<p><code>uuid</code></p>
+<p>foreign(外键的方式， one-to-one讲)</p>
+<p><code>composite-id</code></p>
+<p>主键一般分为两种：</p>
+<ul>
+<li><p>单列主键</p>
+</li>
+<li><p>多列复合主键</p>
+</li>
+</ul>
+<p>单列主键就是上面那种，那么如果要使用多列复合主键就需要使用<code>&lt;composite-id&gt;</code>节点来配置了</p>
+<p>现在我有这么下面的一个对象，我想使用<code>username</code>和<code>password</code>作为复合主键</p>
+<ul>
+<li><p>将<code>username</code>和<code>password</code>抽取成一个类—-&gt;<code>CompositeKey</code>….必须实现<code>Serializable接口</code></p>
+</li>
+<li><p>在<code>User2</code>中需要指定一个变量来维护这个主键对象</p>
+</li>
+</ul>
+
                             </div>
                             <footer class="article-footer">
                                 

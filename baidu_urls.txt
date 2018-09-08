@@ -1,3 +1,4 @@
+http://xiaoqinghua.site/about.html
 http://xiaoqinghua.site/Java8-时间戳和LocalDateTime互转.html
 http://xiaoqinghua.site/易燃易爆炸(程序员版).html
 http://xiaoqinghua.site/计算机世界的潜规则.html
@@ -45,4 +46,3 @@ http://xiaoqinghua.site/Mysql存储IP地址细节.html
 http://xiaoqinghua.site/乌合之众.html
 http://xiaoqinghua.site/娱乐至死.html
 http://xiaoqinghua.site/百年孤独.html
-http://xiaoqinghua.site/about.html

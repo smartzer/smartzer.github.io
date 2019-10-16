@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Java内存模型JMM总结 | 有幸的个人小站</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Java-Fundamental" />
+    
+    <meta name="description" content="Java内存模型（JMM）从 volatile 说起英文：volatile 的意思是不稳定的;挥发性的；Java：volatile 用于修饰变量，被volatile修饰的共享变量，就具有了以下两点特性：  1.保证了不同线程对该变量操作的内存可见性 2.禁止指令重排序  Java内存模型（JMM）Java虚拟机（JVM）规范试图定义一种 Java内存模型（JMM）,来屏蔽掉各种硬件和操作系统的内存">
+<meta name="keywords" content="Java-Fundamental">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java内存模型JMM总结">
+<meta property="og:url" content="http://xiaoqinghua.site/Java内存模型JMM总结.html">
+<meta property="og:site_name" content="有幸的个人小站">
+<meta property="og:description" content="Java内存模型（JMM）从 volatile 说起英文：volatile 的意思是不稳定的;挥发性的；Java：volatile 用于修饰变量，被volatile修饰的共享变量，就具有了以下两点特性：  1.保证了不同线程对该变量操作的内存可见性 2.禁止指令重排序  Java内存模型（JMM）Java虚拟机（JVM）规范试图定义一种 Java内存模型（JMM）,来屏蔽掉各种硬件和操作系统的内存">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://mp.ofweek.com/Upload/News/Img/member9608/201808/13105609232071.jpg">
+<meta property="og:updated_time" content="2019-10-16T10:25:55.694Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java内存模型JMM总结">
+<meta name="twitter:description" content="Java内存模型（JMM）从 volatile 说起英文：volatile 的意思是不稳定的;挥发性的；Java：volatile 用于修饰变量，被volatile修饰的共享变量，就具有了以下两点特性：  1.保证了不同线程对该变量操作的内存可见性 2.禁止指令重排序  Java内存模型（JMM）Java虚拟机（JVM）规范试图定义一种 Java内存模型（JMM）,来屏蔽掉各种硬件和操作系统的内存">
+<meta name="twitter:image" content="https://mp.ofweek.com/Upload/News/Img/member9608/201808/13105609232071.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="有幸的个人小站" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?406f7b4a3caadab9aabc8241063812a6";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">code is poetry</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/tags/Life">Life</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/tags/City">City</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/">Code</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Cloud-Office/">Cloud-Office</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Computer-Principles/">Computer Principles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/EtherPad/">EtherPad</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Hibernate/">Hibernate</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Iterm2/">Iterm2</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/JAVA-8/">JAVA 8</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Java-Fundamental/">Java-Fundamental</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Java集合框架/">Java集合框架</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/MyBatis/">MyBatis</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/MySql/">MySql</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/OT/">OT</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Redis/">Redis</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Spring/">Spring</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Code/Vim/">Vim</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/关于我.html">关于我</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Code/Java-Fundamental/">Java-Fundamental</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-Java内存模型JMM总结" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Java内存模型JMM总结
+        </h1>
+    
+
+            </header>
+            
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <a href="/Java内存模型JMM总结.html" class="article-date">
+            <time datetime="2019-10-16T03:21:51.000Z" itemprop="datePublished">2019-10-16</time>
+        </a>
+    </div>
+
+                            
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java-Fundamental/">Java-Fundamental</a>
+    </div>
+
+                    </div>
+                    
+                        
+                            <div class="article-entry" itemprop="articleBody">
+                                <h2 id="Java内存模型（JMM）"><a href="#Java内存模型（JMM）" class="headerlink" title="Java内存模型（JMM）"></a>Java内存模型（JMM）</h2><h3 id="从-volatile-说起"><a href="#从-volatile-说起" class="headerlink" title="从 volatile 说起"></a>从 volatile 说起</h3><p>英文：volatile 的意思是不稳定的;挥发性的；<br>Java：volatile 用于修饰变量，被volatile修饰的共享变量，就具有了以下两点特性：</p>
+<ul>
+<li>1.保证了不同线程对该变量操作的内存可见性</li>
+<li>2.禁止指令重排序</li>
+</ul>
+<h3 id="Java内存模型（JMM）-1"><a href="#Java内存模型（JMM）-1" class="headerlink" title="Java内存模型（JMM）"></a>Java内存模型（JMM）</h3><p>Java虚拟机（JVM）规范试图定义一种 Java内存模型（JMM）,来屏蔽掉各种硬件和操作系统的内存访问差异，让Java程序在各种平台上都能达到一致的内存访问效果（write once, run anywhere）。简单来说，由于CPU执行指令的速度是很快的，但是内存访问的速度就慢了很多，相差的不是一个数量级，所以就在CPU里加了好几层高速缓存（计算机世界很多问题都可以靠增加一个缓存来解决）。JMM是一种抽象的概念，并不真实存在，它描述的是一组规则或规范，通过这组规范定义了程序中各个变量的访问方式;</p>
+<p>在JMM里，对上述的优化又进行了一波抽象。JMM规定所有变量都是存在主内存中的，类似于上面提到的普通内存，每个线程又包含自己的工作内存，方便理解就可以看成CPU上的寄存器或者高速缓存。所以线程的操作都是以工作内存为主，它们只能访问自己的工作内存，且工作前后都要把值再同步回主内存。</p>
+<p>直接看图：<br><img src="../Java内存模型JMM总结/JMM.png" alt="JMM"></p>
+<p>在线程执行时，首先会从主存中 read 变量值，再 load 到工作内存中的副本中，然后再传给处理器执行，执行完毕后再给工作内存中的副本赋值，随后工作内存再把值传回给主存，主存中的值才更新。 使用工作内存和主存，虽然加快的速度，但是也带来了一些问题。（缓存不一致）比如看下面一个例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i = i + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>假设 i 初值为 0，当只有一个线程执行它时，结果肯定得到 1，当两个线程执行时，会得到结果 2吗？这倒不一定了。可能存在这种情况：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Thread1： load i from 主存    <span class="comment">// i = 0</span></span><br><span class="line">          i + <span class="number">1</span>  <span class="comment">// i = 1</span></span><br><span class="line">Thread2： load i from主存  <span class="comment">// 因为Thread1还没将i的值写回主存，所以i还是0</span></span><br><span class="line">          i + <span class="number">1</span>  <span class="comment">// i = 1</span></span><br><span class="line">Thread1:  save i to 主存</span><br><span class="line">Thread2： save i to 主存</span><br></pre></td></tr></table></figure>
+<p>如果两个线程按照上面的执行流程，那么 i 最后的值就是 1 了。如果最后的写回主存生效的慢，你再读取 i 的值，都可能是0，这就是缓存不一致问题。 JMM主要就是围绕着如何在并发过程中处理原子性、可见性和有序性这3个特征来建立的，通过解决这三个问题，可以解除缓存不一致的问题。而volatile 跟可见性和有序性都有关；</p>
+<h3 id="三大特性（原子性、可见性、有序性）"><a href="#三大特性（原子性、可见性、有序性）" class="headerlink" title="三大特性（原子性、可见性、有序性）"></a>三大特性（原子性、可见性、有序性）</h3><ul>
+<li>1.原子性(Atomicity)：<br>Java中，对基本数据类型的读取和赋值操作是原子性操作，所谓原子性操作就是指这些操作是不可中断的，要做一定做完，要么就没有执行。 比如：<br>i = 2;<br>j = i;<br>i++;<br>i = i + 1;<br>上面4个操作中，i = 2 是读取操作，必定是原子性操作，j = i 不原子性操作，分为两步，一是读取 i的值，然后再赋值给 j , 这就是2步操作了，称不上原子操作；i++ 和 i = i + 1 其实是等效的，读取 i 的值，加 1，再写回主存，是3步操作了。</li>
+</ul>
+<p>所以上面的举例中，最后的值可能出现多种情况，就是因为满足不了原子性。 这么说来，只有简单的读取，赋值是原子操作，还只能是用数字赋值，用变量的话还多了一步读取变量值的操作。</p>
+<p>有个例外是，虚拟机规范中允许对 64 位数据类型 (long 和 double)，分为 2 次 32 位的操作来处理，但是最新JDK实现还是实现了原子操作的。 JMM只实现了基本的原子性，像上面 i++ 那样的操作，必须借助于 synchronized 和 Lock 来保证整块代码的原子性了。线程在释放锁之前，必然会把 i 的值刷回到主存的。</p>
+<ul>
+<li><ol start="2">
+<li>可见性(Visibility)：<br>Java 就是利用 volatile 来提供可见性的。 当一个变量被 volatile 修饰时，那么对它的修改会立刻刷新到主存，当其它线程需要读取该变量时，会去主内存中读取新值。而普通变量则不能保证这一点。 其实通过 synchronized 和 Lock 也能够保证可见性，线程在释放锁之前，会把共享变量值都刷回主存，但是 synchronized 和 Lock 的开销都更大。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>有序性（Ordering） </li>
+</ol>
+</li>
+</ul>
+<p>JMM是允许编译器和处理器对指令重排序的，但是规定了 as-if-serial 语义，即不管怎么重排序，程序的执行结果不能改变。比如下面的程序段：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> v = <span class="number">3</span>;    <span class="comment">// A</span></span><br><span class="line"><span class="keyword">int</span> t = <span class="number">4</span>;    <span class="comment">// B</span></span><br><span class="line"><span class="keyword">int</span> s = v * t; <span class="comment">// C</span></span><br></pre></td></tr></table></figure>
+<p>上面的语句，可以按照 A-&gt;B-&gt;C 执行，结果为 12 ;但是也可以按照 B-&gt;A-&gt;C 的顺序执行，因为A、B 是两句独立的语句，而 C 则依赖于 A、B，所以 A、B 可以重排序，但是 C 却不能排到 A、B 的前面。JMM 保证了重排序不会影响到单线程的执行，但是在多线程中却容易出问题。比如这样的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">bool flag = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    a = <span class="number">2</span>;              <span class="comment">//1</span></span><br><span class="line">    flag = <span class="keyword">true</span>;        <span class="comment">//2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">multiply</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (flag) &#123;         <span class="comment">//3</span></span><br><span class="line">        <span class="keyword">int</span> result = a * a;<span class="comment">//4</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>假如有两个线程执行上述代码段，线程1先执行 write 方法，随后线程2再执行 multiply 方法，最后result 的值一定是 4 吗？</p>
+<p><img src="../Java内存模型JMM总结/重排序代码.png" alt="重排序代码"></p>
+<p>如图所示，write 方法里的 1 和 2 做了重排序，线程1先对 flag 赋值为 true，随后执行到线程2，result 直接计算出结果为 0，再到线程1，这时候 a 才赋值为 2, 很明显迟了一步。 这时候可以为 flag 加上 volatile 关键字，禁止重排序，可以确保程序的有序性，也可以上重量级的 synchronized 和 Lock 来保证有序性,它们能保证那一块区域里的代码都是一次性执行完毕的。 </p>
+<p>另外，JMM具备一些先天的有序性, 即不需要通过任何手段就可以保证的有序性，通常称为 happens-before 原则。&lt;&lt;JSR-133：Java Memory Model and Thread Specification&gt;&gt;定义了如下 happens-before 规则：</p>
+<ul>
+<li><p>1.程序顺序规则： 一个线程中的每个操作，happens-before 于该线程中的任意后续操作 </p>
+</li>
+<li><p>2.监视器锁规则：对一个线程的解锁，happens-before 于随后对这个线程的加锁 </p>
+</li>
+<li><p>3.volatile变量规则： 对一个 volatile 变量的写，happens-before 于后续对这个 volatile 变量的读 </p>
+</li>
+<li><p>4.传递性：如果 A happens-before B ,且 B happens-before C, 那么 A happens-before C </p>
+</li>
+<li><p>5.start()规则： 如果线程A执行操作 ThreadB_start() (启动线程B) , 那么 A线程的ThreadB_start() happens-before 于B中的任意操作 </p>
+</li>
+<li><p>6.join()原则： 如果A执行 ThreadB.join() 并且成功返回，那么线程B中的任意操作 happens-before 于线程A从ThreadB.join()操作成功返回。 </p>
+</li>
+<li><p>7.interrupt()原则： 对线程 interrupt() 方法的调用先行发生于被中断线程代码检测到中断事件的发生，可以通过 Thread.interrupted() 方法检测是否有中断发生 </p>
+</li>
+<li><p>8.finalize()原则：一个对象的初始化完成先行发生于它的 finalize() 方法的开始 </p>
+</li>
+</ul>
+<h3 id="volatile如何满足并发编程的三大特性"><a href="#volatile如何满足并发编程的三大特性" class="headerlink" title="volatile如何满足并发编程的三大特性"></a>volatile如何满足并发编程的三大特性</h3><p>那就要重提 volatile 变量规则： 对一个 volatile 变量的写，happens-before 于后续对这个 volatile 变量的读。 其实就是如果一个变量声明成是 volatile 的，那么当我读变量时，总是能读到它的最新值，这里最新值是指不管其它哪个线程对该变量做了写操作，都会立刻被更新到主存里，我也能从主存里读到这个刚写入的值。也就是说 volatile 关键字可以保证可见性以及有序性。 继续拿上面的一段代码举例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">bool flag = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    a = <span class="number">2</span>;              <span class="comment">//1</span></span><br><span class="line">    flag = <span class="keyword">true</span>;        <span class="comment">//2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">multiply</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (flag) &#123;         <span class="comment">//3</span></span><br><span class="line">        <span class="keyword">int</span> result = a * a;<span class="comment">//4</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这段代码不仅仅受到重排序的困扰，即使1、2没有重排序。3也不会那么顺利的执行的。假设还是线程1先执行 write 方法，线程2再执行 multiply 方法，由于线程1是在工作内存里把 flag 赋值为 true，不一定立刻写回主存，所以线程2执行时，multiply 方法再从主存读 flag 值，仍然可能为 false，那么括号里的语句将不会执行。 如果改成下面这样：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">volatile</span> bool flag = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    a = <span class="number">2</span>;              <span class="comment">//1</span></span><br><span class="line">    flag = <span class="keyword">true</span>;        <span class="comment">//2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">multiply</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (flag) &#123;         <span class="comment">//3</span></span><br><span class="line">        <span class="keyword">int</span> result = a * a;<span class="comment">//4</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那么还是线程1先执行 write 方法, 线程2再执行 multiply 方法。根据 happens-before 原则，这个过程会满足以下3类规则： </p>
+<ul>
+<li><p>程序顺序规则：1 happens-before 2（volatile 限制了指令重排序）; 3 happens-before 4; </p>
+</li>
+<li><p>volatile规则：2 happens-before 3 </p>
+</li>
+<li><p>传递性规则：1 happens-before 4</p>
+</li>
+</ul>
+<h3 id="volatile的两点内存语义能保证可见性和有序性，但是能保证原子性吗？"><a href="#volatile的两点内存语义能保证可见性和有序性，但是能保证原子性吗？" class="headerlink" title="volatile的两点内存语义能保证可见性和有序性，但是能保证原子性吗？"></a>volatile的两点内存语义能保证可见性和有序性，但是能保证原子性吗？</h3><p>先看一段代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">int</span> inc = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">increase</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        inc++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> Test test = <span class="keyword">new</span> Test();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">1000</span>; j++) &#123;</span><br><span class="line">                    test.increase();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (Thread.activeCount() &gt; <span class="number">1</span>) &#123; <span class="comment">//保证前面的线程都执行完</span></span><br><span class="line">            Thread.yield();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(Thread.currentThread().getName());</span><br><span class="line">        System.out.println(test.inc);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>讲道理来说结果是10000，但是运行下很可能是个小于 10000 的值。有同学可能会说 volatile 不是保证了可见性吗，一个线程对 inc 的修改，另外一个线程应该立刻看到！可是这里的操作 inc++ 是个复合操作啊，包括 3 个步骤读取 inc 的值，对其自增，然后再写回主存。 </p>
+<p>假设线程A，读取了 inc 的值为10，这时候被阻塞了（可能都不是被阻塞，就是有其他线程执行比线程A更快，因为线程的执行是CPU调度的，在同等优先级的情况下，是抢占式的），因为没有对变量进行修改（前面的例子 flag = true；是读取主存中的值，再把 true 赋值给工作内存中的副本 flag，然后再刷新回主存，这样 flag 这个变量就改变了，而这些都是一个步骤，原子的），触发不了 volatile 规则。 线程B此时也读到 inc 的值，主存里 inc 的值依旧为10，做自增，然后立刻就被写回主存了，结果为11。 此时又轮到线程A执行，由于工作内存里保存的是10，所以继续做自增，再写回主存，11又被写了一遍。所以虽然两个线程执行了两次 increase()，结果却只加了一次。看图看图：<br><img src="../Java内存模型JMM总结/volatile.png" alt="执行过程"></p>
+<p>在这种复合操作的情景下，原子性的功能是维持不了了。但是 volatile 在上面那种设置 flag 值的例子里，由于对 flag 的读/写操作都是单步的，所以还是能保证原子性的。 要想保证原子性，只能借助于synchronized ,Lock 以及并发包下的 atomic 的原子操作类;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> AtomicInteger inc = <span class="keyword">new</span> AtomicInteger();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">increase</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        inc.getAndIncrement();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> Test test = <span class="keyword">new</span> Test();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">1000</span>; j++) &#123;</span><br><span class="line">                    test.increase();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (Thread.activeCount() &gt; <span class="number">1</span>) &#123; <span class="comment">//保证前面的线程都执行完</span></span><br><span class="line">            Thread.yield();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(Thread.currentThread().getName());</span><br><span class="line">        System.out.println(test.inc);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="volatile底层的实现机制是什么？"><a href="#volatile底层的实现机制是什么？" class="headerlink" title="volatile底层的实现机制是什么？"></a>volatile底层的实现机制是什么？</h3><p>下面这段话摘自《深入理解Java虚拟机》：</p>
+<blockquote>
+<p>“观察加入 volatile 关键字和没有加入volatile关键字时所生成的汇编代码发现，加入 volatile 关键字时，会多出一个lock 前缀指令”。</p>
+</blockquote>
+<h4 id="lock-前缀指令实际相当于一个内存屏障，内存屏障提供了以下功能："><a href="#lock-前缀指令实际相当于一个内存屏障，内存屏障提供了以下功能：" class="headerlink" title="lock 前缀指令实际相当于一个内存屏障，内存屏障提供了以下功能："></a>lock 前缀指令实际相当于一个内存屏障，内存屏障提供了以下功能：</h4><p>1、重排序时不能把后面的指令重排序到内存屏障之前的位置<br>2、它会强制将对缓存的修改操作立即写入主存<br>3、写入动作也会引起别的CPU或者别的内核无效化其 Cache，相当于让新写入的值对别的线程可见。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>JMM就是一组规则，这组规则是为了解决在并发编程可能出现的线程安全问题，并提供了内置解决方案（happen-before原则）及其外部可使用的同步手段(synchronized/volatile等)，确保了程序执行在多线程环境中的应有的原子性，可视性及其有序性。</p>
+
+                            </div>
+                            <footer class="article-footer">
+                                
+
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+
+                            </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weixin" href="/../css/images/zz_qrcode.jpeg" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weixin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/smartzer" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="https://weibo.com/2476387642/profile?topnav=1&wvr=6" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/Java并发总结.html" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Java并发总结</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/Java内存模型JMM总结.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://mp.ofweek.com/Upload/News/Img/member9608/201808/13105609232071.jpg)" alt="Java内存模型JMM总结" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/Java-Fundamental/">Java-Fundamental</a></p>
+                            <p class="item-title"><a href="/Java内存模型JMM总结.html" class="title">Java内存模型JMM总结</a></p>
+                            <p class="item-date"><time datetime="2019-10-16T03:21:51.000Z" itemprop="datePublished">2019-10-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/Java并发总结.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.decorreport.com/inline/home/th/7e80198975e8247e3555b708507e2952.jpg)" alt="Java并发总结" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/Java-Fundamental/">Java-Fundamental</a></p>
+                            <p class="item-title"><a href="/Java并发总结.html" class="title">Java并发总结</a></p>
+                            <p class="item-date"><time datetime="2019-10-02T07:52:59.000Z" itemprop="datePublished">2019-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/VIM练习手册.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://cdn-images-1.medium.com/max/2000/1*lRiFQXsrauey4Lt9IHJIQg.jpeg)" alt="VIM练习手册" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/Vim/">Vim</a></p>
+                            <p class="item-title"><a href="/VIM练习手册.html" class="title">VIM练习手册</a></p>
+                            <p class="item-date"><time datetime="2019-07-25T06:42:48.000Z" itemprop="datePublished">2019-07-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/Redis笔记.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://venturebeat.com/wp-content/uploads/2016/05/Redis.png?fit=578%2C305&strip=all)" alt="Redis笔记" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/Redis/">Redis</a></p>
+                            <p class="item-title"><a href="/Redis笔记.html" class="title">Redis笔记</a></p>
+                            <p class="item-date"><time datetime="2019-07-01T15:04:49.000Z" itemprop="datePublished">2019-07-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/Java虚拟机总结.html" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://file03.16sucai.com/2017/1100/16sucai_p579d163_330.JPG)" alt="Java虚拟机总结" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Code/">Code</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Code/Java-Fundamental/">Java-Fundamental</a></p>
+                            <p class="item-title"><a href="/Java虚拟机总结.html" class="title">Java虚拟机总结</a></p>
+                            <p class="item-date"><time datetime="2018-11-19T02:50:07.000Z" itemprop="datePublished">2018-11-19</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Code/">Code</a><span class="category-list-count">41</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Cloud-Office/">Cloud-Office</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Computer-Principles/">Computer Principles</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/EtherPad/">EtherPad</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Hibernate/">Hibernate</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Iterm2/">Iterm2</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/JAVA-8/">JAVA 8</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Java-Fundamental/">Java-Fundamental</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Java集合框架/">Java集合框架</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/MyBatis/">MyBatis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/MySql/">MySql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/OT/">OT</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Redis/">Redis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Spring/">Spring</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/Vim/">Vim</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/1992/08/">August 1992</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/City/">City</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Office/">Cloud-Office</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Principles/">Computer Principles</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EtherPad/">EtherPad</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hibernate/">Hibernate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Iterm2/">Iterm2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA-8/">JAVA 8</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Fundamental/">Java-Fundamental</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java集合框架/">Java集合框架</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Life/">Life</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/">MyBatis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OT/">OT</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/City/" style="font-size: 10px;">City</a> <a href="/tags/Cloud-Office/" style="font-size: 10px;">Cloud-Office</a> <a href="/tags/Computer-Principles/" style="font-size: 10px;">Computer Principles</a> <a href="/tags/EtherPad/" style="font-size: 10px;">EtherPad</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/Iterm2/" style="font-size: 10px;">Iterm2</a> <a href="/tags/JAVA-8/" style="font-size: 12px;">JAVA 8</a> <a href="/tags/Java-Fundamental/" style="font-size: 20px;">Java-Fundamental</a> <a href="/tags/Java集合框架/" style="font-size: 12px;">Java集合框架</a> <a href="/tags/Life/" style="font-size: 18px;">Life</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/OT/" style="font-size: 16px;">OT</a> <a href="/tags/Redis/" style="font-size: 12px;">Redis</a> <a href="/tags/Spring/" style="font-size: 14px;">Spring</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://github.com/">Github</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 xiaoqinghua 有幸</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://xiaoqinghua.site/Java内存模型JMM总结.html';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

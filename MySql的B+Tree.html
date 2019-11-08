@@ -21,7 +21,7 @@
 <meta property="og:description" content="前言索引这个词，相信大家已经相当熟悉了，都知道MySQL的索引主要以B+树为主，但是要问到为什么用B+树呢。 索引是一种数据结构，用于帮助我们在大量数据中快速定位到我们想要查找的数据。 索引最形象的比喻就是图书的目录了。注意这里的大量，数据量大了索引才显得有意义，如果我想要在 [1,2,3,4] 中找到4这个数据，直接对全数据检索也很快，没有必要费力气建索引再去查找。索引在 mysql 数据库中分">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://ftp.edupristine.com/wp-content/uploads/2018/06/MySQL-Tutorial.jpg">
-<meta property="og:updated_time" content="2019-11-08T09:42:07.599Z">
+<meta property="og:updated_time" content="2019-11-08T10:43:04.969Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySql的B+Tree">
 <meta name="twitter:description" content="前言索引这个词，相信大家已经相当熟悉了，都知道MySQL的索引主要以B+树为主，但是要问到为什么用B+树呢。 索引是一种数据结构，用于帮助我们在大量数据中快速定位到我们想要查找的数据。 索引最形象的比喻就是图书的目录了。注意这里的大量，数据量大了索引才显得有意义，如果我想要在 [1,2,3,4] 中找到4这个数据，直接对全数据检索也很快，没有必要费力气建索引再去查找。索引在 mysql 数据库中分">
@@ -214,12 +214,12 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <p>利用二叉查找树我们只需要 <code>3次</code> 即可找到匹配的数据。如果在表中一条条的查找的话，我们需要 <code>6次</code> 才能找到。</p>
-<h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p><img src="../MySql的B+Tree/平衡二叉树.jpg" alt="平衡二叉树"></p>
+<h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p><img src="../MySql的B+Tree/非平衡二叉树.jpg" alt="非平衡二叉树"></p>
 <p>这个时候可以看到我们的二叉查找树变成了一个<code>链表</code>。</p>
 <p>如果我们需要查找<code>id=17</code>的用户信息，我们需要查找<code>7次</code>，也就相当于<code>全表扫描</code>了。 </p>
 <p>导致这个现象的原因其实是二叉查找树变得不平衡了，也就是高度太高了，从而导致查找效率的不稳定。</p>
 <p>为了解决这个问题，我们需要保证二叉查找树一直保持平衡，就需要用到平衡二叉树了。 </p>
-<p><strong>每个节点的左右子树的高度差不能超过1。</strong> </p>
+<p><strong>每个非叶子节点的左右子树的高度差不能超过1。</strong> </p>
 <p>下面是平衡二叉树和非平衡二叉树的对比：</p>
 <p><img src="../MySql的B+Tree/平衡二叉树对比.jpg" alt="平衡二叉树对比"></p>
 <p>由平衡二叉树的构造我们可以发现第一张图中的二叉树其实就是一棵平衡二叉树。</p>
@@ -233,9 +233,9 @@ var _hmt = _hmt || [];
 <p>说明每个磁盘块仅仅存储一个键值和数据！</p>
 <p>那如果我们要存储海量的数据呢？</p>
 <p>可以想象到二叉树的节点将会非常多，高度也会及其高，我们查找数据时也会进行<code>很多次磁盘IO</code>，我们查找数据的效率将会极低！</p>
-<p><img src="../MySql的B+Tree/B树.jpg" alt="B树"></p>
+<p><img src="../MySql的B+Tree/二叉树.jpg" alt="二叉树"></p>
 <p>为了解决平衡二叉树的这个弊端，我们应该寻找 <strong>一种单个节点可以存储多个键值和数据的平衡树。</strong> 也就是我们接下来要说的B树。</p>
-<p><img src="../MySql的B+Tree/B树02.jpg" alt="B树02"></p>
+<p><img src="../MySql的B+Tree/B树.jpg" alt="B树"></p>
 <p>图中的p节点为指向子节点的指针，二叉查找树和平衡二叉树其实也有，因为图的美观性，被省略了。</p>
 <p>图中的每个节点称为页，页就是我们上面说的<code>磁盘块</code>，在mysql中数据读取的基本单位都是页，所以我们这里叫做页更符合mysql中索引的底层数据结构。</p>
 <p>从上图可以看出，B树相对于平衡二叉树，每个节点存储了 <strong>更多的键值(key)和数据(data)</strong>，并且每个节点拥有更多的子节点，子节点的个数一般称为阶，上述图中的B树为3阶B树，高度也会很低。<br>基于这个特性，B树查找数据读取磁盘的次数将会很少，数据的查找效率也会比平衡二叉树高很多。 </p>
@@ -305,17 +305,22 @@ var _hmt = _hmt || [];
 <tbody>
 <tr>
 <td>1</td>
-<td>zs</td>
-<td>23</td>
+<td>zz</td>
+<td>17</td>
 </tr>
 <tr>
-<td>2</td>
+<td>47</td>
+<td>zs</td>
+<td>33</td>
+</tr>
+<tr>
+<td>48</td>
 <td>ls</td>
-<td>17</td>
+<td>34</td>
 </tr>
 </tbody>
 </table>
-<p>在叶子节点中，不在存储所有的数据了，存储的是键值和主键。<br>对于叶子节点中的<code>x-y</code>，比如<code>1-1</code>。左边的1表示的是索引的键值，右边的1表示的是主键值。如果我们要找到幸运数字为33的用户信息，对应的sql语句为select * from user where age=23。<br>查找的流程跟聚集索引一样，这里就不详细介绍了。我们最终会找到主键值47，找到主键后我们需要再到聚集索引中查找具体对应的数据信息，此时又回到了聚集索引的查找流程。<br>下面看下具体的查找流程图：</p>
+<p>在叶子节点中，不在存储所有的数据了，存储的是键值和主键。<br>对于叶子节点中的<code>x-y</code>，比如<code>1-1</code>。左边的1表示的是索引的键值，右边的1表示的是主键值。如果我们要找到age为33的用户信息，对应的sql语句为select * from user where age=33。<br>查找的流程跟聚集索引一样，这里就不详细介绍了。我们最终会找到主键值47，找到主键后我们需要再到聚集索引中查找具体对应的数据信息，此时又回到了聚集索引的查找流程。<br>下面看下具体的查找流程图：</p>
 <p><img src="../MySql的B+Tree/非聚簇索引查找流程.jpg" alt="非聚簇索引查找流程"></p>
 <p>在MyISAM中，聚集索引和非聚集索引的叶子节点都会存储数据的文件地址。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>

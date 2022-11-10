@@ -21,7 +21,7 @@
 <meta property="og:description" content="前言索引这个词，相信大家已经相当熟悉了，都知道MySQL的索引主要以B+树为主，但是要问到为什么用B+树呢。 索引是一种数据结构，用于帮助我们在大量数据中快速定位到我们想要查找的数据。 索引最形象的比喻就是图书的目录了。注意这里的大量，数据量大了索引才显得有意义，如果我想要在 [1,2,3,4] 中找到4这个数据，直接对全数据检索也很快，没有必要费力气建索引再去查找。索引在 mysql 数据库中分">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://ftp.edupristine.com/wp-content/uploads/2018/06/MySQL-Tutorial.jpg">
-<meta property="og:updated_time" content="2019-11-08T10:43:04.969Z">
+<meta property="og:updated_time" content="2019-11-08T11:35:12.241Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySql的B+Tree">
 <meta name="twitter:description" content="前言索引这个词，相信大家已经相当熟悉了，都知道MySQL的索引主要以B+树为主，但是要问到为什么用B+树呢。 索引是一种数据结构，用于帮助我们在大量数据中快速定位到我们想要查找的数据。 索引最形象的比喻就是图书的目录了。注意这里的大量，数据量大了索引才显得有意义，如果我想要在 [1,2,3,4] 中找到4这个数据，直接对全数据检索也很快，没有必要费力气建索引再去查找。索引在 mysql 数据库中分">
@@ -323,7 +323,10 @@ var _hmt = _hmt || [];
 <p>在叶子节点中，不在存储所有的数据了，存储的是键值和主键。<br>对于叶子节点中的<code>x-y</code>，比如<code>1-1</code>。左边的1表示的是索引的键值，右边的1表示的是主键值。如果我们要找到age为33的用户信息，对应的sql语句为select * from user where age=33。<br>查找的流程跟聚集索引一样，这里就不详细介绍了。我们最终会找到主键值47，找到主键后我们需要再到聚集索引中查找具体对应的数据信息，此时又回到了聚集索引的查找流程。<br>下面看下具体的查找流程图：</p>
 <p><img src="../MySql的B+Tree/非聚簇索引查找流程.jpg" alt="非聚簇索引查找流程"></p>
 <p>在MyISAM中，聚集索引和非聚集索引的叶子节点都会存储数据的文件地址。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>1、B+树的非叶子节点只是存储key，占用空间非常小，因此每一层的节点能索引到的数据范围更加的广。</p>
+<p>2、叶子节点两两相连，符合磁盘的预读特性。属于顺序读取，而不是磁盘寻道了，加快了速度。</p>
+<p>3、支持范围查询，而且部分范围查询非常高效，原因是数据都是存储在叶子节点这一层，并且有指针指向其他叶子节点，这样范围查询只需要遍历叶子节点这一层，无需整棵树遍历。</p>
+
                             </div>
                             <footer class="article-footer">
                                 
@@ -628,7 +631,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                 <h1 class="logo-wrap">
                     <a href="/" class="logo"></a>
                 </h1>
-                <p>&copy; 2019 xiaoqinghua 有幸</p>
+                <p>&copy; 2022 xiaoqinghua 有幸</p>
                 <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
             </div>
             <div class="footer-plugins">
